@@ -14,7 +14,7 @@ last_modified_at: 2022-05-04
 
 > 개인적인 공부를 위해 정리한 글입니다. 오류 및 오역과 의역, 생략이 많을 수 있습니다.
 
-![](../assets/images/paper_review/2022-05-04-01.png)
+![](https://winterbloooom.github.io/assets/images/paper_review/2022-05-04-01.png){: .align-center}
 
 # 📑Information
 
@@ -76,7 +76,7 @@ $$
 \mathrm{Pr(Class} _i \mathrm{|Object)} * \mathrm{Pr(Object)} * \mathrm{IOU^{truth\ pred}} = \mathrm{Pr(Class} _i) * \mathrm{IOU^{truth\ pred}}
 $$
 
-![](../assets/images/paper_review/2022-05-04-02.png)
+![](https://winterbloooom.github.io/assets/images/paper_review/2022-05-04-02.jpg){: .align-center}
 
 
 ## 2.1. Network Design
@@ -93,7 +93,7 @@ $$
 
 > <u>**Reduction layer**</u> : 합성곱 신경망에서 필터(커널)의 개수를 입력의 차원보다 작게 설정하여 차원 축소의 효과를 얻는다.
 
-![](../assets/images/paper_review/2022-05-04-03.png)
+![](https://winterbloooom.github.io/assets/images/paper_review/2022-05-04-03.jpg){: .align-center}
 
 
 ## 2.2. Training
@@ -119,7 +119,7 @@ YOLO는 한 격자칸 당 여러 개의 바운딩 박스를 예측하나, 우리
 
 최적화에서 <span style="background-color: #fff5b1">**손실 함수**</span>는 여러 개의 파트로 나뉜다.
 
-![](../assets/images/paper_review/2022-05-04-06.png)
+![](https://winterbloooom.github.io/assets/images/paper_review/2022-05-04-06.jpg){: .align-center}
 
 
 𝟙$^{\mathrm {obj}}_{i}$은 $i$번째 칸에 물체가 나타났는지를 의미하고, 𝟙$^{\mathrm {obj}}_{ij}$은 $i$번째 칸의 $j$번째 바운딩박스 예측기가 해당 예측에 대해 responsible한지를 나타낸다.
@@ -144,7 +144,7 @@ YOLO에서 차용한 격자 방식은 바운딩 박스 예측에 있어 공간�
 
 하지만 <span style="background-color: #fff5b1">**큰 물체나 격자 경계에 있는 개체들은 여러 개의 격자칸에서 검출될 수 있다(localized)**</span>. 이러한 <span style="background-color: #fff5b1">**다중 검출(multiple detection) 문제를 해결하기 위해 비최대억제(Non-maximal suppression)을 도입**</span>했다.
 
-![](../assets/images/paper_review/2022-05-04-04.png)
+![](https://winterbloooom.github.io/assets/images/paper_review/2022-05-04-04.jpg){: .align-center}
 
   > <u>**비최대억제(NMS, Non-Maximal Suppression)**</u> : 
 한 객체에 대해 여러 개의 후보 지역(candidate region)을 낼 때 이들 중 하나를 택할 때 사용한다. B개의 바운딩 박스, 그에 대응하는 S개의 신뢰도(confidence), 경곗값(threshold) N이 입력으로 주어지면, 필터링된 값 D를 반환하는 알고리즘이다.
@@ -200,7 +200,7 @@ YOLO에서 차용한 격자 방식은 바운딩 박스 예측에 있어 공간�
 
 웹캠에 YOLO를 연결해 실시간 성능을 측정했다.
 
-![](../assets/images/paper_review/2022-05-04-05.png)
+![](https://winterbloooom.github.io/assets/images/paper_review/2022-05-04-05.png){: .align-center}
 
 
 # 6. Conclusion
