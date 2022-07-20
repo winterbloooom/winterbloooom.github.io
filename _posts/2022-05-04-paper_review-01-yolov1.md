@@ -10,6 +10,7 @@ tags:
   - Papaer Review
   - Computer Vision
 last_modified_at: 2022-05-04
+use_math: true
 ---
 
 > 개인적인 공부를 위해 정리한 글입니다. 오류 및 오역과 의역, 생략이 많을 수 있습니다.

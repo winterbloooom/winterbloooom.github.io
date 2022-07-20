@@ -10,6 +10,7 @@ tags:
   - Papaer Review
   - Computer Vision
 last_modified_at: 2022-05-06
+use_math: true
 ---
 
 ![](https://winterbloooom.github.io/assets/images/paper_review/2022-05-06-01.png){: .align-center}
