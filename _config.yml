@@ -15,17 +15,17 @@
 minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
-# locale                   : "en-US"
-title                    : "Blog of winterbloooom"
+locale                   : "ko-KR" # default "en-US"
+title                    : "No One Knows,"
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
-name                     : "winterbloooom (EunGiHan)"
-description              : "느릿느릿 가더라도 도착은 한다."
+name                     : "winterbloooom (한은기)"
+description              : "No one knows when and where I will arrive."
 url                      : "https://winterbloooom.github.io" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
-repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
+repository               : "https://github.com/winterbloooom/winterbloooom.github.io" # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
-logo                     : # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
+logo                     : # path of logo image to display in the masthead
 masthead_title           : # overrides the website title displayed in the masthead, use " " for no title
 # breadcrumbs            : false # true, false (default)
 words_per_minute         : 200
@@ -105,14 +105,14 @@ analytics:
 # Site Author
 author:
   name             : "winterbloooom (EunGiHan)"
-  avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "Autonomous Car & Ship / Machine Learning"
-  location         : "South Korea"
+  avatar           : "/assets/images/profile.jpeg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  bio              : "Autonomous Car & Ship<br>Machine Learning"
+  location         : "Republic of Korea"
   email            : 
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
-      url: "winterbloooom@gmail.com"
+      url: mailto:winterbloooom@gmail.com
     - label: "Website"
       icon: "fas fa-fw fa-link"
       url: "https://winterbloooom.github.io"
@@ -128,7 +128,7 @@ footer:
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
-      url: "winterbloooom@gmail.com"
+      url: mailto:winterbloooom@gmail.com
     - label: "Website"
       icon: "fas fa-fw fa-link"
       url: "https://winterbloooom.github.io"
@@ -280,7 +280,7 @@ defaults:
       related: true
   # _pages
   - scope:
-      path: ""
+      path: "_pages"
       type: pages
     values:
       layout: single

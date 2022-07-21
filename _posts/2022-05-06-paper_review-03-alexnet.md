@@ -11,6 +11,9 @@ tags:
   - Computer Vision
 last_modified_at: 2022-07-02
 use_math: true
+toc: true
+tock_sticky: true
+toc_label: "Contents"
 ---
 
 ![](https://winterbloooom.github.io/assets/images/paper_review/2022-07-02-01.png){: .align-center}
