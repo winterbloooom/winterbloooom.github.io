@@ -103,7 +103,7 @@ $$
 b^{i}_{x, y} = \cfrac{a^{i}_{x, y}}{\left( k + \alpha \sum\limits_{j = \max \left(0,\ i-n/2 \right)}^{\min \left(N-1,\ i+n/2 \right)} \left( a^{j}_{x, y} \right) ^2 \right) ^{\beta}}
 $$
 
-이때 $b^{i}_{x, y}$ 는 $x,\ y$ 에서 $i$ 번째 커널의 정규화 결과(response-normalized activity), $a^{i}_{x, y}$ 는  $x,\ y$ 에 적용된 $i$ 번째 커널의 활성화함수 output이며, $N$ 은 레이어의 전체 커널의 개수, $n$ 은 같은 공간적 위치에서 주변(adjacent)의 커널 맵 개수, $\alpha ,\ \beta ,\ k$ 는 하이퍼파라미터에 해당한다.
+이때 $b_{x, y}^{i}$ 는 $x,\ y$ 에서 $i$ 번째 커널의 정규화 결과(response-normalized activity), $a^{i}_{x, y}$ 는  $x,\ y$ 에 적용된 $i$ 번째 커널의 활성화함수 output이며, $N$ 은 레이어의 전체 커널의 개수, $n$ 은 같은 공간적 위치에서 주변(adjacent)의 커널 맵 개수, $\alpha ,\ \beta ,\ k$ 는 하이퍼파라미터에 해당한다.
 
 위 방법을 이용해 강하게 활성화된 뉴런의 주변 이웃 뉴런에 대해 normalization을 수행한다. 주변에 비해 특정 뉴런이 강하게 활성화되었다면 그 뉴런의 반응이 더 강조될 것이고, 강하게 활성화된 주변 뉴런도 강하게 활성화되어 있다면 Local Response Normalization 이후에 값이 다들 작아질 것이다. 이 방법으로 top-1 error를 1.4%, top-5 error를 1.2% 감소시켰다. 수렴의 속도도 빨라진다.
 

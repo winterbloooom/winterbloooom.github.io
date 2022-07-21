@@ -103,19 +103,19 @@ Depth Estimation 모델들은 각 픽셀별(pixel-wise)로의 깊이 값을 가�
 
 한 이미지 내 $i$번째 픽셀에서의 깊이 추정치를 $y_i$, 실제 깊이값(i.e. point cloud의 투영된 형태)을 $y^*_i$라고 할 때, 주요하게 사용되는 7개의 평가 지표를 나열해보았다. 그 중 Threshold는 정확도를 측정하는 지표이며, 나머지 6개인 RMSE, RMSElog, SILog, AbsRel, SqRel, log10은 오류를 측정하는 지표에 해당한다. Threshold는 높을수록, 나머지 지표는 낮을수록 좋은 성능이라 할 수 있다. 
 
-* <b>Root Mean Squared Error(RMSE)</b>는 추정값과 실제값의 차이를 다루는 대표적 척도로, 정밀도(precision) 파악에 적합하고 이상치(outlier)에 비교적 강건(robust)하다. </br>
+* <b>Root Mean Squared Error(RMSE)</b>는 추정값과 실제값의 차이를 다루는 대표적 척도로, 정밀도(precision) 파악에 적합하고 이상치(outlier)에 비교적 강건(robust)하다. 
 
 $$
 \sqrt{\frac{1}{N} \sum^{N} \limits_{i=1} \left( y_i - y^*_i\right) ^2}
 $$
 
-* <b>Root Mean Squared Log Error(RMSElog)</b>는 RMSE와 유사한 방식이나 이를 log scale에서 비교를 한다. RMSE보다 이상치에 강건하여 지표의 변동폭이 크지 않다. Log의 뺄셈은 나눗셈으로 전환될 수 있다는 특성 때문에 RMSElog는 상대적 오차를 측정한다. 추정값이 실제값보다 작을 때, 즉 under estimation 상황에서 over estimation 상황보다 더 큰 페널티를 부과한다. 이 역시 log 함수가 양의 실수 공간에서 우상향하고 뺄셈이 나눗셈으로 전환될 수 있다는 특성 때문이다. </br>
+* <b>Root Mean Squared Log Error(RMSElog)</b>는 RMSE와 유사한 방식이나 이를 log scale에서 비교를 한다. RMSE보다 이상치에 강건하여 지표의 변동폭이 크지 않다. Log의 뺄셈은 나눗셈으로 전환될 수 있다는 특성 때문에 RMSElog는 상대적 오차를 측정한다. 추정값이 실제값보다 작을 때, 즉 under estimation 상황에서 over estimation 상황보다 더 큰 페널티를 부과한다. 이 역시 log 함수가 양의 실수 공간에서 우상향하고 뺄셈이 나눗셈으로 전환될 수 있다는 특성 때문이다. 
 
 $$
 \sqrt{\frac{1}{N} \sum^{N} \limits_{i=1} \left( \log y_i - \log y^*_i\right) ^2}
 $$
 
-* <b>Scale-invariant Log-arithmic Error(SILog)</b>는 \cite{eigen2014depth}에서 제안된 방식으로, 값의 scale과 무관하게 두 점 간의 오차를 계산하기 위하여 고안되었다. $\alpha \left( y, y^* \right) = \frac{1}{n} \sum \limits_{i=1} ^N \left( \log y_i^* - \log y_i \right)$, $d_i = \log y_i - \log y_i^*$일 때,  </br>
+* <b>Scale-invariant Log-arithmic Error(SILog)</b>는 \cite{eigen2014depth}에서 제안된 방식으로, 값의 scale과 무관하게 두 점 간의 오차를 계산하기 위하여 고안되었다. $\alpha \left( y, y^* \right) = \frac{1}{n} \sum \limits_{i=1} ^N \left( \log y_i^* - \log y_i \right)$, $d_i = \log y_i - \log y_i^*$일 때,  
 
 $$
 \begin{align*}
@@ -124,25 +124,25 @@ $$
 \end{align*}
 $$
 
-* <b>Threshold</b>는 오차가 $thr = \alpha^{t} (t=1,2,3,\ \alpha=1.25)$ 이내인 픽셀의 비율 $\delta_1, \delta_2, \delta_3$을 말한다.  </br>
+* <b>Threshold</b>는 오차가 $thr = \alpha^{t} (t=1,2,3,\ \alpha=1.25)$ 이내인 픽셀의 비율 $\delta_1, \delta_2, \delta_3$을 말한다.  
 
 $$
 \% \ \mathrm{of} \ y_p\ \mathrm{s.t.}\ \max(\frac{y_p}{y_p^*}, \frac{y_p^*}{y_p}) = \delta < thr
 $$
 
-* <b>Absolute Relative Error(AbsRel)</b>은 추정값과 실제값의 상대적 차이를 평균한 것으로, 실제값 대비 상대오차를 파악하는 데 쓰인다. </br>
+* <b>Absolute Relative Error(AbsRel)</b>은 추정값과 실제값의 상대적 차이를 평균한 것으로, 실제값 대비 상대오차를 파악하는 데 쓰인다. 
 
 $$
 \frac{1}{N} \sum \limits_{i=1} ^N \frac{ \left| y_i - y_i^* \right|}{y_i^*}
 $$
 
-* <b>Squared Relative Error(SqRel)</b> 역시 AbsRel와 유사한 방식을 사용하며, 추정값과 실제값의 절댓값 차이가 아닌, 차이의 제곱을 평균한다는 데서 차이를 지닌다. 비교적 이상치에 민감한 성격을 지닌다. </br>
+* <b>Squared Relative Error(SqRel)</b> 역시 AbsRel와 유사한 방식을 사용하며, 추정값과 실제값의 절댓값 차이가 아닌, 차이의 제곱을 평균한다는 데서 차이를 지닌다. 비교적 이상치에 민감한 성격을 지닌다. 
   
 $$
 \frac{1}{N} \sum \limits_{i=1} ^N \frac{ || y_i - y_i^* || ^2}{y_i^*}
 $$
 
-* <b>Mean Log10 Error(log10)</b>은 추정값과 실제값에 각각 log을 취해 그 오차의 합을 평균한다. </br>
+* <b>Mean Log10 Error(log10)</b>은 추정값과 실제값에 각각 log을 취해 그 오차의 합을 평균한다. 
 
 $$
 \log_{10} = \frac{1}{N} \sum \limits_{i=1} ^N \left| \log_{10} y_i^* - \log_{10} y_i\right|
