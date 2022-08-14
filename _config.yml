@@ -275,13 +275,15 @@ defaults:
       layout: single
       author_profile: true
       read_time: true
-      comments: # true
+      comments: false # true
       share: true
       related: true
       toc: true
       toc_sticky: true
       toc_label: "Contents"
-      use_math: true
+      #use_math: true
+      mathjax: true
+      sidebar_main: true
   # _pages
   - scope:
       path: "_pages"
@@ -293,3 +295,4 @@ defaults:
       comments: false
       share: true
       related: false
+      # sidebar_main: true
