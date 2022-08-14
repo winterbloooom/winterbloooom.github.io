@@ -22,7 +22,9 @@ author_profile: false
     {% unless page.header.overlay_color or page.header.overlay_image %}
       <h1 id="page-title" class="page__title">{{ page.title }}</h1>
     {% endunless %}
-    {% for post in page.posts %}
+    
+    {% assign sorted_posts = page.posts | sort:"order" %}
+    {% for post in sorted_posts %}
       {% include archive-single.html %}
     {% endfor %}
   </div>

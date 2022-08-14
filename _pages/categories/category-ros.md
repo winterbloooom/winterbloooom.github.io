@@ -8,4 +8,7 @@ sidebar_main: true
 
 
 {% assign posts = site.categories.ROS %}
-{% for post in posts %} {% include archive-single.html type=page.entries_layout %} {% endfor %}
+{% assign sorted_posts = posts | sort: 'order' | reverse %}
+{% for post in sorted_posts %} 
+    {% include archive-single.html type=page.entries_layout %} 
+{% endfor %}
