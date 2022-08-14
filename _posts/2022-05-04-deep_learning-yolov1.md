@@ -3,22 +3,22 @@ title:  "[Paper Review] You Only Look Once: Unified, Real-Time Object Detection"
 excerpt: "YOLOv1 모델 논문 리뷰"
 
 categories:
-  - Paper Review
+  - Deep Learning
 tags:
   - Deep Learning
   - Object Detection
   - Papaer Review
   - Computer Vision
 last_modified_at: 2022-05-04
+
 use_math: true
 toc: true
 tock_sticky: true
 toc_label: "Contents"
 ---
 
-> 개인적인 공부를 위해 정리한 글입니다. 오류 및 오역과 의역, 생략이 많을 수 있습니다.
-
-![](https://winterbloooom.github.io/assets/images/paper_review/2022-05-04-01.png){: .align-center}
+개인적인 공부를 위해 정리한 글입니다. 오류 및 오역과 의역, 생략이 많을 수 있습니다.
+{: .notice--info}
 
 # 📑Information
 
@@ -56,7 +56,7 @@ YOLO가 <span style="background-color: #fff5b1">**통합 모델(unified model)**
 
 1. <span style="background-color: #fff5b1">**매우 빠르다.**</span> 탐지를 회귀 문제로 보기 때문에 복잡한 파이프라인이 필요 없다. Titan X GPU 환경에서 배치 없이 수행했을 때 45FPS를 기록했다. 이는 스트리밍 비디오에서 25ms 이하의 지연(latency)를 가질 수 있다는 의미이며, 타 실시간 시스템들에 비해 평균 두 배 정도의 성능이다.
 2. <span style="background-color: #fff5b1">**추론을 이미지의 전체적으로(globally) 수행한다.**</span> 학습과 테스트에서 이미지 전체를 보기 때문에 내부적으로(implicitly) 클래스와 외관(appearance)의 문맥적인(contextual) 정보를 해독한다. 슬라이딩 윈도우나 지역 제안 기반(region proposal-based) 기술과의 차이점이다.
-3. <span style="background-color: #fff5b1">**객체의 일반적인 표현(representation)을 학습한다. **</span>
+3. <span style="background-color: #fff5b1">**객체의 일반적인 표현(representation)을 학습한다.**</span>
 
 다른 객체 탐지 시스템에 비해 정확도는 낮다. 빠른 대신 몇몇 객체(작은 객체 등)을 놓칠 수 있다.
 
@@ -80,24 +80,27 @@ $$
 \mathrm{Pr(Class} _i \mathrm{|Object)} * \mathrm{Pr(Object)} * \mathrm{IOU^{truth\ pred}} = \mathrm{Pr(Class} _i) * \mathrm{IOU^{truth\ pred}}
 $$
 
-![](https://winterbloooom.github.io/assets/images/paper_review/2022-05-04-02.jpg){: .align-center}
+![image](https://user-images.githubusercontent.com/69252153/184531817-e6990306-67c2-4d6e-a99c-b08c9aa20628.png){: .align-center}
 
 
 ## 2.1. Network Design
 
 이 모델은 <span style="background-color: #fff5b1">**합성곱 신경망을 사용**</span>하며, PASCAL VOC 탐지 테이터셋을 사용해 평가하였다.
 
-> <u>**PASCAL Visual Object Classes Challenge(VOC)**</u> : 
+**<u>PASCAL Visual Object Classes Challenge(VOC)</u>** : <br>
 객체 탐지(object detection)와, 영상 분할(semantic segmentation), 분류(classification) 문제에서 벤치마크로 사용되는 데이터셋이다. PASCAL VOC 2012에는 20개의 카테고리가 있어 교통수단, 사람, 사물, 동물 등을 포함한다.
-> 
+{: .notice--info}
+
 
 초기 <span style="background-color: #fff5b1">**합성곱층들은 이미지에서 피처를 뽑고, 완전연결층(fully connected layer)은 확률과 좌표 결과를 예측**</span>한다.
 
 해당 모델은 이미지 분류를 위한 <span style="background-color: #fff5b1">**GoogLeNet 모델에서 영감을 얻었다.**</span> <span style="background-color: #fff5b1">**24개의 합성곱층과 2개의 완전연결층을 사용**</span>하며, GooLeNet과는 다르게 3 X 3 합성곱층 다음에 <span style="background-color: #fff5b1">**1 X 1의 reduction층을 사용**</span>했다. 이는 이전 레이어에서 피처 차원을 축소시킨다. 최종 결과로는 7 X 7 X 30 크기의 텐서를 얻는다.
 
-> <u>**Reduction layer**</u> : 합성곱 신경망에서 필터(커널)의 개수를 입력의 차원보다 작게 설정하여 차원 축소의 효과를 얻는다.
+**<u>Reduction layer</u>** :<br>
+합성곱 신경망에서 필터(커널)의 개수를 입력의 차원보다 작게 설정하여 차원 축소의 효과를 얻는다.
+{: .notice--info}
 
-![](https://winterbloooom.github.io/assets/images/paper_review/2022-05-04-03.jpg){: .align-center}
+![image](https://user-images.githubusercontent.com/69252153/184531881-99213100-b443-4678-8788-b31d9b23fb18.png){: .align-center}
 
 
 ## 2.2. Training
@@ -110,10 +113,10 @@ $$
 
 <span style="background-color: #fff5b1">**최적화에는 SSE(Sum of Squared Error)을 사용**</span>했다. 그러나 이는 문제가 있는데, <span style="background-color: #fff5b1">**분류 에러와 위치(localization) 에러가 같지 않은데 같게 가중치를 두어 취급**</span>한다. 또한 많은 격자칸에서 <span style="background-color: #fff5b1">**아예 객체가 없는 경우가 매우 많은데, 이 경우 confidence는 거의 0에 가깝다.**</span> 이 경우 SSE는 <span style="background-color: #fff5b1">**기울기를 매우 급격하게**</span> 하여 모델의 불안정성을 유도하여 학습이 이른 수렴에 이르게 한다. 
 
-  > <u>**Sum of Squared Error(SSE)**</u> : 
+**<u>Sum of Squared Error(SSE)</u>** : <br>
 주로 회귀에서 사용하는 계산으로, 실제 데이터와 예측값의 차이를 제곱해 모두 더하는 것이다.
 $\mathrm{SSE} = \sum^{n}\limits_{i=1} (y_i - \hat{y_i})^2$로 나타낼 수 있다.
-> 
+{: .notice--info}
 
 해결을 위해 <span style="background-color: #fff5b1">**두 개의 파라미터인 $\lambda_{coor}$와 $\lambda_{no\ obj}$를 정의**</span>했는데, 각각 바운딩박스 좌표 예측에 대한 파라미터, 아무 객체도 가지고 있지 않은 박스의 confidence 예측에 대한 파라미터이다. 전자는 높이고 후자는 낮추기 위해 각각 5와 0.5로 설정했다.
 
@@ -123,10 +126,9 @@ YOLO는 한 격자칸 당 여러 개의 바운딩 박스를 예측하나, 우리
 
 최적화에서 <span style="background-color: #fff5b1">**손실 함수**</span>는 여러 개의 파트로 나뉜다.
 
-![](https://winterbloooom.github.io/assets/images/paper_review/2022-05-04-06.jpg){: .align-center}
+![image](https://user-images.githubusercontent.com/69252153/184531911-b2ba4326-3c69-4346-9722-0b81d967caa0.png){: .align-center}
 
-
-𝟙$^{\mathrm {obj}}_{i}$은 $i$번째 칸에 물체가 나타났는지를 의미하고, 𝟙$^{\mathrm {obj}}_{ij}$은 $i$번째 칸의 $j$번째 바운딩박스 예측기가 해당 예측에 대해 responsible한지를 나타낸다.
+$\mathbb{l}\_{i}^{\mathrm{obj}}$은 i번째 칸에 물체가 나타났는지를 의미하고, $\mathbb{l}^{\mathrm{obj}}_{ij}$은 $i$번째 칸의 $j$번째 바운딩박스 예측기가 해당 예측에 대해 responsible한지를 나타낸다.
 
 손실 함수는 오직 개체가 해당 격자칸에 있을 때만 분류 에러에 대해 패널티를 부과하며, 바운딩박스의 분류기가 그 ground truth 박스에 대해서 responsible할 때만 좌표 에러에 패널티를 부과한다.
 
@@ -136,9 +138,11 @@ YOLO는 한 격자칸 당 여러 개의 바운딩 박스를 예측하나, 우리
 
 <span style="background-color: #fff5b1">**오버피팅을 피하기 위해 dropout과 데이터 증강(augmentation)**</span>을 진행했다. Dropout층의 경우 0.5의 비율로 첫번째 연결 레이어 뒤에 위치해 레이어 간의 <span style="background-color: #fff5b1">**co-adaptation 문제를 방지**</span>했다. 또한 데이터 augmentation에서는 원 이미지의 20%까지의 랜덤하게 <span style="background-color: #fff5b1">**scaling(크기 조정)과 translation(수직/수평 방향으로 이동)**</span>을 진행했으며, HSV 색공간에서 1.5배까지 랜덤하게 <span style="background-color: #fff5b1">**노출값(exposure)과 포화도(saturation)을 조정**</span>했다.
 
-  > <u>**상호 적응(co-adaptation)**</u> : 
-신경망이 학습을 하고 있을 때, 어느 순간 같은 층의 두 개 이상의 노드가 입력과 출력 강도가 같아져 학습을 반복해도 두 노드는 같은 일을 할 뿐, 불필요한 중복 연산이 계속되는 현상이다.
+**<u>상호 적응(co-adaptation)</u>** : <br>
+신경망이 학습을 하고 있을 때, 어느 순간 같은 층의 두 개 이상의 노드가 입력과 출력 강도가 같아져 학습을 반복해도 두 노드는 같은 일을 할 뿐, 불필요한 중복 연산이 계속되는 현상이다.<br>
 dropout으로 이 문제를 해결한다. 임의로 선택한 노드들을 다음 층으로 전파하길 생략하기 때문에 상호적응이 일어난 노드들이 분리될 수 있다.
+{: .notice--info}
+
 
 ## 2.3. Inference
 
@@ -148,10 +152,11 @@ YOLO에서 차용한 격자 방식은 바운딩 박스 예측에 있어 공간�
 
 하지만 <span style="background-color: #fff5b1">**큰 물체나 격자 경계에 있는 개체들은 여러 개의 격자칸에서 검출될 수 있다(localized)**</span>. 이러한 <span style="background-color: #fff5b1">**다중 검출(multiple detection) 문제를 해결하기 위해 비최대억제(Non-maximal suppression)을 도입**</span>했다.
 
-![](https://winterbloooom.github.io/assets/images/paper_review/2022-05-04-04.jpg){: .align-center}
+![image](https://user-images.githubusercontent.com/69252153/184532159-010dc447-f31b-4dcb-8063-23ebec49e9a8.png){: .align-center}
 
-  > <u>**비최대억제(NMS, Non-Maximal Suppression)**</u> : 
+**<u>비최대억제(NMS, Non-Maximal Suppression)</u>** : <br>
 한 객체에 대해 여러 개의 후보 지역(candidate region)을 낼 때 이들 중 하나를 택할 때 사용한다. B개의 바운딩 박스, 그에 대응하는 S개의 신뢰도(confidence), 경곗값(threshold) N이 입력으로 주어지면, 필터링된 값 D를 반환하는 알고리즘이다.
+{: .notice--info}
 
 ## 2.4. Limitations of YOLO
 
@@ -159,9 +164,9 @@ YOLO에서 차용한 격자 방식은 바운딩 박스 예측에 있어 공간�
 
 데이터로부터 바운딩 박스를 배우기 때문에, 새롭거나 자주 등장하지 않는 비율 등의 개체들을 일반화시키는 것에도 어려움이 있다. 또한 <span style="background-color: #fff5b1">**입력 이미지에 대해 여러 번의 다운샘플링(downsampling)을 하기 때문에 비교적 거친(coarse) - 아마도 해상도가 낮다는 뜻일 것 같다 - 특징들을 이용**</span>하게 된다.
 
-> <u>**다운샘플링(Downsampling)**</u> : 
+**<u>다운샘플링(Downsampling)</u>** : <br>
 샘플(데이터)의 개수를 줄이는 것. 풀링(Pooling)이 대표적이며, 원 이미지에서 요약 & 생략된 출력 데이터를 만들어낸다.
-> 
+{: .notice--info}
 
 <span style="background-color: #fff5b1">**손실 함수에서 작은 바운딩 박스와 큰 바운딩 박스의 에러를 똑같이 취급**</span>하고 있는 것도 문제이다. 작은 박스의 작은 에러에 대해서는 IOU에 큰 영향을 끼친다. <span style="background-color: #fff5b1">**YOLO의 주된 에러 원인도 부정확한 localization이다.**</span>
 
@@ -204,7 +209,7 @@ YOLO에서 차용한 격자 방식은 바운딩 박스 예측에 있어 공간�
 
 웹캠에 YOLO를 연결해 실시간 성능을 측정했다.
 
-![](https://winterbloooom.github.io/assets/images/paper_review/2022-05-04-05.png){: .align-center}
+![image](https://user-images.githubusercontent.com/69252153/184532207-5d2824ee-f871-40cb-827f-85cce1a68aed.png){: .align-center}
 
 
 # 6. Conclusion

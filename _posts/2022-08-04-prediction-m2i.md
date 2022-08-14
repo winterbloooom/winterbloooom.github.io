@@ -3,7 +3,7 @@ title:  "[Paper Review] M2I: From Factored Marginal Trajectory Prediction to Int
 excerpt: "M2I 모델 논문 리뷰"
 
 categories:
-  - Paper Review
+  - Prediction
 tags:
   - Papaer Review
   - Machine Learning
@@ -11,6 +11,11 @@ tags:
   - Prediction
   - Autonomous Driving
 last_modified_at: 2022-08-04
+
+use_math: true
+toc: true
+tock_sticky: true
+toc_label: "Contents"
 ---
 
 단어 뒤 🔍 아이콘은 [Further Study](#further-study)(개념 추가 조사) 부분에 레퍼런스 링크를 추가해 두었다.
@@ -47,11 +52,11 @@ last_modified_at: 2022-08-04
 
 아래 사진은 기존의 marginal 예측기의 joint 예측을 나타냈다. <span style="background-color: #fff5b1"><b>상호작용을 고려하지 않아 충돌(collide)하거나, 비현실적인(unrealistic) 예측 결과를 내놓는 등 scene inconsistent한 경로 예측을 한다.</b></span>
 
-![](https://winterbloooom.github.io/assets/images/paper_review/2022-08-04-01.png){: .align-center}
+![image](https://user-images.githubusercontent.com/69252153/184533557-6411a06f-6e05-4103-83ca-49fa03ff44bd.png){: .align-center}
 
 반면 <span style="background-color: #fff5b1"><b>이 논문에서는 서로 상호작용하는  agents를 둘로 나눠 marginal 예측기에서 예측 샘플들을 각각 만든다.</b></span> 아래 사진은 M2I를 사용한 joint 예측 결과로, <span style="background-color: #fff5b1"><b>scene compliant 경로를 예측함으로써 influencer-reactor 쌍을 만들고 influencer의 marginal 경로를 예측한 뒤 이에 따라 reactor의 reactive 경로를 예측한다.</b></span> 기존 방법보다 더 나은 정확도를 보이는 것이다.
 
-![](https://winterbloooom.github.io/assets/images/paper_review/2022-08-04-02.png){: .align-center}
+![image](https://user-images.githubusercontent.com/69252153/184533611-b90c6476-8803-4ac2-b3c8-8acf404134aa.png){: .align-center}
 
 ## Multiple Agent의 경우에서 문제점
 
@@ -142,7 +147,7 @@ $$
 
 M2I는 아래 그림과 같은 구조를 가지고 있다. 
 
-![](https://winterbloooom.github.io/assets/images/paper_review/2022-08-04-03.png){: .align-center}
+![image](https://user-images.githubusercontent.com/69252153/184533564-903cbf34-b569-43c3-8aca-bf0ae18533c5.png){: .align-center}
 
 - <span style="background-color: #fff5b1"><b>Relation predictor</b></span>: 한 장면에서 influencer와 reactor의 관계를 예측함
 - <span style="background-color: #fff5b1"><b>Marginal predictor</b></span>: influcencer의 미래 경로를 예측
@@ -151,7 +156,7 @@ M2I는 아래 그림과 같은 구조를 가지고 있다.
 
 M2I가 서로 다른 학습 모델을 포함하지만, <span style="background-color: #fff5b1"><b>그들은 같은 encoder-decoder 구조를 공유하고, context 정보를 학습하는 같은 context encoder를 적용한다.</b></span>
 
-![](https://winterbloooom.github.io/assets/images/paper_review/2022-08-04-04.png){: .align-center}
+![image](https://user-images.githubusercontent.com/69252153/184533636-8b66c622-0d2f-4efa-8531-4f30127fcefd.png){: .align-center}
 
 ## 3.3. Relation Predictor
 
@@ -277,9 +282,9 @@ MLP의 레이어 하나로서, 분류를 위한 하나의 완전 연결층이다
 Trajectory Prediction Head는 DenseTNT를 적용해 multi-modal한 미래 경로를 생성한다.
 
 1. 히트맵으로 에이전트의 목표점의 분포를 예측한다. 여기엔 아래 3가지 모듈을 사용한다.
-    1. 따라갈 것으로 예상되는 lane을 파악하는 lane scoring module
-    2. 어텐션 매커니즘을 사용해 목표점과 lane간의 특징을 추출하는 feature encoding module
-    3. 목표점의 가능도를 예측하는 probability estimation module
+    * 따라갈 것으로 예상되는 lane을 파악하는 lane scoring module
+    * 어텐션 매커니즘을 사용해 목표점과 lane간의 특징을 추출하는 feature encoding module
+    * 목표점의 가능도를 예측하는 probability estimation module
 2. Prediction head가 목표점을 조건으로 하여(conditioned) 예측 horizon에 대하여 전체 경로들을 회귀한다.
 3. Prediction Head는 context encoder와 결합되고 end-to-end로 학습된다.
 
@@ -299,7 +304,7 @@ relation predictor와 marginal predictor, conditional predictor을 각각 학습
 - Baseline Marginal: 이 논문의 모델인 M2I와 같은 marignal predictor를 사용하는 모델이다. 두 에이전트에 대해 N 개의 marginal 예측 샘플을 생성한다. 이때 이들의 미래 상호작용을 고려하진 않는다. Marginal 예측을 결합적 예측에 합칠 때, 저자들은 결합적 확률(marginal 확률의 곱)이 주어진 $N^2$개의 선택지 중 상위 K개의 marginal 쌍을 선택한다.
 - Baseline Joint: 상호작용하는 두 에이전트에 대해 목적지와 경로를 결합적으로 예측하는 모델이다. M2I와 같은 context encoder와 trajectory prediction head를 사용한다.
 
-![](https://winterbloooom.github.io/assets/images/paper_review/2022-08-04-05.jpg){: .align-center}
+![image](https://user-images.githubusercontent.com/69252153/184533653-448c5189-41db-4f2b-8b0a-9613b5e5af11.png){: .align-center}
 
 모델이 confidence score 예측을 사용해 더 정확한 분포를 생성하고, 더 적은 False Positive 예측을 만든다. M2I 모델은 특정한 예측 모델을 가정하지 않으므로, context encoder로 SceneTransformer을 사용할 수도 있다. 이럴 경우 minFDE 수치가 개선될 수 있다. M2I 는 margin이 큰 경우에 mAP가 더 개선되는 경향을 보인다.
 
@@ -309,7 +314,7 @@ Relation Predictor과 conditional predictor, 그리고 다른 예측기에 대�
 
 ## 4.6. 정성평가
 
-![](https://winterbloooom.github.io/assets/images/paper_review/2022-08-04-06.jpg){: .align-center}
+![image](https://user-images.githubusercontent.com/69252153/184533660-eb1a5fb7-c09c-4bdf-85cf-9e70a5d262d4.png){: .align-center}
 
 어려운 시나리오들에 대해 정성 평가를 진행했다. 위 사진은 Marginal Baseline과 M2I를 각각 비교한 결과 중 하나로, 빨간색 에이전트가 U턴을 하려는 파란색 에이전트에게 양보를 하는 상황이다. Marginal Baseline의 경우, marginal predictor는 상호작용을 포착하고 겹치는 경로를 예측하는 데 실패한다. 반면 M2I는 상호작용 관계를 잘 파악하고 정확한 경로를 예측했다. 즉, <span style="background-color: #fff5b1"><b>M2I는 더 나은 예측 정확도와 scene compliance를 보인다.</b></span>
 

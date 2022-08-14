@@ -1,21 +1,26 @@
 ---
-title:  "[Paper Review] Generative adversarial nets"
+title:  "Generative Adversarial Nets 구현"
 excerpt: "GAN 코드 실습"
 
 categories:
-  - Paper Review
+  - Deep Learning
 tags:
   - Papaer Review
   - Machine Learning
   - Deep Learning
 last_modified_at: 2022-07-24
+
+use_math: true
+toc: true
+tock_sticky: true
+toc_label: "Contents"
 ---
 
 이 글은 나동빈 님의 [꼼꼼한 딥러닝 논문 리뷰와 코드 실습: Deep Learning Paper Review and Practice] 강의와 코드를 보고 실습한 내용을 담고 있다. 나동빈 님의 코드 구현을 약간 변형하여 실습을 진행하였다. 실습 코드는 [깃허브 레포지토리](https://github.com/winterbloooom/deeplearning-study/tree/main/GAN_pytorch)에 있다.
 {: .notice--danger}
 
 추후 GAN 논문을 읽고 직접 논문 리뷰도 실시해 추가할 예정이다.
-{: .notice--warn}
+{: .notice--info}
 
 # 기존 내용과의 변경점
 * 주어진 실습 코드는 GPU를 사용하였으나, GPU를 이용하지 못하는 관계로 CPU 기반 코드로 바꾸었다.
@@ -57,6 +62,7 @@ Discriminator(
 * MNIST 데이터셋을 사용했다.
 * 크게 생성자 모델은 5개, 판별자 모델은 3개의 층을 쌓아 만들었다.
 * 200 에폭으로 지정하고 100 에폭 정도를 학습시켰다. 출력 결과 일부는 아래와 같다.
+
 ```
  0 / 200 epoch (  0 %)   0 iter          G loss: 0.67209220      D loss: 0.68603897
  0 / 200 epoch ( 43 %) 200 iter          G loss: 0.79006857      D loss: 0.52829790
@@ -107,12 +113,12 @@ Discriminator(
 -> [Epoch 109 / 200] D loss: 0.253708 | G loss: 2.829304 (Elapsed time:  2473.93 s)
 ```
 
-![losses](https://winterbloooom.github.io/assets/images/paper_review/2022-07-29-01.png){: .align-center}
+![image](https://user-images.githubusercontent.com/69252153/184533047-06151c4a-157c-40ad-b3ca-3bb59cf1ebbb.png){: .align-center}
 
 # 결과
 각 iteration에서의 생성 이미지는 아래와 같다. 초반에는 글씨를 알아볼 수 없을 정도이다가, 점차 숫자의 형태를 갖춰감을 알 수 있다.
 
-![output images](https://winterbloooom.github.io/assets/images/paper_review/2022-07-20-02.jpg){: .align-center}
+![image](https://user-images.githubusercontent.com/69252153/184533086-147a0122-6998-40c0-a10b-fec7b6435d93.png){: .align-center}{: width="80%", height="80%"}
 
 # References
 * Goodfellow, Ian, et al. "**[Generative adversarial nets.](https://proceedings.neurips.cc/paper/2014/hash/5ca3e9b122f61f8f06494c97b1afccf3-Abstract.html)**" Advances in neural information processing systems 27 (2014).

@@ -3,7 +3,7 @@ title:  "[Paper Review] SoPhie: An Attentive GAN for Predicting Paths Compliant 
 excerpt: "SoPhie 모델 논문 리뷰"
 
 categories:
-  - Paper Review
+  - Prediction
 tags:
   - Papaer Review
   - Machine Learning
@@ -11,6 +11,11 @@ tags:
   - Prediction
   - Autonomous Driving
 last_modified_at: 2022-08-03
+
+use_math: true
+toc: true
+tock_sticky: true
+toc_label: "Contents"
 ---
 
 단어 뒤 🔍 아이콘은 [Further Study](#further-study)(개념 추가 조사) 부분에 레퍼런스 링크를 추가해 두었다.
@@ -34,7 +39,7 @@ last_modified_at: 2022-08-03
 
 # SoPhie
 
-![SoPhie의 아키텍처](https://winterbloooom.github.io/assets/images/paper_review/2022-08-03-01.png){: .align-center}
+![SoPhie의 아키텍처](https://user-images.githubusercontent.com/69252153/184533342-3700ea9e-7cea-4130-aa68-a1a3b3caf2d1.png){: .align-center}
 
 SoPhie 아키텍처는 세 가지 주요 모듈로 이루어져 있다.
 
@@ -109,7 +114,7 @@ SoPhie 아키텍처는 세 가지 주요 모듈로 이루어져 있다.
 - <span style="background-color: #fff5b1"><b>Feature Extractor Module에서 받아 입력된 특징 중에서 가장 중요한 정보를 추출해 다음 모듈에 전달한다.</b></span>
 - Attention이라는 단어에서 알 수 있듯이 ‘중요한 정보’란 <span style="background-color: #fff5b1"><b>각 장면에서 더 중요한 부분이나, 미래 상태를 예측할 때 더 관련이 깊은 다른 에이전트에 집중하도록 한다.</b></span>
 - 두 개의 soft attention 모듈로 이루어졌다.
-    - Physical Attention</b></span>
+    - <span style="background-color: #fff5b1"><b>Physical Attention</b></span>
         - 공간적(물리적)인 제약사항을 학습하고, 물리적으로 실현 가능한 경로들에 집중한다.
         - 입력은 (1) GAN 모듈의 디코더 LSTM의 은닉 상태 $h_{dec}^t(\cdot)$과 (2) 이미지에서 추출한 시각적 특징 $V_{Ph}^t$이다. 특히 $h_{dec}^t(\cdot)$는 미래 경로 예측에 필요한 정보를 가진다.
         - 출력은 physical context vector인 $C_{Ph}^t$로, <span style="background-color: #fff5b1"><b>각 에이전트의 실현 가능한(feasible) 경로에 집중하고 있다.</b></span>
@@ -217,17 +222,11 @@ SoPhie 아키텍처는 세 가지 주요 모듈로 이루어져 있다.
     - S-LSTM: social pooling layer와 LSTM이 결합된 예측 모델
     - S-GAN, S-GAN-P: Social LSTM 모델에 생성 모델을 적용한 모델
 - SDD 데이터셋에서
-    - Linear Regressor: 위와 동일
-    - S-LSTM: 위와 동일
-    - *Social Forces*: K. Yamaguchi 등의 논문 Social Forces의 적용
-        
-        > K. Yamaguchi, A. C. Berg, L. E. Ortiz and T. L. Berg, "Who are you with and where are you going?," *CVPR 2011*, 2011, pp. 1345-1352.
-        > 
-    - *DESIRE*: 생성 모델을 사용하는 IOC(Inverse Optimal Control) 모델
-    - *CAR-Net*: A. Sadeghian 등의 논문에서 제안한 물리적 어텐션 모델
-        
-        > A. Sadeghian, F. Legros, M. Voisin, R. Vesel, A. Alahi, and S. Savarese, “CAR-Net: Clairvoyant Attentive Recurrent Network,” Sep. 2018.
-        > 
+    - **Linear Regressor**: 위와 동일
+    - **S-LSTM**: 위와 동일
+    - **Social Forces**: K. Yamaguchi 등의 논문 Social Forces의 적용 <br>(K. Yamaguchi, A. C. Berg, L. E. Ortiz and T. L. Berg, "Who are you with and where are you going?," *CVPR 2011*, 2011, pp. 1345-1352.)
+    - **DESIRE**: 생성 모델을 사용하는 IOC(Inverse Optimal Control) 모델
+    - **CAR-Net**: A. Sadeghian 등의 논문에서 제안한 물리적 어텐션 모델<br>(A. Sadeghian, F. Legros, M. Voisin, R. Vesel, A. Alahi, and S. Savarese, “CAR-Net: Clairvoyant Attentive Recurrent Network,” Sep. 2018.)
 - 모든 데이터셋에 대하여 SoPhie의 실험 버전
     - $\mathrm{T_A}$ : Social Features과 Social attention 만 사용함
     - $\mathrm{T_O + I_O}$ : 어텐션 없이 Visual & Social Features만 사용함
@@ -246,7 +245,7 @@ SoPhie 아키텍처는 세 가지 주요 모듈로 이루어져 있다.
 
 🥕 **ETH, UCY**
 
-![ETH, UCY에서 평가](https://winterbloooom.github.io/assets/images/paper_review/2022-08-03-02.png){: .align-center}
+![ETH, UCY에서 평가](https://user-images.githubusercontent.com/69252153/184533458-d6ee5853-ed5c-40a4-bd18-e54e55583f44.png){: .align-center}
 
 - Linear Model: 가장 저조한 성능을 보인다. 다른 사람과의 복잡한 사회적 상호작용이나, 사람과 물리적 공간 사이의 상호작용을 모델링할 수 없다.
 - S-LSTM: Social pooling 레이어를 사용하므로 선형 모델보다는 나은 성능이다.
@@ -260,7 +259,7 @@ SoPhie 아키텍처는 세 가지 주요 모듈로 이루어져 있다.
 
 🥕 **SDD**
 
-![SDD에서 평가](https://winterbloooom.github.io/assets/images/paper_review/2022-08-03-03.png){: .align-center}
+![image](https://user-images.githubusercontent.com/69252153/184533474-fb06d453-3e75-484d-bdeb-d62b8c0bfea2.png){: .align-center}
 
 - 선형 모델은 가장 낮은 성능을, S-LSTM과 S-GAN은 그보단 나은 성능을 보인다.
 - CAR-Net: physical attention을 사용하기 때문에 앞선 모델보다 더 좋은 정확도를 낸다. SDD 데이터셋의 특성과도 연관이 있는데, 보행자들의 움직임이 길의 곡률에 기반하고 있어 장면의 버드아이뷰로부터 움직임을 추론(extrapolate)할 수 있기 때문이다.
@@ -268,12 +267,7 @@ SoPhie 아키텍처는 세 가지 주요 모듈로 이루어져 있다.
 - Sophie: $\mathrm{T_A}$와  $\mathrm{T_A + I_A}$ 는 굉장한 모델 개선을 가져오는데, <span style="background-color: #fff5b1"><b>경로 예측 문제를 다룰 때 physical & social 어텐션 모듈이 다 중요함을 암시한다.</b></span>
 
 🥕 **Social & Physical 제약의 영향**
-
-![근거리 충돌 평가](https://winterbloooom.github.io/assets/images/paper_review/2022-08-03-04.png){: .align-center}
-
 사회적으로 용인 가능한 경로를 예측하기 위해, 또다른 평가 지표를 사용해 근거리 충돌(near-collisions)(두 보행자가 0.10 *m* 임계값보다 더 가까워지는 경우)의 비율을 측정한다. 각 BIWI/ETH 장면의 모든 프레임을 관통하는 보행자의 근거리 충돌 평균 비율을 계산한다.
-
-![SDD 분할 평가](https://winterbloooom.github.io/assets/images/paper_review/2022-08-03-05.png){: .align-center}
 
 또한 SDD의 검증 데이터셋을 물리적으로 Simple 혹은 Complex한 경우 둘로 나눴다. ADE를 픽셀 단위로 나타냈다. 이 결과를 보면 <span style="background-color: #fff5b1"><b>Sophie가 physical attention을 사용한 것이 성공적으로 물리적이고 사회적으로 용인 가능한 경로를 잘 생성하도록 돕는다는 점을 알 수 있다.</b></span>
 
@@ -283,7 +277,7 @@ SoPhie 아키텍처는 세 가지 주요 모듈로 이루어져 있다.
 
 🥕 **각 Attention의 효과**
 
-![어텐션 효과 검증](https://winterbloooom.github.io/assets/images/paper_review/2022-08-03-06.png){: .align-center}
+![어텐션 효과 검증](https://user-images.githubusercontent.com/69252153/184533488-6350a814-57d6-4bd9-8b5b-642ca4584595.png){: .align-center}
 
 위 사진은 어텐션이 잘못된(erroneous) 예측을 고칠 수 있는지를 보여준다. 세 가지 시나리오를 시각화하여 S-GAN과 이 모델을 비교한다.
 
@@ -295,7 +289,7 @@ SoPhie 아키텍처는 세 가지 주요 모듈로 이루어져 있다.
 
 🥕 **생성 모델의 효과**
 
-![생성모델 효과 검증](https://winterbloooom.github.io/assets/images/paper_review/2022-08-03-07.png){: .align-center}
+![생성모델 효과 검증](https://user-images.githubusercontent.com/69252153/184533506-f34a0b78-dc17-4bbd-bf86-6c459ddb7d54.png){: .align-center}
 
 Sophie는 생성 모델을 사용함으로써 장면 내 어떤 부분이 이동 가능한지(traversable) 이해하도록 돕는다. 위 사진에서 히트맵은 이동 가능한 영역을 나타내고, 파랑색 가위표는 샘플의 시작 지점을 보여준다.
 

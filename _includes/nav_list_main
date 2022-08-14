@@ -1,20 +1,29 @@
-<!--전체 글 수를 세기 위한 연산. sum 변수에 전체 글 수 저장-->
 {% assign sum = site.posts | size %}
 
 <nav class="nav__list">
     <input id="ac-toc" name="accordion-toc" type="checkbox" />
     <label for="ac-toc">{{ site.data.ui-text[site.locale].menu_label }}</label>
     <ul class="nav__items" id="category_tag_menu">
-        <!--전체 글 수-->
-        <li>
-            📂 <span style="font-family:'Cafe24Oneprettynight';">전체 글 수</style> <span style="font-family:'Coming Soon';">{{sum}}</style> <span style="font-family:'Cafe24Oneprettynight';">개</style> 
-        </li>
-
         <li>
             <span class="nav__sub-title">Robotics</span>
                 <ul>
                     {% for category in site.categories %}
+                        {% if category[0] == "Autonomous Vehicle" %}
                             <li><a href="/categories/autonomous-vehicle" class="">Autonomous Vehicle ({{category[1].size}})</a></li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+                <ul>
+                    {% for category in site.categories %}
+                        {% if category[0] == "Perception" %}
+                            <li><a href="/categories/perception" class="">Perception ({{category[1].size}})</a></li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+                <ul>
+                    {% for category in site.categories %}
+                        {% if category[0] == "Computer Vision" %}
+                            <li><a href="/categories/computer-vision" class="">Computer Vision ({{category[1].size}})</a></li>
                         {% endif %}
                     {% endfor %}
                 </ul>
@@ -32,13 +41,7 @@
                         {% endif %}
                     {% endfor %}
                 </ul>
-                <ul>
-                    {% for category in site.categories %}
-                        {% if category[0] == "Perception" %}
-                            <li><a href="/categories/perception" class="">Perception ({{category[1].size}})</a></li>
-                        {% endif %}
-                    {% endfor %}
-                </ul>
+                
 
             <span class="nav__sub-title">AI</span>
                 <ul>
@@ -59,6 +62,13 @@
                     {% for category in site.categories %}
                         {% if category[0] == "Reinforcement Learning" %}
                             <li><a href="/categories/reinforcement-learning" class="">Reinforcement Learning ({{category[1].size}})</a></li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+                <ul>
+                    {% for category in site.categories %}
+                        {% if category[0] == "Prediction" %}
+                            <li><a href="/categories/prediction" class="">Prediction ({{category[1].size}})</a></li>
                         {% endif %}
                     {% endfor %}
                 </ul>
@@ -89,6 +99,38 @@
                     {% for category in site.categories %}
                         {% if category[0] == "C++" %}
                             <li><a href="/categories/cpp" class="">C++ ({{category[1].size}})</a></li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+                <ul>
+                    {% for category in site.categories %}
+                        {% if category[0] == "TeX / LaTeX / Markdown" %}
+                            <li><a href="/categories/tex-latex-markdown" class="">TeX / LaTeX / Markdown ({{category[1].size}})</a></li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+
+            <span class="nav__sub-title">ETC</span>
+                <ul>
+                    {% for category in site.categories %}
+                        {% if category[0] == "Blog" %}
+                            <li><a href="/categories/blog" class="">Blog ({{category[1].size}})</a></li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            
+            <span class="nav__sub-title">Upcoming Posts</span>
+                <ul>
+                    {% for category in site.categories %}
+                        {% if category[0] == "In Progress" %}
+                            <li><a href="/categories/in-progress" class="">In Progress ({{category[1].size}})</a></li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+                <ul>
+                    {% for category in site.categories %}
+                        {% if category[0] == "Idea" %}
+                            <li><a href="/categories/idea" class="">Idea ({{category[1].size}})</a></li>
                         {% endif %}
                     {% endfor %}
                 </ul>

@@ -266,6 +266,36 @@ compress_html:
 
 
 # Defaults
+# defaults:
+#   # _posts
+#   - scope:
+#       path: ""
+#       type: posts
+#     values:
+#       layout: single
+#       author_profile: true
+#       read_time: true
+#       comments: false # true
+#       share: true
+#       related: true
+#       toc: true
+#       toc_sticky: true
+#       toc_label: "Contents"
+#       #use_math: true
+#       mathjax: true
+#       sidebar_main: true
+#   # _pages
+#   - scope:
+#       path: "_pages"
+#       type: pages
+#     values:
+#       layout: single
+#       author_profile: true
+#       read_time: false
+#       comments: false
+#       share: true
+#       related: false
+#       # sidebar_main: true
 defaults:
   # _posts
   - scope:
@@ -275,24 +305,9 @@ defaults:
       layout: single
       author_profile: true
       read_time: true
-      comments: false # true
+      comments: true
       share: true
       related: true
-      toc: true
-      toc_sticky: true
-      toc_label: "Contents"
-      #use_math: true
       mathjax: true
+      use_math: true
       sidebar_main: true
-  # _pages
-  - scope:
-      path: "_pages"
-      type: pages
-    values:
-      layout: single
-      author_profile: true
-      read_time: false
-      comments: false
-      share: true
-      related: false
-      # sidebar_main: true

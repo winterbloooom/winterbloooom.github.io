@@ -1,11 +1,11 @@
 ---
-title: "AI Tools"
+title: "In Progress"
 layout: archive
-permalink: categories/ai-tools
+permalink: categories/in-progress
 author_profile: true
 sidebar_main: true
 ---
 
 
-{% assign posts = site.categories['AI Tools'] %}
+{% assign posts = site.categories['In Progress'] %}
 {% for post in posts %} {% include archive-single2.html type=page.entries_layout %} {% endfor %}

@@ -3,8 +3,13 @@ title:  "TeX, LaTeX 수식 입력 모음"
 excerpt: "TeX 및 LaTeX 수식 입력을 위한 최빈 문법 정리"
 
 categories:
-  - Etc
+  - TeX / LaTeX / Markdown
 last_modified_at: 2022-07-24
+
+use_math: true
+toc: true
+tock_sticky: true
+toc_label: "Contents"
 ---
 
 ✅ LaTeX 문서 및 TeX/LaTeX를 지원하는 Markdown 문서에서 내가 자주 사용하는 문법들을 모아보았다.

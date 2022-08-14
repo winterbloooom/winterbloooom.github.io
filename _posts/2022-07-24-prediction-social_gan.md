@@ -3,7 +3,7 @@ title:  "[Paper Review] Social GAN: Socially Acceptable Trajectories with Genera
 excerpt: "Social GAN 모델 논문 리뷰"
 
 categories:
-  - Paper Review
+  - Prediction
 tags:
   - Prediction
   - Papaer Review
@@ -11,6 +11,7 @@ tags:
   - Machine Learning
   - Deep Learning
 last_modified_at: 2022-07-24
+
 use_math: true
 toc: true
 tock_sticky: true
@@ -22,12 +23,10 @@ toc_label: "Contents"
 
 # Information
 
-|||
-| --- | --- |
-| Title | Social GAN: Socially Acceptable Trajectories with Generative Adversarial Networks |
-| Authors | Gupta, A., Johnson, J., Fei-Fei, L., Savarese, S., & Alahi, A. |
-| Source | Proceedings of the IEEE conference on computer vision and pattern recognition (2018) |
-| Keyword | motion prediction, trajectory prediction, multi-modal, GAN, collision avoidance, pedestrain, socially acceptable |
+* **Title:** Social GAN: Socially Acceptable Trajectories with Generative Adversarial Networks
+* **Authors:** Gupta, A., Johnson, J., Fei-Fei, L., Savarese, S., & Alahi, A.
+* **Source:** Proceedings of the IEEE conference on computer vision and pattern recognition (2018)
+* **Keyword:** motion prediction, trajectory prediction, multi-modal, GAN, collision avoidance, pedestrain, socially acceptable
 
 이 논문은 사람의 예측 경로를 생성하는 데 GAN을 사용하기 시작한 첫 번째 논문이다. 자율주행에서 올바른 판단을 내리기 위하여 보행자의 사회적으로 그럴 듯한(가능한) 미래 경로를 예측한다.
 
@@ -48,8 +47,6 @@ toc_label: "Contents"
 😮 <b><u>보행자 행동 예측의 필요성 및 목표</u></b>
 
 자율주행자동차와 같이 사람과 같은 환경을 공유하는 자율 이동체 플랫폼에게 보행자(pedestrians)의 행동을 예측하는 것은 필수적이다. 사람의 경우, 복잡한 사회적 상호작용을 효과적으로 판단해 결정할 수 있고, 기계도 그렇게 되어야 한다. 따라서 <span style="background-color: #fff5b1"><b>관찰된 보행자의 행동 경로(motion trajectories)(🔗)가 주어졌을 때 가능한 모든 미래 경로를 예측할 수 있어야 한다.</b></span>
-
-![여러 개의 회피 경로가 가능한 예](https://winterbloooom.github.io/assets/images/paper_review/2022-07-24-01.jpg){: .align-center}
 
 여러 개의 회피 경로가 가능한 예
 
@@ -105,7 +102,7 @@ microsocpic 방식에 대한 몇몇 연구가 진행되었으나, 이들은 상�
 
 Recurrent Neural Network(RNN)은 시퀀스를 생성할 때(sequence generation) 순전파(feedforward networks)를 확장한 동적 모델로, 음성인식이나 기계 번역, 이미지 캡셔닝 등에 사용되고 있다. 그러나 RNN은 high-level, spatio-temporal 구조가 부족하다.
 
-🪄 <b><u>복잡한 상호작용 예측에 모델 사용하기</u></b>
+😅 <b><u>복잡한 상호작용 예측에 모델 사용하기</u></b>
 
 여러 개의 네트워크를 사용해 복잡한 상호작용을 예측하려는 연구들이 있었다. Alahi 등은 [1]에서 근방의 보행자들을 모델링하는 social pooling layer를 사용했다. 이 논문에서는 <span style="background-color: #fff5b1"><b>Multi-Layer Perceptron(MLP)와 max pooling을 사용하는 것이 연산 측면에서 더 효율적이고 social pooling 방식보다 작동을 잘 한다는 점을 밝힌다.</b></span>
 
@@ -156,7 +153,7 @@ GAN은 $c$항을 추가하여 conditional model에도 쓰일 수 있다. 이 경
 
 경로 예측은 multi-modal 문제에 해당한다. 생성 모델은 시계열 데이터에 사용되어 가능성 있는 미래들을 시뮬레이션할 수 있다. 이 점을 GAN을 이용하여 <span style="background-color: #fff5b1"><b>해당 문제의 multi-modality를 푸는 데 이용하는 SGAN을 제안했다.</b></span> 모델은 사진과 같다.
 
-![](https://winterbloooom.github.io/assets/images/paper_review/2022-07-24-02.jpg){: .align-center}
+![image](https://user-images.githubusercontent.com/69252153/184533225-05f96f58-dea4-45c4-b999-d68150283915.png){: .align-center}
 
 모델은 크게 세 가지 주요 요소로 구성되어 있다.
 
@@ -244,7 +241,7 @@ Adversarial Loss와 더불어 저자들은 L2 loss를 예측된 경로에 적용
 
 아래 그림을 보자. 빨간 사람에 대하여, 빨간 점선은 논문에서 제안한 풀링 매커니즘이고, 빨간 실선은 Social Pooling이다. 논문의 방식으로는 빨간 사람과 다른 이들 간의 상대적 위치를 계산한다. 이 위치들은 각 사람들의 은닉 상태를 concatenate하고, MLP로 독립적으로 처리한 뒤, 빨간 사람의 풀링 벡터인 $P_1$을 계산하기 위해 요소별로(elementwise)로 풀링한다. 반면 <span style="background-color: #fff5b1"><b>Social Pooling은 그리드 안의 사람들만 고려하고, 모든 사람들과의 상호작용을 모델링하지 못한다.</b></span>
 
-![](https://winterbloooom.github.io/assets/images/paper_review/2022-07-24-03.jpg){: .align-center}
+![image](https://user-images.githubusercontent.com/69252153/184533231-7618a2cf-5bdd-46d1-8283-6cf995bab184.png){: .align-center}
 
 ## 3.5. Encouraging Diverse Sample Generation
 
@@ -303,8 +300,6 @@ $$
 
 다른 기준 모델과 ADE, FDE로 현 모델을 평가한 결과는 표와 같다. $t_{pred}$=8 와 $t_{pred}$=12를 각각 평가했으며, 적을 수록 좋은 성능을 보인다는 뜻이다. <span style="background-color: #fff5b1"><b>SGAN 모델이 최신 S-LSTM보다 좋은 성능을 보이며, 특히 긴 시간(long term)에 대해 좋은 예측 결과를 보였다.</b></span>
 
-![](https://winterbloooom.github.io/assets/images/paper_review/2022-07-24-04.jpg){: .align-center}
-
 Linear model은 직선 경로만 예측 가능했으며, 긴 시간의 예측에서는 특히 나쁜 결과를 보였다.
 
 LSTM과 S-LSTM은 linear model 보다 나은 성능을 보였으며, 복잡한 경로도 모델링할 수 있었다. 그러나 이번 실험에서 S-LSTM은 LSTM보다 좋은 성능을 보이진 못했다. [1]에서는 합성(synthetic) 데이터에 모델을 훈련시키고 실제 데이터에 fine tuning 시켰다. 그러나 여기서는 훈련에 합성 데이터를 사용하지 않아 다소 낮은 수행 결과를 보였다.
@@ -323,15 +318,13 @@ GAN은 mode collapse(🔗) 문제가 있는데, 이는 생성자가 판별자가
 
 단순한 LSTM은 속도는 가장 빨랐으나, 충돌을 피하지 못하거나 multi-modal한 정확한 예측을 하진 못했다.
 
-![](https://winterbloooom.github.io/assets/images/paper_review/2022-07-24-05.jpg){: .align-center}
-
 SGAN 모델은 S-LSTM보다 16배 빨랐다. 이런 속도의 향상은 각 시점마다 풀링을 적용하지 않았기 때문이었다. S-LSTM은 각 보행자들의 점유 그리드(occupancy grid)를 계산해야 하는 반면, 여기서의 풀링 매커니즘은 단순한 MLP와 max pooling을 쓰기 때문이기도 하다. 실세계 적용 시에 같은 시간에 S-LSTM이 한 개의 예측을 할 때 SGAN가 20개의 샘플을 생성했다.
 
 🌈 <b><u>다양성의 효과(Effect of Diversity) 검증</u></b>
 
 Variety loss를 쓰지 않고 모델에서 많은 샘플들을 만들어내면 어떻게 될지 실험해본다. SGAN-1V-N과 SGAN-NV-N을 비교했을 때 그 결과는 아래 그래프에서 볼 수 있다.
 
-![](https://winterbloooom.github.io/assets/images/paper_review/2022-07-24-06.jpg){: .align-center}
+![image](https://user-images.githubusercontent.com/69252153/184533253-805f2445-f627-4c7d-aa25-1d2e3e573e90.png)
 
 단순히 많은 샘플을 뽑는다고 해서 variety loss를 사용하지 않는 모델이 더 좋은 성능을 보이지는 않는다는 것을 알 수 있다. 대신, <span style="background-color: #fff5b1"><b>$k$를 증가시킬수록 모델이 훨씬 더 좋은 성능을 보였으며</b></span>, $k$=100일 때는 33% 더 좋았다.
 
@@ -352,7 +345,7 @@ SGAN 모델이 한 장면 내 모든 사람들에 대한 결합적(joint) 예측
 
 정량 평가에서는 풀링을 사용하지 않았을 때 조금 더 좋은 성능을 보였다. 그러나 정성적인 측면에서 보자면 <span style="background-color: #fff5b1"><b>풀링은 global coherency를 강화하고 사회 규범을 따르도록 한다.</b></span> 4개의 시나리오에 대해 이를 검증해본다. 각 설정에서 300개의 샘플을 만들고 평균적 경로 예측을 따라 경로의 근사적 분포(approximate distribution)를 나타냈다.
 
-![](https://winterbloooom.github.io/assets/images/paper_review/2022-07-24-07.jpg){: .align-center}
+![image](https://user-images.githubusercontent.com/69252153/184533262-bdec56b2-d3e4-486f-91b7-08b5d630896d.png){: .align-center}
 
 시나리오 1과 2에선 방향 전환을 통한 충돌 회피 능력을 시험한다. 두 명의 사람이 같은 방향을 향하고 있을 때, 풀링은 모델이 오른쪽으로 통행 우선권을 양보하는 방향으로 사회적으로 허용 가능한 경로를 예측하게 한다. 그러나 SGAN은 충돌하는 예측을 하는 반면, 시나리오 2에서 SGAN-P는 그룹 행동을 모델링할 수 있고, 두 사람이 같이 걷고 있다는 개념을 인지하면서 회피를 예측할 수 있다.
 
@@ -362,7 +355,7 @@ SGAN 모델이 한 장면 내 모든 사람들에 대한 결합적(joint) 예측
 
 충돌을 회피하기 위하여 코스를 변경하는 3가지 시나리오를 고려해본다.
 
-![](https://winterbloooom.github.io/assets/images/paper_review/2022-07-24-08.jpg){: .align-center}
+![image](https://user-images.githubusercontent.com/69252153/184533264-1cd78500-7e6c-4d18-b3b7-149d8350aa07.png){: .align-center}
 
 👣 <b><u>People Merging (1열)</u></b>
 
@@ -382,9 +375,7 @@ SGAN 모델이 한 장면 내 모든 사람들에 대한 결합적(joint) 예측
 
 잠재 공간(latent space)(🔗) $z$의 주변환경(landscape)을 이해하는지 실험한다. 학습된 다양성(manifold) 속 통행은 다양한 샘플을 어떻게 생성할 수 있을지에 대한 직관을 제공한다. 이상적으로, 네트워크는 잠재 공간에서 어떠한 몇몇 구조를 부과한다. 잠재 공간에서 특정 방향은 방향과 속도와 관련되어 있음을 발견하였다. 
 
-![Latent Space Exploration](https://winterbloooom.github.io/assets/images/paper_review/2022-07-24-09.jpg){: .align-center}
-
-Latent Space Exploration
+![image](https://user-images.githubusercontent.com/69252153/184533275-58746fd9-e937-4495-86ec-3f03fdee3b98.png){: .align-center}
 
 위 그림에서 보면, latent manifold에서 특정 방향은 방향에 관련이 있고(좌측 그림) 속도에도 관련이 있다(우측 그림). 같은 과거이지만 입력 $z$은 다양한 관측은 모델이 평균에 대하여 왼쪽/오른쪽 혹은 빠르게/느리게 가는 경로를 예측하도록 한다.
 
@@ -435,7 +426,7 @@ $$
 
 판별자가 잘 판별하는 경우를 1라 하면, 우변의 첫 항은 판별자가 실제 입력 데이터에 대해 진위를 잘 판단하도록 maximize 시킨다. 두 번째 항은 생성자가 만들어낸 샘플을 판별자에게 판별하라고 시켰을 때 판별자가 헷갈리게, 즉 가짜에도 1을 내놓도록 하여 1-D 값을 minimize 한다. 그렇기 때문에 minimax game이다.
 
-![](https://winterbloooom.github.io/assets/images/paper_review/2022-07-24-10.jpg){: .align-center}
+![image](https://user-images.githubusercontent.com/69252153/184533282-0e36a50b-402d-48e5-917b-e8c1df8c7ae1.png){: .align-center}
 
 ⭐ <b><u>Latent Variable</u></b>
 

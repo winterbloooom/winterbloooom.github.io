@@ -3,21 +3,24 @@ title:  "[Paper Review] Monocular Depth Estimation 논문 모음"
 excerpt: "Monocular Depth Estimation Task 개념 및 관련 논문 간단 리뷰"
 
 categories:
-  - Paper Review
+  - Computer Vision
 tags:
   - Deep Learning
   - Papaer Review
   - Computer Vision
 last_modified_at: 2022-07-15
+
 use_math: true
 toc: true
 tock_sticky: true
 toc_label: "Contents"
 ---
 
-> 프로그래머스 자율주행 데브코스 3기 최종 프로젝트 'Monocular Depth Estimation and Evaluation with LiDAR (단일 이미지로부터의 깊이 추정과 LiDAR 데이터를 이용한 평가)'를 위하여 선행연구를 조사한 내용이다.
+프로그래머스 자율주행 데브코스 3기 최종 프로젝트 'Monocular Depth Estimation and Evaluation with LiDAR (단일 이미지로부터의 깊이 추정과 LiDAR 데이터를 이용한 평가)'를 위하여 선행연구를 조사한 내용이다.
+{: .notice--info}
 
-> 해당 프로젝트는 [GitHub Repository](https://github.com/winterbloooom/depth-estimation-with-lidar)에서 소스코드와 상세 보고서를 볼 수 있다.
+해당 프로젝트는 [GitHub Repository](https://github.com/winterbloooom/depth-estimation-with-lidar)에서 소스코드와 상세 보고서를 볼 수 있다.
+{: .notice--info}
 
 # Monocular Depth Estimation
 
@@ -54,7 +57,7 @@ Unsupervised learning, 혹은 self-supervised learning 방식은 <b><u>ground tr
 
 Lee 등이 논문 'From big to small: Multi-scale local planar guidance for monocular depth estimation'에서 제시한 모델 BTS는 Encoder-Decoder 구조를 갖는 supervised learning 모델이다. Encoder backbone으로 Dense Feature Extractor를 사용하여 feature map을 생성하며, 이 결과를 ASPP(Atrous Spatial Pyramid Pooling) 레이어에 전달해 contextual information을 추출한다. Decoding 단계에서 각 multiple stages에 LPG(Local Planar Guidance) 레이어를 사용해 large scale variation을 파악하고, 해상도를 입력 이미지 크기로 다시 복원한다. Decoder의 각 레이어들은 4차원 평면 coefficients를 각각 학습하고 그 출력을 비선형적으로 결합하여 최종 깊이 추정치를 반환한다.
 
-![](https://winterbloooom.github.io/assets/images/paper_review/2022-07-15-01.jpg){: .align-center}
+![image](https://user-images.githubusercontent.com/69252153/184533714-12518a34-6b8b-4f8e-9d07-81bd32b30c50.png){: .align-center}
 
 ## DPT
 
@@ -67,20 +70,20 @@ Ranftl 등이 논문 'Vision transformers for dense prediction'에서 제안한 
 
 모든 stages에서 global receptive field를 가지고 있어 globally coherent한 깊이를 예측할 수 있으며, 해당 모델로 monocular depth estimation 뿐만 아니라 semantic segmentation도 수행할 수 있다.
 
-![](https://winterbloooom.github.io/assets/images/paper_review/2022-07-15-02.jpg){: .align-center}
+![image](https://user-images.githubusercontent.com/69252153/184533724-0d6e430c-8edc-48fa-814e-6cee80d57a58.png){: .align-center}
 
 ## AdaBins
 
 Bhat 등이 논문 'Adabins: Depth estimation using adaptive bins'에서 제안하였다. BTS나 DPT 모델처럼 Encoder-Decoder 구조를 갖는 supervised learning 모델에 해당하나, 기존 연구들이 monocular depth estimation을 회귀(regression) 문제로 해결한 것과는 달리, 저자들은 이를 분류(classification) 문제로 접근하였다. 표준적인 Encoder-Decoder의 결과를 입력으로 받는 AdaBins(Adaptive Bin-width Estimator) 모듈은 Mini-ViT를 사용해 bin width $\mathbf{b}$ 와 Range-Attention Maps $\mathcal{R}$을 계산하고, 각 scene의 features에 따라 bins를 적응적으로 바꾼다. 또한 classification을 수행함으로써 깊이 값들을 이산화(discretization)한다. Bin centers의 선형 결합으로 최종적인 깊이의 예측값을 생성한다.
 
-![](https://winterbloooom.github.io/assets/images/paper_review/2022-07-15-03.jpg){: .align-center}
+![image](https://user-images.githubusercontent.com/69252153/184533732-b05529d9-820b-4977-88de-cd11cb32b957.png){: .align-center}
 
 ## GLPDepth
 
 김도연 등이 발표한 논문 'Global-Local Path Networks for Monocular Depth Estimation
 with Vertical CutDepth'에서 제안한 모델이다. Encoder-Decoder 구조의 supervised learning 방식을 사용한다. Encoder를 계층적 transformer를 사용하여 global context를 포착하게 하고, local connectivity를 고려할 수 있는 가벼운 decoder를 사용한다. 저자들은 Selective Feature Fusion(SFF) 모듈을 제안하기도 한다. 각 features에 대하여 attention map에 집중함으로써 local 혹은 global한 features를 적응적(adaptively)으로 선택하고 통합할 수 있다. 가장 큰 특징인 Vertical CutDepth는 2021년에 제안된 depth-specific 데이터 증강 방법 CutDepth를 변형한 것이다. 깊이 추정 네트워크가 주로 세로(vertical)로 주요한 정보를 얻기 때문에 세로의 geometric information만을 이용한다. 이로써 long-range의 세로 방향으로 더 나은 예측이 가능해진다.
 
-![](https://winterbloooom.github.io/assets/images/paper_review/2022-07-15-06.jpg){: .align-center}
+![image](https://user-images.githubusercontent.com/69252153/184533738-fbccd3d8-84d2-46b2-9945-16eed3652415.png){: .align-center}
 
 ## DepthFormer
 
@@ -90,14 +93,14 @@ DepthFormer 역시 Encoder-Decoder 구조를 갖는 supervised learning 모델�
 
 DepthFormer는 이러한 두 branch를 단순한 late fusion이 아닌 HAHI 모듈을 사용해 정합함으로써 feature을 향상시킬 뿐만 아니라 model affinity도 향상시킨다. 그림은 DepthFormer의 아키텍처를 간단히 나타낸 그림이다.
 
-![](https://winterbloooom.github.io/assets/images/paper_review/2022-07-15-04.jpg){: .align-center}
+![image](https://user-images.githubusercontent.com/69252153/184533747-90232306-6c96-438a-a3d8-f1af1d353970.png){: .align-center}
 
 
 ## MonoDepth
 
 앞서 살펴본 네 모델과는 다르게 unsupervised learning 방식을 가진다. Godard 등이 논문 'Unsupervised monocular depth estimation with left-right consistency'에서 처음으로 제안한 모델이다. 저자들은 supervised learning 방식이 각 이미지 픽셀에 일일이 대응하는 ground truth 정보가 필요하고 데이터셋 구축에 따른 비용이 매우 크다고 지적하였다. MonoDepth의 큰 특징은 binocular stereo camera로 얻은 stereo 이미지 쌍이 주어졌을 때, 왼쪽 이미지에서 추정한 깊이 정보를 바탕으로 오른쪽 이미지를 복원하고, 이때 양 이미지 간의 시차(disparity)를 모델의 학습에 이용한다는 것이다. 또한 새로운 학습 loss를 제안하여, 추정한 depth maps 간 지속성(consistency)를 강화했다. 현재는 MonoDepth2가 나온 상태이다.
 
-![](https://winterbloooom.github.io/assets/images/paper_review/2022-07-15-05.jpg){: .align-center}
+![image](https://user-images.githubusercontent.com/69252153/184533764-878f514f-7dc8-4188-a9f4-047a2bcc9d17.png){: .align-center}
 
 - - -
 # Evaluation Metrics

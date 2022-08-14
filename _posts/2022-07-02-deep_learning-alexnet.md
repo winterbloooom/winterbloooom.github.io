@@ -3,31 +3,32 @@ title:  "[Paper Review] AlexNet: ImageNet Classification with Deep Convolutional
 excerpt: "AlexNet 모델 논문 리뷰 및 PyTorch 구현"
 
 categories:
-  - Paper Review
+  - Deep Learning
 tags:
   - Deep Learning
   - Image Classification
   - Papaer Review
   - Computer Vision
 last_modified_at: 2022-07-02
+
 use_math: true
 toc: true
 tock_sticky: true
 toc_label: "Contents"
 ---
 
-![](https://winterbloooom.github.io/assets/images/paper_review/2022-07-02-01.png){: .align-center}
-
 # Information
 * **Title**: Imagenet classification with deep convolutional neural networks
 * **Authors**: Krizhevsky, Alex, Ilya Sutskever, and Geoffrey E. Hinton
 * **Source**: Advances in neural information processing systems 25 (2012)
 
+- - -
+
 # 논문 요약
 
 해당 논문은 2012년 ILSVRC(ImageNet Large-Scale Visual Recognition Challenge) 대회에서 1위를 한 일명 AlexNet에 대한 논문이다. Top-5 error rate를 15.3%의 수치를 기록하며 26.2%였던 2위보다 큰 폭으로 우승을 거두었다.
 
-> Top-5 Error: 모델이 예측한 상위 5개의 class 중 정답이 없는 경우의 에러율
+> **Top-5 Error**: 모델이 예측한 상위 5개의 class 중 정답이 없는 경우의 에러율
 
 ## Dataset
 
@@ -41,7 +42,7 @@ toc_label: "Contents"
 
 AlexNet의 구조는 8개의 학습 레이어로 구성되어 있으며 그 중 5개는 합성곱층(convolutional layer), 3개는 완전연결층(fully-connected layer)이다. 아래 그림(논문에서 발췌)은 전체적 구조를 나타낸 것이며, 이를 표로 정리해 보았다.
 
-![](https://winterbloooom.github.io/assets/images/paper_review/2022-07-02-02.jpg){: .align-center}
+![image](https://user-images.githubusercontent.com/69252153/184532752-dd9d083f-2854-4dbf-9a11-cf5d4b7a7d26.png){: .align-center}
 
 
 | Layer | Input | Output | Kernel 개수 | Kernel Size | Stride | Padding | 추가 설명 |
@@ -76,7 +77,7 @@ AlexNet에서는 활성화 함수로 ReLU를 사용했다.
 
 saturating nonlinearity에 해당하는 다른 활성화 함수인 tanh($f(x) = \mathrm{tanh}(x)$)나 sigmoid($f(x) = (1 + e^{-x})^{-1}$)보다 non-saturating nonlinearlity인 ReLU(Rectified Linear Units)($f(x) = \mathrm{max}(0, x)$)가 월등히 빠른 속도를 보인다고 한다. 논문에서는 CIFAR-10 데이터셋으로 학습을 시켰을 때 25% training error를 보이는 데까지 tanh 뉴런과 ReLU 뉴런을 적용해 비교해보았을 때 후자에서 약 6배 빨랐다고 실험 결과를 보였다.
 
-![](https://winterbloooom.github.io/assets/images/paper_review/2022-07-02-03.png){: .align-center}
+![image](https://user-images.githubusercontent.com/69252153/184532759-cd94f374-7462-4013-8927-9324b424190c.png){: .align-center}{: width="50%", height="50%"}
 
 
 ### Training on Multiple GPUs
@@ -90,7 +91,7 @@ tanh나 sigmoid 활성화함수의 경우, saturation 문제가 있다. 활성�
 
 반면 ReLU는 적어도 양수 구간에서는 이러한 문제가 일어나지 않는다. 따라서 saturating을 막기 위한 입력 normalization을 필요로 하지 않는다.
 
-![](https://winterbloooom.github.io/assets/images/paper_review/2022-07-02-04.png){: .align-center}
+![image](https://user-images.githubusercontent.com/69252153/184532789-141b3e63-1e08-411c-a7e5-e63f233d4a28.png){: .align-center}
 
 
 다만, ReLU의 양수 구간에서 그 값을 그대로 다음 뉴런에 전달하는데, 이때 너무 큰 값이 전달된다면 주변의 낮은 값들이 뉴런에 전달되지 않을 위험도 있다. 이를 예방하기 위한 normalization 방법으로 Local Response Normalization을 사용했다.
@@ -129,8 +130,6 @@ AlexNet은 6천만 개의 파라미터를 가지고 있고, 이를 분류할 때
 
 첫 번째는 이동 및 수평 반전을 시킨 이미지를 생성하는 것이다(generating image translations and horizontal reflection). 256 X 256 크기의 이미지에서 랜덤하게 227 X 227 크기로 자르고 이를 수평 반전시킨다. 자를 때 중앙과 각 모서리를 이용하면 5개의 224 X 224 이미지가 나오고, 이들을 각각 수평 반전시켰으니 종합 10개의 이미지를 생성하는 셈이다.
 
-![](https://winterbloooom.github.io/assets/images/paper_review/2022-07-02-05.png){: .align-center}
-
 두 번째는 training set에서 RGB 채널의 intentity를 바꾸는 것이다(altering the intensities of the RGB channels in training images). 구체적으로는 RGB 픽셀 값에 대한 PCA를 적용했는데, R/G/B 각 색상에 대한 eigenvalue를 찾고 이에 랜덤 변수(평균이 0, 표준 편차가 0.1인 가우시안 분포에서)를 곱한다. 따라서 RGB 이미지의 한 픽셀의 intensity $I_{xy} = \left[ I_{xy}^R,\ I_{xy}^G,\ I_{xy}^B \right] ^T$에 다음의 수를 더해주게 된다.
 
 $$
@@ -153,7 +152,7 @@ AlexNet의 train에는 0.5의 확률로 dropout을 적용했고, test시에는 �
 
 AlexNet에서는 Stochastic Gradient Descent(SGD)를 사용했으며, 여기에 사용된 batch 크기는 128개, momentum은 0.9, weight decay는 0.0005였다. 이때 weight decay는 regularizer가 아닌 training error를 감소시키는 데 아주 중요한 역할을 한다. weight $w$의 업데이트는 아래의 식으로 진행한다.
 
-![](https://winterbloooom.github.io/assets/images/paper_review/2022-07-02-06.png){: .align-center}
+![image](https://user-images.githubusercontent.com/69252153/184532796-2990957f-673b-4147-becc-817b9c894f9c.png){: .align-center}{: width="50%", height="50%"}
 
 이때 $i$는 반복의 인덱스이고, $v$는 momentum 변수, $\epsilon$은 학습률(learning rate), $D_i$는  $i$번째 batch를 말한다.
 
@@ -175,8 +174,8 @@ Loss로는 CrossEntrophy를 사용하였고, batch 크기는 64로 하여 5번�
 
 논문에서는 SGD를 사용했으나, 본인의 경우 Adam으로도 진행해보았다. 
 
-> 전체 코드는 [GitHub](https://github.com/EunGiHan/deeplearning-study/tree/main/AlexNet_pytorch)에 있다. 여기서는 간단히 주요 내용만 표시한다.
-> 
+전체 코드는 [GitHub](https://github.com/winterbloooom/deeplearning-study/tree/main/AlexNet_pytorch)에 있다. 여기서는 간단히 주요 내용만 표시한다.
+{: .notice--info}
 
 결론적으로 말하자면, Loss가 줄어들지 않고 정확도도 10% 가량으로 매우 낮았다. 직접 값을 찍어보니 한 배치 내에서 거의 똑같은 예측을 하고 있었다. 이유는 파악하지 못했다. 지난번 LeNet 구현에서도 그랬기 때문에 이번에도 ‘훈련을 적게 시키거나 레이어가 얕아서’ 이겠거니 하는 수밖에 없었다.
 
@@ -445,7 +444,7 @@ def train_model(
 
 아래 사진은 Optimizer를 각각 Adam(푸른색)과 SGD(붉은색)로 했을 때의 Loss 결과이다. 대체적으로 큰 차이는 없이 loss가 2.3 대에서 머물렀다.
 
-![](https://winterbloooom.github.io/assets/images/paper_review/2022-07-02-07.png){: .align-center}
+![image](https://user-images.githubusercontent.com/69252153/184532919-1ead011f-7c6e-4dcf-a0ed-fd8f6b84f79b.png){: .align-center}
 
 
 ---
