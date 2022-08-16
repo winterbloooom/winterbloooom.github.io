@@ -1,11 +1,11 @@
 ---
-title: "TeX, LaTeX, Markdown"
+title: "Math"
 layout: archive
-permalink: categories/tex-latex-markdown
+permalink: categories/math
 author_profile: true
 sidebar_main: true
 ---
 
 
-{% assign posts = site.categories['TeX, LaTeX, Markdown'] %}
+{% assign posts = site.categories.Math %}
 {% for post in posts %} {% include archive-single.html type=page.entries_layout %} {% endfor %}

@@ -3,7 +3,7 @@ title:  "TeX, LaTeX 수식 입력 모음"
 excerpt: "TeX 및 LaTeX 수식 입력을 위한 최빈 문법 정리"
 
 categories:
-  - TeX / LaTeX / Markdown
+  - TeX, LaTeX, Markdown
 last_modified_at: 2022-07-24
 
 use_math: true

@@ -1,0 +1,143 @@
+---
+title:  "YAML 문법 정리"
+excerpt: "자주 사용하는 YAML 문법 간단 정리"
+
+categories:
+  - Other Languages
+tags:
+  - Programming
+last_modified_at: 2022-06-06
+
+use_math: true
+toc: true
+tock_sticky: true
+toc_label: "Contents"
+---
+
+# YAML이란?
+
+- `*.yaml` 혹은 `*.yml` 확장자를 가진 파일을 기술하는 문법이다.
+- 사람이 쉽게 읽을 수 있다는 컨셉을 가진 데이터 직렬화 양식이다.
+- 언어의 이름 YAML은 'YAML Ain't Markup Language'라면서 YAML이 마크업 언어가 아니라는 뜻을 담고 있다. 원래 뜻은 'Yet Another Markup Language'라며 또다른 마크업 언어라는 의미였지만, 데이터 중심을 핵심 가치로 하고자 변경했다.
+- 출력 가능한 유니코드 문자 집합(UTF-8, UTF-16 등)을 이용한다.
+- 데이터를 표현하는 다른 형식인 XML이나 JSON보다는 읽기 쉽게 표현할 수 있다.
+    - XML: `<>`를 사용해 계층 구조 도입
+    - JSON: REST API에 사용됨. 주석 사용 불가. 괄호(`{}`나 `[]`) 사용
+- - -
+
+# yaml 기본문법
+## 문서의 시작과 끝
+- `---`은 문서의 시작을, `...`은 문서의 끝을 나타내며, 둘 모두 optional하다.
+## 공백과 줄바꿈
+* 들여쓰기는 2칸(recommended) 혹은 4칸을 지원한다. 탭은 안된다. 같은 부모를 가질 경우, 자식끼리는 들여쓰기가 일치해야 한다.
+* 블록 내 줄바꿈을 하려면 `|`를 사용하고, `>`은 블록 내의 줄바꿈(new line)을 무시한다. 그들 기호 뒤에 `-`를 붙이면 마지막 줄바꿈을 제외하고 인식한다.
+    ```yaml
+    # Tell me\n\nif you\n\nwanna go home\n
+    lines: |
+      Tell me
+    
+      if you
+    
+      wanna go home
+      # 여기 빈칸 한 줄
+    
+    # Tell me\n\nif you\n\nwanna go home
+    lines: |-
+      Tell me
+    
+      if you
+    
+      wanna go home
+      # 여기 빈칸 한 줄
+    
+    # Tell me\nif you\nwanna go home\n
+    lines: >
+      Tell me
+    
+      if you
+    
+      wanna go home
+      # 여기 빈칸 한 줄
+    ```
+## 데이터의 선언
+- 데이터는 mapping으로 **`key: value` 형식을 통해 정의**한다. (ex. `name: EunGi`)
+    - 반드시 `:` 뒤에는 띄어쓰기
+    - hash나 dictionary라고 보면 이해가 쉽다.
+    - `{}`으로도 정의 가능하다.
+    ```yaml
+    student: {
+      name: Park
+      subject: [
+        math, korean
+      ]
+    }
+    ```
+- 자료형은 int, string, boolean을 지원한다.
+    - 문자열을 따옴표 없이 사용할 수 있다. 단 `:`가 들어갈 때는 따옴표로 감싸야 한다.
+    - 아무 처리 없이 숫자를 쓰면 자동으로 숫자로 인식한다. 따옴표로 감싸야 문자로 인식한다.
+    - 쌍따옴표는 escape 문자를 처리할 수 있고, 홑따옴표는 그대로 문자로 인식한다. (ex. `"my\nbag"`은 줄바꿈이 유효하나, `'my\nback'`은 그대로 my\nback이 된다.
+    - 쌍따옴표 내 escape 문자(ex. `\n`)은 C언어 스타일을 따른다.
+    - 참은 `true` 혹은 `yes`, 거짓은 `false` 혹은 `no` (ex. `is_done: True`, `is_done: no`)
+- **배열**
+    ```cpp
+    # 방법1
+    food: [
+      Chicken, Pizza, Pasta
+    ]
+    
+    # 방법2: '-'로 인자 표기
+    food:
+      - Chicken
+      - Pizza
+      - Pasta
+    ```
+- **object**
+    ```yaml
+    # 방법1
+    key:
+      key: value
+      key: value
+    
+    # 방법2
+    key: {
+      key: value,
+      key: value
+    }
+    
+    # 예1
+    list_obj:
+      - name: Han
+        number: 6
+      - name: Kim
+        number: 3
+    
+    # 예2
+    obj:
+      name: Lee
+      number: 9
+    ```
+## 기타 기능
+- **주석**은 `#` 와 작성한다.
+- anchor와 alias로 **반복되는 노드들에 접근**할 수 있다. 선언할 때는 `&`를 붙여 표시하고, 참조는 `*`를 붙인다. 아래 예시에서 보면 `*first`을 이용해 `&first`가 붙은 `first-anchor`를 가져올 수 있다.
+    ```yaml
+    students:
+      first-anchor: &first
+        name: Choi
+        number: 5
+      second-anchor: &second
+        name: Jung
+        number: 1
+    
+    first-student: *fisrt
+    second-student: *second
+    ```
+- yaml 형식을 잘 지켰는지 테스트할 수 있는 사이트: [http://www.yamllint.com/](http://www.yamllint.com/)
+
+- - -
+
+# 참고자료
+- 위키백과 YAML : [https://ko.wikipedia.org/wiki/YAML]
+- 쿠버네티스 안내서 : [https://subicura.com/k8s/prepare/yaml.html](https://subicura.com/k8s/prepare/yaml.html)
+- yaml(yml) 문법 정리: [https://lejewk.github.io/yaml-syntax/](https://lejewk.github.io/yaml-syntax/)
+- YAML 문법: [https://eunhyee.tistory.com/268](https://eunhyee.tistory.com/268)
+- YAML(YAML Ain’t Markup Language) 이해하기: [https://luran.me/397](https://luran.me/397)

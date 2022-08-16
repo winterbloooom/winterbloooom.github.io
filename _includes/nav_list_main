@@ -36,8 +36,8 @@
                 </ul>
                 <ul>
                     {% for category in site.categories %}
-                        {% if category[0] == "Control / Engineering" %}
-                            <li><a href="/categories/control-and-engineering" class="">Control / Engineering ({{category[1].size}})</a></li>
+                        {% if category[0] == "Control, Engineering" %}
+                            <li><a href="/categories/control-and-engineering" class="">Control, Engineering ({{category[1].size}})</a></li>
                         {% endif %}
                     {% endfor %}
                 </ul>
@@ -104,8 +104,22 @@
                 </ul>
                 <ul>
                     {% for category in site.categories %}
-                        {% if category[0] == "TeX / LaTeX / Markdown" %}
-                            <li><a href="/categories/tex-latex-markdown" class="">TeX / LaTeX / Markdown ({{category[1].size}})</a></li>
+                        {% if category[0] == "TeX, LaTeX, Markdown" %}
+                            <li><a href="/categories/tex-latex-markdown" class="">TeX, LaTeX, Markdown ({{category[1].size}})</a></li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+                <ul>
+                    {% for category in site.categories %}
+                        {% if category[0] == "Other Languages" %}
+                            <li><a href="/categories/other-languages" class="">Other Languages ({{category[1].size}})</a></li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+                <ul>
+                    {% for category in site.categories %}
+                        {% if category[0] == "Git" %}
+                            <li><a href="/categories/git" class="">Git ({{category[1].size}})</a></li>
                         {% endif %}
                     {% endfor %}
                 </ul>
@@ -115,6 +129,15 @@
                     {% for category in site.categories %}
                         {% if category[0] == "Blog" %}
                             <li><a href="/categories/blog" class="">Blog ({{category[1].size}})</a></li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            
+            <span class="nav__sub-title">Math</span>
+                <ul>
+                    {% for category in site.categories %}
+                        {% if category[0] == "Math" %}
+                            <li><a href="/categories/math" class="">Math ({{category[1].size}})</a></li>
                         {% endif %}
                     {% endfor %}
                 </ul>
