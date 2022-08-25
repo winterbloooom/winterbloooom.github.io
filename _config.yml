@@ -311,3 +311,4 @@ defaults:
       mathjax: true
       use_math: true
       sidebar_main: true
+      classes: wide
