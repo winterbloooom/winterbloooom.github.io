@@ -124,6 +124,15 @@
                     {% endfor %}
                 </ul>
 
+            <span class="nav__sub-title">Operating System</span>
+                <ul>
+                    {% for category in site.categories %}
+                        {% if category[0] == "Operating System" %}
+                            <li><a href="/categories/os" class="">Operating System ({{category[1].size}})</a></li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+
             <span class="nav__sub-title">ETC</span>
                 <ul>
                     {% for category in site.categories %}

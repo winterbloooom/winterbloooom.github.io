@@ -56,10 +56,12 @@ toc_label: "Contents"
 ## 3-1. 제어량 계산식
 시간에 따른 제어량은 다음과 같이 계산한다.
 
-$\mathrm{K}_p \mathrm{e}(t) + \mathrm{K}_i\int_0^t \mathrm{e}(t)\mathrm{d}t + \mathrm{K}_d\frac{de}{dt}$
+$$
+\mathrm{K}_p \mathrm{e}(t) + \mathrm{K}_i\int_0^t \mathrm{e}(t)\mathrm{d}t + \mathrm{K}_d\frac{de}{dt}
+$$
 
-* $$\mathrm{K}_p \mathrm{e}(t)$$: <span style="background-color: #e9eeb6; font-weight:bold">비례항</span> - **편차에 비례**한다. 현재 상태에서 편차의 크기에 비례해 제어 작용을 한다.
-* $$\mathrm{K}_i\int_0^t \mathrm{e}(t)\mathrm{d}t$$: <span style="background-color: #e9eeb6; font-weight:bold">적분항</span> - **오차값의 적분(integral)에 비례**하여, 정상 상태(steady-state) 오차를 없앤다.
+* $\mathrm{K}_p \mathrm{e}(t)$: <span style="background-color: #e9eeb6; font-weight:bold">비례항</span> - **편차에 비례**한다. 현재 상태에서 편차의 크기에 비례해 제어 작용을 한다.
+* $\mathrm{K}_i\int_0^t \mathrm{e}(t)\mathrm{d}t$: <span style="background-color: #e9eeb6; font-weight:bold">적분항</span> - **오차값의 적분(integral)에 비례**하여, 정상 상태(steady-state) 오차를 없앤다.
 * $\mathrm{K}_d\frac{de}{dt}$: <span style="background-color: #e9eeb6; font-weight:bold">미분항</span> - **오차값의 미분(derivative)에 비례**한다. 출력값의 급격한 변화를 막아 오버슈트을 줄이며 안정성을 향상시킨다.
 
 여기서 $$\mathrm{e}(t) = \mathrm{y}_s (t) - \mathrm{y}(t)$$ = (제어량 – 목표값)으로, 편차에 해당한다.
