@@ -3,7 +3,7 @@ title:  "Python Overloading"
 excerpt: "다양한 python overloading 문법 정리"
 
 categories:
-  - In Progress
+  - Python
 tags:
   - Programming
   - Python
@@ -14,6 +14,8 @@ toc: true
 tock_sticky: true
 toc_label: "Contents"
 ---
+
+추후 포스팅 예정입니다.{: .notice--danger}
 
 메서드 오버로딩
 https://injeblog.tistory.com/114

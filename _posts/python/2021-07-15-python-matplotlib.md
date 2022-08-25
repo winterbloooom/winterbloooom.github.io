@@ -3,7 +3,7 @@ title:  "[Matplotlib] Matplotlib Tutorial"
 excerpt: "<Matplotlib Tutorial - 파이썬으로 데이터 시각화하기> 정리"
 
 categories:
-  - In Progress
+  - Python
 
 tags:
   - Programming

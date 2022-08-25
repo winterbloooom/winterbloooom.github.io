@@ -3,7 +3,7 @@ title:  "최대/최솟값, Pointer, Vector, 참조자(&), 순열, 1LL"
 excerpt: "C++ 문법 간단 정리 (1)"
 
 categories:
-  - In Progress
+  - C++
 
 tags:
   - Programming

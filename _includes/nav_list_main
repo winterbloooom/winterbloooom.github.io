@@ -150,22 +150,6 @@
                         {% endif %}
                     {% endfor %}
                 </ul>
-            
-            <span class="nav__sub-title">Upcoming Posts</span>
-                <ul>
-                    {% for category in site.categories %}
-                        {% if category[0] == "In Progress" %}
-                            <li><a href="/categories/in-progress" class="">In Progress ({{category[1].size}})</a></li>
-                        {% endif %}
-                    {% endfor %}
-                </ul>
-                <ul>
-                    {% for category in site.categories %}
-                        {% if category[0] == "Idea" %}
-                            <li><a href="/categories/idea" class="">Idea ({{category[1].size}})</a></li>
-                        {% endif %}
-                    {% endfor %}
-                </ul>
         </li>
     </ul>
 </nav>

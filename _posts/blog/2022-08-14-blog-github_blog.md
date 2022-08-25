@@ -5,7 +5,7 @@ excerpt: "GitHub Blog Setting & Customizing Tips"
 categories:
   - Blog
 
-last_modified_at: 2022-08-14
+last_modified_at: 2023-08-14
 
 use_math: true
 toc: true

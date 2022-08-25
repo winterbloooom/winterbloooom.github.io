@@ -3,7 +3,7 @@ title:  "2차원 리스트, heapq 모듈"
 excerpt: "Python 문법 간단 정리 (1)"
 
 categories:
-  - In Progress
+  - Python
 tags:
   - Programming
   - Python

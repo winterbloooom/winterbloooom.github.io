@@ -5,7 +5,7 @@ excerpt: "자율운항 코딩에 사용한 수학 공식 및 구현"
 categories:
   - Math
 
-last_modified_at: 2022-01-28
+last_modified_at: 2023-01-28
 
 use_math: true
 toc: true

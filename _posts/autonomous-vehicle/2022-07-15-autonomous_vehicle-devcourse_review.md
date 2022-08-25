@@ -3,11 +3,11 @@ title:  "[프로그래머스 자율주행 데브코스 3기] 수료 후기"
 excerpt: "K-Digital Training 프로그래머스 자율주행 데브코스 3기 수료 수기"
 
 categories:
-  - Idea
+  - Autonomous Vehicle
 tags:
   - Robotics
   - Autonomous Vehicle
-last_modified_at: 2022-07-15
+last_modified_at: 2023-07-15
 
 use_math: true
 toc: true
