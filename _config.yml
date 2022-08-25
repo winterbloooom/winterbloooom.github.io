@@ -27,7 +27,7 @@ repository               : "https://github.com/winterbloooom/winterbloooom.githu
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 logo                     : # path of logo image to display in the masthead
 masthead_title           : # overrides the website title displayed in the masthead, use " " for no title
-# breadcrumbs            : false # true, false (default)
+breadcrumbs            : true # true, false (default)
 words_per_minute         : 200
 comments:
   provider               : # false (default), "disqus", "discourse", "facebook", "staticman", "staticman_v2", "utterances", "giscus", "custom"
@@ -105,7 +105,7 @@ analytics:
 # Site Author
 author:
   name             : "winterbloooom (EunGiHan)"
-  avatar           : "/assets/images/profile.jpeg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  avatar           : "/assets/images/profile.PNG"
   bio              : "Autonomous Car & Ship<br>Machine Learning"
   location         : "Republic of Korea"
   email            : 
@@ -267,23 +267,6 @@ compress_html:
 
 # Defaults
 # defaults:
-#   # _posts
-#   - scope:
-#       path: ""
-#       type: posts
-#     values:
-#       layout: single
-#       author_profile: true
-#       read_time: true
-#       comments: false # true
-#       share: true
-#       related: true
-#       toc: true
-#       toc_sticky: true
-#       toc_label: "Contents"
-#       #use_math: true
-#       mathjax: true
-#       sidebar_main: true
 #   # _pages
 #   - scope:
 #       path: "_pages"
@@ -311,3 +294,6 @@ defaults:
       mathjax: true
       use_math: true
       sidebar_main: true
+      toc: true
+      toc_sticky: true
+      toc_label: "Contents"

@@ -111,3 +111,49 @@ sidebar_main: true
 {% endraw %}
 {% endhighlight %}
 
+# 파비콘
+https://velog.io/@eona1301/Github-Blog-%ED%8C%8C%EB%B9%84%EC%BD%98Favicon-%EC%84%B8%ED%8C%85%ED%95%98%EA%B8%B0
+
+# 글씨
+## 한글 폰트
+https://devinlife.com/howto%20github%20pages/set-font/
+
+## 본문 글자 크기
+https://velog.io/@eona1301/Github-Blog-minimal-mistakes-%EB%B3%B8%EB%AC%B8-%EC%98%81%EC%97%AD-%EB%B0%8F-%EA%B8%80%EC%9E%90-%ED%81%AC%EA%B8%B0
+
+# archive-single (글 목록)
+https://devinlife.com/howto%20github%20pages/github-pages-settings/#3-%ED%8F%AC%EC%8A%A4%ED%8A%B8-%EC%A0%9C%EB%AA%A9-%EC%95%84%EB%9E%98-%EA%B2%8C%EC%8B%9C-%EB%82%A0%EC%A7%9C-%ED%91%9C%EC%8B%9C
+
+# header의 teaser
+기본 이미지는 `_config.yml`에서도 설정 가능. 포스트 상단에도 선언해 오버라이드 가능(2022-08-25-kaboat2022-dev-report.md)참고
+
+# 파일 설명
+* includes
+  * `archive-single.html` 글 목록 보기에서 한 개의 포스팅을 보여줌
+    ![image](https://user-images.githubusercontent.com/69252153/186781830-528bbc77-ebbc-444d-b4f5-4e207f56f345.png) 
+  * `nav_list_main` : 카테고리 구성
+* _layouts
+  * `archive.html` : archive 이름의 layout 정의
+  * `single.html` : 포스팅 글(?)
+  * `splash.html` : splash 이름의 layout 정의
+  * `home.html` : 메인화면 구성
+  * 
+* _pages
+  * categories : 각 카테고리 페이지
+  * `about.md` : 소개 페이지
+  * `category-archive.md` : 카테고리 모아보기 페이지
+  * `tag-archive.md` : 태그 모아보기 페이지
+* _sass
+  * minimal-mistakes
+    * `_variables.scss` : 디자인 관련 변수 정의
+
+# 추가 참고할 것
+* 테마 docs: https://mmistakes.github.io/minimal-mistakes/
+* 썸네일(teaser), 날짜별 이미지 폴더, 여러 줄 notice: https://jinjungs.github.io/blog/renewal-blog/
+* 사이드바: 
+  * https://jhlov.github.io/jekyll-%EB%B8%94%EB%A1%9C%EA%B7%B8%EC%97%90-%EC%82%AC%EC%9D%B4%EB%93%9C%EB%B0%94-%EC%B6%94%EA%B0%80%ED%95%98%EA%B8%B0/
+  * https://blog.jungbin.kim/blog/2018/02/22/apply-sidebar-minimalmistake-jekyll.html
+* Liquid 문법
+  * https://goodgid.github.io/What-is-Liquid-Grammer/
+* 커스텀
+  * https://2ssue.github.io/blog/home_layout_update/#%ED%99%88-%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83-%EB%B0%94%EA%BE%B8%EA%B8%B0
