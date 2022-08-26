@@ -10,6 +10,8 @@ use_math: true
 toc: true
 tock_sticky: true
 toc_label: "Contents"
+
+published: false
 ---
 
 ✅ LaTeX 문서 및 TeX/LaTeX를 지원하는 Markdown 문서에서 내가 자주 사용하는 문법들을 모아보았다.

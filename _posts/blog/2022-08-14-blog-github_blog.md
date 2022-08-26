@@ -11,6 +11,9 @@ use_math: true
 toc: true
 tock_sticky: true
 toc_label: "Contents"
+
+published: false
+
 ---
 
 계속 업데이트 예정.
@@ -113,6 +116,11 @@ sidebar_main: true
 
 # 파비콘
 https://velog.io/@eona1301/Github-Blog-%ED%8C%8C%EB%B9%84%EC%BD%98Favicon-%EC%84%B8%ED%8C%85%ED%95%98%EA%B8%B0
+
+# post 설정
+```yml
+published: false
+```
 
 # 글씨
 ## 한글 폰트

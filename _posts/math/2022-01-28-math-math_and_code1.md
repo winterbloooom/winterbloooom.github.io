@@ -11,6 +11,9 @@ use_math: true
 toc: true
 tock_sticky: true
 toc_label: "Contents"
+
+published: false
+
 ---
 
 # 회전변환행렬

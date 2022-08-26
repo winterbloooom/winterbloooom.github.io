@@ -13,6 +13,8 @@ use_math: true
 toc: true
 tock_sticky: true
 toc_label: "Contents"
+
+published: false
 ---
 
 추후 포스팅 예정입니다.{: .notice--danger}
