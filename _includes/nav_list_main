@@ -5,6 +5,7 @@
     <label for="ac-toc">{{ site.data.ui-text[site.locale].menu_label }}</label>
     <ul class="nav__items" id="category_tag_menu">
         <li>
+            <!-- ======================================================================================================================== -->
             <span class="nav__sub-title">Robotics</span>
                 <ul>
                     {% for category in site.categories %}
@@ -42,7 +43,7 @@
                     {% endfor %}
                 </ul>
                 
-
+            <!-- ======================================================================================================================== -->
             <span class="nav__sub-title">AI</span>
                 <ul>
                     {% for category in site.categories %}
@@ -79,7 +80,7 @@
                         {% endif %}
                     {% endfor %}
                 </ul>
-
+            <!-- ======================================================================================================================== -->
             <span class="nav__sub-title">Programming</span>
                 <ul>
                     {% for category in site.categories %}
@@ -88,6 +89,8 @@
                         {% endif %}
                     {% endfor %}
                 </ul>
+
+
                 <ul>
                     {% for category in site.categories %}
                         {% if category[0] == "Python" %}
@@ -95,6 +98,8 @@
                         {% endif %}
                     {% endfor %}
                 </ul>
+
+
                 <ul>
                     {% for category in site.categories %}
                         {% if category[0] == "C++" %}
@@ -102,6 +107,26 @@
                         {% endif %}
                     {% endfor %}
                 </ul>
+
+
+                <ul>
+                    {% for category in site.categories %}
+                        {% if category[0] == "HTML,CSS" %}
+                            <li><a href="/categories/html-and-css" class="">HTML / CSS ({{category[1].size}})</a></li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+
+                
+                <ul>
+                    {% for category in site.categories %}
+                        {% if category[0] == "JavaScript" %}
+                            <li><a href="/categories/javascript" class="">JavaScript ({{category[1].size}})</a></li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+
+
                 <ul>
                     {% for category in site.categories %}
                         {% if category[0] == "TeX, LaTeX, Markdown" %}
@@ -109,6 +134,8 @@
                         {% endif %}
                     {% endfor %}
                 </ul>
+
+
                 <ul>
                     {% for category in site.categories %}
                         {% if category[0] == "Other Languages" %}
@@ -116,6 +143,8 @@
                         {% endif %}
                     {% endfor %}
                 </ul>
+
+
                 <ul>
                     {% for category in site.categories %}
                         {% if category[0] == "Git" %}
@@ -123,7 +152,7 @@
                         {% endif %}
                     {% endfor %}
                 </ul>
-
+            <!-- ======================================================================================================================== -->
             <span class="nav__sub-title">Operating System</span>
                 <ul>
                     {% for category in site.categories %}
@@ -132,7 +161,7 @@
                         {% endif %}
                     {% endfor %}
                 </ul>
-
+            <!-- ======================================================================================================================== -->
             <span class="nav__sub-title">ETC</span>
                 <ul>
                     {% for category in site.categories %}
@@ -141,7 +170,7 @@
                         {% endif %}
                     {% endfor %}
                 </ul>
-            
+            <!-- ======================================================================================================================== -->
             <span class="nav__sub-title">Math</span>
                 <ul>
                     {% for category in site.categories %}
