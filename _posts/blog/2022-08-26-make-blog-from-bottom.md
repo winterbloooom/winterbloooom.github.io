@@ -9,7 +9,7 @@ tags:
   - 
 
 last_modified_at: 2022-08-26
-published: true # 비공개 포스트
+published: false # 비공개 포스트
 
 header:
   teaser: # 사진 파일 경로
@@ -312,7 +312,7 @@ templating 언어로 템플릿을 처리함. [공식 docs](https://shopify.githu
 ## component2: Tags
 ### 기본 사용법
 * 템플릿의 논리/제어를 정의함
-* `{%`, `%}` 사이에 선언
+* `{% %}` 사이에 선언
 
 ```yaml
 # page 변수인 `show_sidebar`의 값이 true일 때 실행
