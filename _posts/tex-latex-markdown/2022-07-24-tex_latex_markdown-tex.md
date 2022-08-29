@@ -46,6 +46,8 @@ published: false
 `operatorname{lcm}`
 `operatorname{d}`
 
+$\ell$ `ell`
+
 ## 첨자
 
 |||||

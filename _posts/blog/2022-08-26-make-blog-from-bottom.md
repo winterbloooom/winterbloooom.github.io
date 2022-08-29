@@ -1,5 +1,5 @@
 ---
-title:  ""
+title:  "깃허브 블로그 바닥부터 만들기"
 excerpt: ""
 
 categories:
@@ -9,11 +9,12 @@ tags:
   - 
 
 last_modified_at: 2022-08-26
-published: false # 비공개 포스트
+published: true # 비공개 포스트
 
 header:
   teaser: # 사진 파일 경로
 
+render_with_liquid: false
 ---
 
 # 참고 사이트
@@ -108,10 +109,10 @@ remote_theme: benbalter/retlab # 그외 지킬 테마라면
 ├── _drafts [비공개 포스트. 날짜값 없이 제목 붙임(`title.md`)]
 │   ├── begin-with-the-crazy-ideas.md
 │   └── on-simplicity-in-technology.md
-├── _includes [layout이나 posts에 재사용될 수 있는 부분적 것들. Liquid tag인 {% highlight ruby %}{% raw %}  {% include file.ext %}  {% endraw %}{% endhighlight %}를 사용해 _include/file.ext에 있는 내용을 불러올 수 있음]
+├── _includes [layout이나 posts에 재사용될 수 있는 부분적 것들. Liquid tag인 `{% include file.ext %}`를 사용해 _include/file.ext에 있는 내용을 불러올 수 있음]
 │   ├── footer.html
 │   └── header.html
-├── _layouts [포스트 레이아웃. front matter에서 어떤 걸 쓸 지 지정 가능. Liquid {% highlight ruby %}{% raw %}{{ content }} {% endraw %}{% endhighlight %}태그로 페이지의 내용을 넣을 수 있음]
+├── _layouts [포스트 레이아웃. front matter에서 어떤 걸 쓸 지 지정 가능. Liquid `{{ content }}` 태그로 페이지의 내용을 넣을 수 있음]
 │   ├── default.html
 │   └── post.html
 ├── _posts [연-월-일-제목.md 순으로 꼭 제목 지어야 함. 포스트들을 모아놓음.]
@@ -234,13 +235,6 @@ kramdown:
   show_warnings     : false
 ```
 
-## YAML front matter
-
-> [지킬 docs](https://jekyllrb.com/docs/front-matter/)
-
-md나 html 파일 맨 위 `---`로 구분되는 곳. YAML 문법을 따름.
-페이지나 포스트의 변수나 메타데이터(제목, 레이아웃 등)를 설정.
-
 ## post vs page
 page는 개별적인 콘텐츠로, 특정 날짜를 명시하지 않아도 됨(ex. About 페이지)
 post는 글 하나하나.
@@ -304,10 +298,135 @@ _config.yml (기본 사이트 설정)
 # Liquid
 templating 언어로 템플릿을 처리함. [공식 docs](https://shopify.github.io/liquid/)
 
-* `{{ 변수 }}` 형식으로 특정 값을 나타냄.
-* 논리 연산은 {% highlight ruby %}{% raw %}  {% if statements %}  {% endraw %}{% endhighlight %}로
+주 요소 세 가지는 object, tags, filters.
 
-[더 읽어야 함](https://jekyllrb.com/docs/liquid/)
+## component1: Objects
+* `{{`, `}}` 사이에 object를 나타냄
+* 미리 정의된 변수를 출력하게 함.
+
+```yaml
+# `page.title` 변수를 출력함
+{{ page.title }}
+```
+
+## component2: Tags
+### 기본 사용법
+* 템플릿의 논리/제어를 정의함
+* `{%`, `%}` 사이에 선언
+
+```yaml
+# page 변수인 `show_sidebar`의 값이 true일 때 실행
+{{ if page.show_sidebar }}
+  # do something
+{{ endif }}
+```
+
+### include 태그
+* `_include` 폴더에 있는 다른 파일로부터 컨텐츠를 불러오게 함. (e.g. `{% include footer.html %}`은 `_include/footer.html` 파일의 내용을 쓸 수 있게 함 )
+* 특정 경로/파일 이름을 담고 있는 변수도 사용할 수 있음. (e.g. `{% include {{ page.my_file_path }} %}`는 특정 페이지의 front matter에 정의된 `my_file_path` 변수 안에 든 파일 경로를 참조함)
+* `include_relative` 태그는 꼭 `_include` 폴더가 아닌 어딘가의 파일도 불러올 수 있게 함. 대신 `../`으로 상위 폴더 접근은 안됨. (e.g. `{% include_relative _posts/2020-02-02-myPost.md %}`)
+
+https://jekyllrb.com/docs/includes/#passing-parameters-to-includes
+
+### highlight 태그
+* 코드 스니펫(syntax highlighting)을 하는 태그. 
+* 표현하고자 하는 코드를 아래와 같이 감싸면 됨. [Rouge에서 지원하는 언어 목록](https://github.com/rouge-ruby/rouge/wiki/List-of-supported-languages-and-lexers)
+
+  ```
+  {% highlight python %}
+  def my_func():
+    return 0
+  {% endhighlight %}
+  ```
+
+* 줄 번호를 표기하고 싶다면 `{% highlight 언어 linenos %}`
+* 특정 stylesheets를 이용하고 싶다면 `main.css`에서 스타일시트 css 파일을 불러와 사용함 (e.g. `@import "native.css"`) 👈 [예시 파일](https://jwarby.github.io/jekyll-pygments-themes/languages/ruby.html)
+
+### raw 태그
+중괄호를 이용하는 언어라면 `{% raw %}`와 `{% endraw %}`로 코드를 감싸거나, front matter에 `render_with_liquid: false`를 사용해 문서 전체에서 비활성화할 수 있음.
+
+### link 태그
+특정 포스트나 페이지, 파일 등으로 연결할 때 사용하며, `link` 태그는 permalink URL을 만들어 연결해줌. 해당 파일의 permalink가 바뀌어도 `link`가 알아서 연결함.
+
+filter를 `link` 태그에 사용할 수 없음에 주의.
+
+```yaml
+# 특정 파일로 연결
+{% link _posts/2016-07-26-name-of-post.md %}
+# md에서 사용하기
+[Link to a post]({% link _posts/2016-07-26-name-of-post.md %})
+```
+
+포스트로 링크하고 싶다면 `post_url` 태그도 존재함.
+
+```yaml
+# 특정 파일로 연결
+{% post_url /subdir/2010-07-21-name-of-post %}
+# md에서 사용하기
+[Name of Link]({% post_url 2010-07-21-name-of-post %})
+```
+
+## component3: Filters
+`|` 기호 뒤에 붙어 Liquid 객체의 출력을 변환함. 자세한 목록은 [docs](https://jekyllrb.com/docs/liquid/filters/) 참고
+
+```yaml
+# hi의 첫 글자를 대문자로 바꾸어 Hi로 출력
+{{ "hi" | capitalize }}
+```
+
+- - -
+
+# Front Matter
+`---` 사이에 둘러싸인 YAML의 스니펫을 말함. 
+
+이 안에 변수를 정의하면 `page` 변수에서 접근이 가능함
+```yml
+# md file
+---
+my_number: 5
+---
+
+# other location
+{{ page.my_number }}
+```
+
+> [지킬 docs](https://jekyllrb.com/docs/front-matter/)
+
+- - -
+
+# Layouts
+
+`_layouts` 폴더에 저장되어 페이지에 적용할 템플릿을 만듦.
+
+레이아웃 만들기: `_layouts/defualt.html`
+
+```html
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>{{ page.title }}</title>
+  </head>
+  <body>
+    {{ content }}
+  </body>
+</html>
+```
+
+레아아웃 사용하기
+
+```yml
+---
+layout: default #layout 변수에 html 파일 이름 넣기
+title: Home
+---
+```
+
+- - -
+
+# includes
+
+https://jekyllrb.com/docs/step-by-step/05-includes/
 
 - - -
 
@@ -363,5 +482,6 @@ front matter가 있는 파일이라면 다 순회 가능. Liquid 통해 다양�
 
 > ProTip™: Use Custom Front Matter
 Any custom front matter that you specify will be available under `page`. For example, if you specify `custom_css: true` in a page’s front matter, that value will be available as `page.custom_css`.
-
 If you specify front matter in a layout, access that via `layout`. For example, if you specify `class: full_page` in a layout’s front matter, that value will be available as `layout.class` in the layout and its parents.
+
+[지킬 튜토리얼 setup 부분](https://jekyllrb.com/docs/step-by-step/01-setup/)
