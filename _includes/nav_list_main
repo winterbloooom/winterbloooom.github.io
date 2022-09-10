@@ -153,6 +153,15 @@
                     {% endfor %}
                 </ul>
             <!-- ======================================================================================================================== -->
+            <span class="nav__sub-title">DevOps</span>
+                <ul>
+                    {% for category in site.categories %}
+                        {% if category[0] == "Docker" %}
+                            <li><a href="/categories/docker" class="">Docker ({{category[1].size}})</a></li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            <!-- ======================================================================================================================== -->
             <span class="nav__sub-title">Operating System</span>
                 <ul>
                     {% for category in site.categories %}
