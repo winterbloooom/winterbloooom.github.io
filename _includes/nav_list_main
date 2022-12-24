@@ -170,6 +170,15 @@
                         {% endif %}
                     {% endfor %}
                 </ul>
+            <!-- ======================================================================================================================== -->
+            <span class="nav__sub-title">Math</span>
+                <ul>
+                    {% for category in site.categories %}
+                        {% if category[0] == "Math" %}
+                            <li><a href="/categories/os" class="">Math ({{category[1].size}})</a></li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
         </li>
     </ul>
 </nav>
