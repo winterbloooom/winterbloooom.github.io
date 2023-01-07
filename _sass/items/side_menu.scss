@@ -1,0 +1,257 @@
+#sidebar {
+	box-sizing: border-box;
+	position: fixed; // sticy하면 본문이 그만큼 옆으로 퍼짐
+	height: 100vh;
+	background-color: white;
+	width: $sidebar-width;
+	
+	margin: 0;
+	
+	overflow-y: auto;
+	z-index: 5;
+	top: 43px;
+	bottom: 0;
+	left: -$sidebar-width;
+	border-right: 1px solid transparent;
+	transition: all .3s cubic-bezier(.215,.61,.355,1);
+	transform: translate3d(0,0,0);
+
+	a {
+		text-decoration: none;
+		color: black;
+	}
+}
+
+#sidebar::-webkit-scrollbar{
+	display:none; // 스크롤바 없애기
+}
+
+.sidebar-header {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	border-bottom: 1px solid $grey;
+	padding-bottom: 30px;
+
+	.header-background {
+		position: relative;
+		width: 100%;
+		height: 150px;
+		background-color: $main_color;
+	}
+
+	.profile-img {
+		position: relative;
+		top: -50px;
+		z-index: 10;
+		width: 100px;
+		height: 100px;
+		border-radius: 50%;
+
+	}
+
+	.name-wrap {
+		margin-bottom: 20px;
+
+		span {
+			display: block;
+			text-align: center;
+		}
+		.usrname {
+			font-size: 20px;
+			font-weight: 500;
+			color: $dark-grey2;
+		}
+		.name {
+			font-size: 16px;
+			font-weight: 400;
+			color: $dark-grey;
+		}
+	}
+
+	// .contact-list {
+	// 	transform: translateY(-50%);
+	// 	text-align: center;
+
+	// 	.contact {
+	// 		display: inline-block;
+	// 		width: 90px;
+	// 		height: 90px;
+	// 		margin: 20px;
+	// 		border-radius: 50%;
+	// 		box-shadow: 0 2px 18px rgba(0, 0, 0, 0.115);
+	// 		color: $main_color;
+	// 		overflow: hidden;
+	// 	}
+
+	// 	.contact i {
+	// 		line-height: 90px;
+	// 		font-size: 30px;
+	// 		transition: 0.2s linear;
+	// 	}
+
+	// 	.contact:hover {
+	// 		transform: scale(1.2);
+	// 		color: #f1f1f1;
+	// 	}
+
+	// 	.contact::before {
+	// 		content: "";
+	// 		width: 120%;
+	// 		height: 120%;
+	// 		background-color: #7868e6;
+	// 		transform: rotate(45deg);
+	// 		left: -110%;
+	// 		top: 90%;
+	// 	}
+
+	// 	.contact:hover::before {
+	// 		animation: aaa 0.7s 1;
+	// 		top: -10%;
+	// 		left: -10%;
+	// 	}
+
+	// 	@keyframes aaa {
+	// 		0% {
+	// 			left: -110%;
+	// 			top: 90%;
+	// 		}
+	// 		50% {
+	// 			left: 10%;
+	// 			top: -30%;
+	// 		}
+	// 		100% {
+	// 			left: -10%;
+	// 			top: -10%;
+	// 		}
+	// 	}
+	// }
+
+	.contact-list {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+		gap: 20px;
+
+		.contact {
+			width: 50px;
+			height: 50px;
+			border-radius: 50%;
+			border: 1px solid $grey;
+			text-align: center;
+
+			i {
+				line-height: 50px;
+				font-size: 24px;
+			}
+		}
+	}
+
+	.contact:hover {
+		background-color: $main_color;
+		border: 1px solid transparent;
+
+		i {
+			color: white;
+		}
+	}
+}
+
+.sidebar-content {
+	padding: 30px 0 30px 15px;
+	font-size: 0.9rem;
+}
+
+#sidebar.open {
+	left: 0;
+	border-color: #c2c2c2;
+	transition: all .2s cubic-bezier(.215,.61,.355,1);
+}
+
+.lv1-categories,
+.lv2-categories {
+	list-style: none;
+}
+
+.lv1-category {
+	.lv1-title-wrap {
+		height: 46px;
+		padding: 8px;
+		border-bottom: 1px solid $grey;
+
+		.lv1-title {
+			display: flex;
+			flex-direction: row;
+			line-height: 30px;
+			border-radius: 5px;
+			padding: 0 20px;
+
+			&:hover {
+				background-color: $light_blue;
+			}
+
+			.lv1-title-link {
+				flex: 1;
+			}
+
+			.expand-btn {
+				outline: none;
+				background-color: transparent;
+				border: 0;
+				cursor: pointer;
+				height: 30px;
+				width: 30px;
+				transition: 0.2s;
+
+				svg {
+					height: 10px;
+					width: 10px;
+				}
+			}
+		}
+
+		
+	}
+}
+
+.lv2-categories {
+	display: none;
+	
+}
+
+.lv2-categories.expand {
+	display: block;
+	// transition: 0.5s; // TODO 부드럽게 열리기
+}
+
+.lv2-category {
+	padding-left: 20px; // 소분류 들여쓰기
+
+	.lv2-title-wrap {
+		height: 46px;
+		padding: 8px;
+		border-bottom: 1px solid $grey;
+
+		.lv2-title {
+			display: flex;
+			flex-direction: row;
+			line-height: 30px;
+			border-radius: 5px;
+			padding: 0 20px;
+
+			&:hover {
+				background-color: $light_blue;
+			}
+
+			.lv2-title-link {
+				flex: 1;
+			}
+		}
+	}
+	
+}
+
+button.expand {
+	transform: rotate(180deg);
+}

@@ -1,0 +1,41 @@
+<div id="list-element-hor3" class="list-element">
+    <a href="{{ post.url }}" class="list-element-url" style="text-decoration: none; color: black">
+    
+        <!-- teaser image -->
+        <div class="list-element-teaser">
+            {% if page.teaser %}
+                <img src="{{ post.teaser }}" alt="{{ post.title }}">
+            {% else %}
+                <div class="empty-teaser"></div>
+            {% endif %}
+        </div>
+
+        <!-- text -->
+        <div class="list-element-text">
+
+            <!-- category -->
+            <div class="list-element-category">
+                {% assign path = post.path | split: '/' %}
+                {% assign lv1 = path[1] %}
+                {% assign lv2 = path[2] %}
+
+                <div class="breadcrumb-category">{{ lv1 }}</div>
+                <span class="breadcrumb-slash">/</span>
+                <div class="breadcrumb-category">{{ lv2 }}</div>
+            </div><!-- category -->
+
+            <!-- title -->
+            <div class="list-element-title">{{ post.title }}</div>
+
+            <!-- date -->
+            <div class="list-element-date">{{ post.date | date: "%Y. %m. %d" }}</div>
+
+            <!-- description -->
+            <div class="list-element-excerpt">{{ post.excerpt | default: "" }}</div>
+
+        </div>
+
+    </a>
+</div>
+    
+    

@@ -1,0 +1,25 @@
+#post-content,
+#home-content,
+#archive-content {
+    $pad: (($inner-width - $content-width) / 2);
+    display: grid;
+    grid-template-columns: 1fr $pad $content-width $pad 1fr;
+}
+
+.content-wrap {
+    grid-column: 3 / 4;
+    padding: 50px 0;
+}
+
+#post-content img {
+    max-width: $content-width;
+    width: 10;
+    height: auto;
+    padding: 1em 0;
+}
+
+@media screen and (max-width:$max_width) {
+    .content-wrap {
+        width: 100%;
+    }
+}

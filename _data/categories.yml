@@ -1,0 +1,55 @@
+categories:
+  - lv1_category: "Robotics"
+    url: /category/robotics/
+    icon: fa-solid fa-car-side
+    lv2: 
+        - lv2_category: "Autonomous Vehicle"
+          url: /category/robotics/autonomous_vehicle
+        - lv2_category: "Perception"
+          url: /category/robotics/perception
+        - lv2_category: "ROS"
+          url: /category/robotics/ros
+        - lv2_category: "Control & Engineering"
+          url: /category/robotics/control_and_engineering
+  - lv1_category: "AI"
+    url: /category/ai/
+    icon: fa-solid fa-brain
+    lv2:
+        - lv2_category: "Computer Vision"
+          url: /category/ai/computer_vision
+        - lv2_category: "Deep Learning"
+          url: /category/ai/deep_learning
+        - lv2_category: "Machine Learning"
+          url: /category/ai/machine_learning
+  - lv1_category: "Programming"
+    url: /category/programming/
+    icon: fa-regular fa-keyboard
+    lv2:
+        - lv2_category: "Python"
+          url: /category/programming/python
+        - lv2_category: "C++"
+          url: /category/programming/cpp
+        - lv2_category: "JavaScript"
+          url: /category/programming/javascript
+        - lv2_category: "Others"
+          url: /category/programming/others
+  - lv1_category: "Dev"
+    url: /category/dev/
+    icon: fa-solid fa-laptop
+    lv2:
+        - lv2_category: "Git"
+          url: /category/dev/git
+        - lv2_category: "Docker"
+          url: /category/dev/docker
+  - lv1_category: "OS"
+    url: /category/os
+    icon: fa-brands fa-ubuntu
+    lv2:
+        - lv2_category: "Linux"
+          url: /category/
+  - lv1_category: "Math"
+    url: /category/math/
+    icon: fa-solid fa-square-root-variable
+    lv2:
+        - lv2_category: "Linear Algebra"
+          url: /category/

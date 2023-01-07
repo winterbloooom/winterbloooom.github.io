@@ -1,22 +1,79 @@
-{% if page.author_profile or layout.author_profile or page.sidebar %}
-  <div class="sidebar sticky">
-  {% if page.author_profile or layout.author_profile %}{% include author-profile.html %}{% endif %}
-  {% if page.sidebar %}
-    {% for s in page.sidebar %}
-      {% if s.image %}
-        <img src="{{ s.image | relative_url }}" alt="{% if s.image_alt %}{{ s.image_alt }}{% endif %}">
-      {% endif %}
-      {% if s.title %}<h3>{{ s.title }}</h3>{% endif %}
-      {% if s.text %}{{ s.text | markdownify }}{% endif %}
-      {% if s.nav %}{% include nav_list nav=s.nav %}{% endif %}
-    {% endfor %}
+{%comment%}
+<!-- 
+    다른 곳 클릭 시 빠져나가기
+    https://thinkforthink.tistory.com/286
 
-    {% if page.sidebar.nav %}{% include nav_list nav=page.sidebar.nav %}{% endif %}
-  {% endif %}
+    토글
+    https://comizle.tistory.com/35
+    https://homnay.tistory.com/16
+ -->
+{%endcomment%}
 
-  {% if page.sidebar_main %}
-    {% include nav_list_main %}
-  {% endif %}
+<div id="sidebar">
+    <div class="sidebar-header">
+        <div class="header-background"></div>
+        <img src="/assets/images/profile.PNG" class="profile-img" />
+        <div class="name-wrap">
+            <span class="usrname">winterbloooom</span>
+            <span class="name">한은기</span>
+        </div>
+        <div class="contact-list">
+            <a class="contact" href="https://github.com/winterbloooom" >
+                <i class="fa-brands fa-github"></i>
+            </a>
+            <a class="contact" href="mailto:winterbloooom@gmail.com">
+                <i class="fa fa-envelope-o"></i>
+            </a>
+            <a class="contact" href="https://www.instagram.com/winterbloooom/">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
 
-  </div>
-{% endif %}
+        </div>
+    </div>
+
+    <div class="sidebar-content">
+        <ul class="lv1-categories">
+            {% assign categories = site.data.categories.categories %}
+            {% for lv1 in categories %}
+                <li class="lv1-category">
+                    <div class="lv1-title-wrap">
+                        <div class="lv1-title">
+                            <a href="{{ lv1.url | relative_url }}" class="lv1-title-link">{{ lv1.lv1_category }}</a>
+                            <button class="expand-btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <ul class="lv2-categories">
+                        {% for lv2 in lv1.lv2 %}
+                            <li class="lv2-category">
+                                <div class="lv2-title-wrap">
+                                    <div class="lv2-title">
+                                        <a href="{{ lv2.url | relative_url }}" class="lv2-title-link">{{ lv2.lv2_category }}</a>
+                                    </div>
+                                </div>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+
+<script>
+    // sidebar open/close
+    var sidebar = document.querySelectorAll('.expand-btn');
+
+    // sub-category show
+    var treeNodes = document.querySelectorAll('.expand-btn');
+    treeNodes.forEach(t => t.addEventListener('click', function (e) {
+        var lv2 = e.currentTarget.parentElement.parentElement.nextElementSibling;
+        lv2.classList.toggle('expand');
+        var lv1 = e.currentTarget;
+        console.log(lv1);
+        lv1.classList.toggle('expand');
+        
+    }));
+</script>

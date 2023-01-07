@@ -1,0 +1,93 @@
+<div id="topbar">
+
+    {% comment %}
+    <!-- breadcrumb -->
+    <div class="breadcrumb">
+        <!-- lv1 -->
+        {% assign path = page.path | split: '/' %}
+        {% assign lv1 = path[1] %}
+        {% assign lv2 = path[2] %}
+
+        <div class="breadcrumb-category">{{ lv1 }}</div>
+        <span class="breadcrumb-slash">/</span>
+        <div class="breadcrumb-category">{{ lv2 }}</div>
+        <span class="breadcrumb-slash">/</span>
+        <div class="breadcrumb-title">{{ page.title }}</div> 
+       
+    </div>
+    {% endcomment %}
+
+    <div class="topbar-main">
+
+        <!-- sidebar btn -->
+        <div class="sidebar-btn" onclick="openSidebar(this)">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+        </div>
+
+        <!-- home btn -->
+        <span class="material-symbols-outlined">
+            <a href="/">home</a>
+        </span>
+
+        <!-- title -->
+        <div class="page-title">
+            {{ page.title }}
+        </div>
+
+        <!-- light/dark mode switch -->
+        <button class="light-toggle" onclick="lightToggle(this)">
+            <span class="material-symbols-outlined light-mode">
+                light_mode
+            </span>
+            <span class="material-symbols-outlined dark-mode">
+                dark_mode
+            </span>
+        </button>
+
+        <!-- search btn -->
+        <span class="material-symbols-outlined">
+            search
+        </span>
+    </div>
+    
+    <!-- progress indicator -->
+    <div class="progress-bar-wrap">
+        <div class="progress-bar" id="indicator"></div>
+    </div>
+
+</div>
+
+<script>
+    function openSidebar(x) {
+        x.classList.toggle('open');
+        var sidebar = document.getElementById('sidebar');
+        sidebar.classList.toggle('open');
+    }
+
+    function lightToggle(x) {
+        x.classList.toggle('dark');
+    }
+
+    window.onscroll = function() {
+        createProgressBar()
+        // showBreadcrumb()
+    };
+    function createProgressBar() {
+        var winScroll = document.body.scrollTop || document.documentElement.scrollTop; // 현재 스크롤 높이
+        var height = document.documentElement.scrollHeight - document.documentElement.clientHeight; //실제 높이
+        var scrolled = (winScroll / height) * 100;
+        document.getElementById("indicator").style.width = scrolled + "%";
+    }
+    function showBreadcrumb() {
+        var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        if (winScroll < 40) {
+            console.log(winScroll);
+            document.getElementById('topbar').style.top = "-40px";
+        }
+        else {
+            document.getElementById('topbar').style.top = "0";
+        }
+    }
+</script>

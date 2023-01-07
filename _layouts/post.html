@@ -1,0 +1,46 @@
+---
+layout: default
+---
+
+<div id="layout-post">
+
+    <!-- Post title -->
+    <div id="post-title">
+
+        <div class="title-container">
+            
+            <!-- title-wrap -->
+            <div class="title-wrap">
+                
+                <!-- title-text -->
+                <div class="title-text">{{ page.title }}</div>
+    
+                <!-- date -->
+                <div class="title-date">{{ page.date | date: "%Y. %m. %d" }}</div>
+                    
+                <!-- tag-wrap -->
+                <div class="title-tag-wrap">
+                    {% for tag in page.tags %}
+                        <div class="tag-single">{{ tag }}</div>
+                    {% endfor %}
+                </div> <!-- Tag-wrap end -->
+    
+            </div> <!-- title-wrap -->
+        </div>
+    </div>
+
+    <!-- 본문 -->
+    <div id="post-content">
+        <div class="content-wrap">
+            {{ content }}
+        </div>
+    </div>
+
+    <!-- 목차 -->
+    {% if page.toc %}
+        <div id="toc">
+            {% include toc.html html=content sanitize=true h_min=1 h_max=2 %}
+        </div>
+    {% endif %}
+
+</div>

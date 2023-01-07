@@ -1,0 +1,97 @@
+@charset "utf-8";
+
+// color theme
+$flicker_pink: #f72585;
+$byzantine: #b5179e;
+$purple1: #7209b7;
+$purple2: #560bad;
+$trypan_blue1: #480ca8;
+$trypan_blue2: #3a0ca3;
+$persian_blue: #3f37c9;
+$ultramarine_blue: #4361ee;
+$dodger_blue: #4895ef; //rgb(72, 149, 239);
+$vivid_sky_blue: #4cc9f0;
+$purple_grey: #E3E2F7;
+$purple_white: #F1F1FB;
+$light-grey: #FAFBFB;
+$grey: #E8ECEF;
+$dark-grey: #52585e;
+$dark-grey2: #2D333B;
+$black: #22272D;
+
+$main_color: $dodger_blue;
+
+$link-color: $byzantine;
+$link-color-visited: $flicker_pink;
+$link-background-hover: $dodger_blue;
+
+$code-background: $purple_white;
+
+$border: $purple_grey;
+
+$light_blue: rgba(72, 149, 239, 0.1);
+
+// font
+$code_font: monospace, Consolas;
+$text-size-default: 17px;
+$h1-size-default: 30px;
+$h2-size-default: 25px;
+$h3-size-default: 20px;
+
+// size
+$max_width: 1024px; // for media query
+$inner-width: 980px;
+$content-width: 860px;
+$sidebar-width: 300px;
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: white;
+}
+
+.scroll-btn {
+    position: fixed; 
+    right: 15px; 
+    z-index: 99999999;
+    // border: 0.5px solid $dark-grey;
+    border-radius: 50%;
+    background-color: $grey;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &.go-top {
+        bottom: 60px; 
+    }
+
+    &.go-bottom {
+        bottom: 20px;
+    }
+
+    span {
+        color: $dark-grey;
+    }
+}
+
+// import
+@import "_text_style";
+
+@import "layout_styles/layout_home";
+@import "layout_styles/layout_post";
+@import "layout_styles/layout_page";
+
+@import "items/content";
+@import "items/footer";
+@import "items/list";
+@import "items/title";
+@import "items/toc";
+@import "items/topbar";
+@import "items/side_menu";
+@import "items/scroll-to-top";

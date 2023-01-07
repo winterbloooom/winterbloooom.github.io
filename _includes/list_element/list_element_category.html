@@ -1,0 +1,31 @@
+{% comment %}
+<div id="list-element-category" class="list-element">
+    <a href="" class="list-element-url" style="text-decoration: none; color: black">
+        
+        <div class="list-element-teaser">
+            {% if page.teaser %}
+                <img src="{{ post.teaser }}" alt="{{ post.title }}">
+            {% else %}
+                <div class="empty-teaser"></div>
+            {% endif %}
+        </div>
+
+        <div class="list-element-text">
+            <div class="list-element-title">{{ include.title }}</div>
+        </div>
+
+    </a>
+</div>
+{% endcomment %}
+
+<div id="list-element-category" class="list-element">
+    <a href="{{ include.url | relative_url }}" class="list-element-url" style="text-decoration: none; color: black">
+        <div class="category-icon">
+            <i class="{{ include.icon }}"></i>
+        </div>
+        
+        <div class="list-element-text">
+            <div class="list-element-title">{{ include.title }}</div>
+        </div>
+    </a>
+</div>

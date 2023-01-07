@@ -1,0 +1,188 @@
+#post-title {
+    display: flex;
+    justify-content: center;
+
+    .title-container {
+        width: $inner-width;
+        border-bottom: 1.5px solid $grey;
+        height: 300px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .title-wrap {
+        width: $content-width;
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+        padding-bottom: 40px;
+    }
+
+    .title-text {
+        font-size: 32px;
+        font-weight: 500;
+        margin-bottom: 20px;
+    }
+
+    .title-date {
+        font-size: 15px;
+        font-weight: 300;
+        margin-bottom: 10px;
+        color: $dark-grey;
+        font-weight: 400;
+    }
+
+    .title-tag-wrap {
+        display: flex;
+        flex-direction: row;
+        gap: 5px;
+        flex-wrap: wrap;
+    }
+
+    .tag-single {
+        border-bottom: 2px solid $main_color;
+        font-size: 14px;
+        font-weight: 300;
+    }
+
+    @media screen and (max-width:$max_width) {
+        .title-fit {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+    
+        .title-fit > div {
+            padding: 0px 10px;
+        }
+    
+        .title-description {
+            margin-bottom: 20px;
+        }
+    
+        .title-date-wrap,
+        .title-tag-wrap {
+            display: flex;
+            flex-direction: row;
+            padding: 0;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+        
+        .title-date,
+        .title-tag {
+            margin-right: 20px;
+            margin-bottom: 0;
+        }
+    }
+}
+
+#home-title {
+    .title-wrap{
+        display: grid;
+        grid-template-rows: 1fr 3fr 1.5fr 1fr;
+        align-items: center;
+        background: linear-gradient(79deg, rgba(72,149,239,1) 0%, rgba(86,11,173,1) 100%);
+        height: calc(100vh - 134px);
+
+        .title-text {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            grid-row: 2 / 3;
+            color: white;
+            font-size: 40px;
+            font-weight: 600;
+        }
+
+        .contact-list {
+            grid-row: 3 / 4;
+            display: flex;
+            justify-content: center;
+            gap: 90px;
+
+            .contact {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 18px;
+                width: 150px;
+                height: 50px;
+                border: 0.5px solid white;
+                border-radius: 30px;
+                padding: 7px 15px;
+
+                .contact-icon {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 40px;
+                    height: 40px;
+                    // border: 1px solid $main_color;
+                    // border-radius: 50%;
+
+                    i, span {
+                        color: white;
+                        font-size: 30px;
+                    }
+                }
+
+                .contact-title {
+                    display: flex;
+                    justify-content: center;
+                    color: white;
+                }
+            }
+
+            .contact:hover {
+                // TODO 예쁜 애니메이션 넣기
+                
+                background-color: white;
+
+                .contact-icon {
+                    i, span {
+                        color: $persian_blue;
+                    }
+                }
+
+                .contact-title {
+                    color: $persian_blue;
+                }
+            }
+        }
+    }
+
+    .scroll-down {
+        height: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: $dark-grey;
+        font-size: 50px;
+    }
+    
+}
+
+#archive-title {
+    display: flex;
+    justify-content: center;
+    background: linear-gradient(79deg, rgba(72,149,239,1) 0%, rgba(86,11,173,1) 100%);
+
+    .title-container {
+        width: $inner-width;
+        height: 300px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .title-wrap {
+        width: $content-width;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-size: 40px;
+        font-weight: 600;
+    }
+}

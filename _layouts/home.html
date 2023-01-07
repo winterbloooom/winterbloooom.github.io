@@ -1,22 +1,126 @@
 ---
-layout: archive
+layout: default
 ---
 
-{{ content }}
+<div id="layout-home">
 
-<h3 class="archive__subtitle">{{ site.data.ui-text[site.locale].recent_posts | default: "Recent Posts" }}</h3>
+    <!-- 제목 -->
+    <div id="home-title">
+        <div class="title-wrap">
+            <div class="title-text">
+                Welcome!
+            </div>
+    
+            <div class="contact-list">
+                <a class="contact" href="https://github.com/winterbloooom" >
+                    <div class="contact-icon">
+                        <i class="fa-brands fa-github"></i>
+                    </div>
+                    <div class="contact-title">GitHub</div>
+                </a>
+    
+                <a class="contact" href="mailto:winterbloooom@gmail.com">
+                    <div class="contact-icon">
+                        <i class="fa fa-envelope-o"></i>
+                    </div>
+                    <div class="contact-title">e-mail</div>
+                </a>
+    
+                <a class="contact" href="https://www.instagram.com/winterbloooom/">
+                    <div class="contact-icon">
+                        <i class="fa-brands fa-instagram"></i>
+                    </div>
+                    <div class="contact-title">Instagram</div>
+                </a>
+            </div>
+        </div>
 
-{% if paginator %}
-  {% assign posts = paginator.posts %}
-{% else %}
-  {% assign posts = site.posts %}
-{% endif %}
+        <!-- scroll down icon -->
+        <span class="material-symbols-outlined scroll-down">
+            keyboard_double_arrow_down
+        </span>
+        
+    </div>
 
-{% assign entries_layout = page.entries_layout | default: 'list' %}
-<div class="entries-{{ entries_layout }}">
-  {% for post in posts %}
-    {% include archive-single.html type=entries_layout %}
-  {% endfor %}
+    <!-- 본문 -->
+    <div id="home-content">
+
+        <!-- content-wrap -->
+        <div class="content-wrap">
+    
+            <!-- recent posts -->
+            <div id="list-basic">
+                <div class="list-title-wrap">
+                    <div class="list-title">Recent Posts</div>
+                    <div class="line"></div>
+                </div>
+
+                <div class="list-elements" id="list-mix1">
+                    {% for post in site.posts limit : 3 %} 
+                        {% if forloop.first %}
+                            {% include /list_element/list_element_ver1.html %}
+                        {% else %}
+                            {% include /list_element/list_element_hor1.html %}
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+    
+            <!-- categories -->
+            <div id="list-basic">
+                <div class="list-title-wrap">
+                    <div class="list-title">Categories</div>
+                    <div class="line"></div>
+                </div>
+
+                <div class="list-elements" id="list-categories">
+                    {% assign categories = site.data.categories.categories %}
+                    {% for lv1 in categories %}
+                        {% assign category = lv1.lv1_category %}
+                        {% assign category_url = lv1.url %}
+                        {% assign icon_cls = lv1.icon %}
+                        {% include /list_element/list_element_category.html title=category url=category_url icon=icon_cls%}
+                    {% endfor %}
+                </div>
+            </div>
+    
+            <!-- featured posts -->
+            <div id="list-basic">
+                <div class="list-title-wrap">
+                    <div class="list-title">Featured Posts</div>
+                    <div class="line"></div>
+                </div>
+                <div class="list-elements" id="list-hor2">
+                    {% for post in site.posts %} 
+                        {% if post.feature == true %}
+                            {% include /list_element/list_element_hor2.html %}
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+    
+            <!-- category1 -->
+            <div id="list-basic">
+                <div class="list-title-wrap">
+                    <div class="list-title">AI</div>
+                    <div class="line"></div>
+                </div>
+
+                <div class="list-elements" id="list-mix2">
+                    {% assign posts = site.categories.AI %}
+                    {% for post in posts limit : 3 %} 
+                        {% if forloop.first %}
+                            {% include /list_element/list_element_hor3.html %}
+                        {% else %}
+                            {% include /list_element/list_element_hor4.html %}
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+    
+        </div> <!-- content-wrap -->
+    
+    </div>
+
+    
 </div>
-
-{% include paginator.html %}

@@ -1,0 +1,19 @@
+#toc {
+    height: auto !important;
+    margin-left: 20px;
+    margin-top: 20px; // TODO 나중엔 마진 말고 딴 걸로 높이 조절할 수 있는지 보기
+    clear: both; // 정체??
+
+    grid-column: 5 / 6;
+    align-self: start; // 이거 있어야 sticky 작동함
+    position: sticky;
+    top: 100px;
+    
+    font-size: 12px;
+}
+
+@media screen and (max-width:1340px) {
+    #toc {
+        display: none;
+    }
+}

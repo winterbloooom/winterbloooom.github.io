@@ -1,0 +1,97 @@
+// plain text
+::selection {
+    background-color: $main_color;
+    color: $purple_white;
+}
+
+// header
+
+h1,
+h2,
+h3 {
+    font-weight: bold;
+}
+
+h1 {
+    padding: 40px 0px 15px 0px; /* top right bottom left */
+    font-size: $h1-size-default;
+}
+
+h2 {
+    padding: 20px 0px 15px 0px; /* top right bottom left */
+    font-size: $h2-size-default;
+}
+
+h3 {
+    padding: 10px 0px 15px 0px; /* top right bottom left */
+    font-size: $h3-size-default;
+}
+
+// paragraph
+
+p {
+    font-size: $text-size-default;
+    line-height: 1.8em;
+    margin-bottom: 1.2em;
+}
+
+// list
+
+#post-content ul {
+    padding-left: 25px;
+    margin-bottom: 1.2em;
+    // TODO 임의로 집어 넣었는데 나중에 고치기
+}
+
+#post-content {
+    ul li,
+    ol li,
+    li ul,
+    li ol {
+        margin-bottom: 0.3em;
+    }
+}
+
+
+// link
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+#post-content a {
+    text-decoration: none;
+    color: $link-color;
+    font-weight: 600;
+    border-bottom: thin dotted $link-color;
+
+    &:hover {
+        background: $link-color;
+        border-radius: 3px;
+        color: #fff;
+        outline: 0;
+    }
+}
+
+// code
+
+code {
+    font-size: 15px;
+}
+
+code.hljs {
+    border-radius: 8px;
+}
+
+// div.highlighter-rouge {
+//     outline: 0.5px solid $grey;
+//     border-radius: 8px;
+// }
+
+code.highlighter-rouge {
+    border-radius: 5px;
+    background-color: $grey;
+    outline: 0.5px solid $purple_grey;
+    padding: 1px 4px;
+}
