@@ -98,8 +98,27 @@ layout: default
                     {% endfor %}
                 </div>
             </div>
+
+            <!-- category -->
+            <div id="list-basic">
+                <div class="list-title-wrap">
+                    <div class="list-title">Robotics</div>
+                    <div class="line"></div>
+                </div>
+
+                <div class="list-elements" id="list-mix2">
+                    {% assign posts = site.categories.Robotics %}
+                    {% for post in posts limit : 3 %} 
+                        {% if forloop.first %}
+                            {% include /list_element/list_element_hor3.html %}
+                        {% else %}
+                            {% include /list_element/list_element_hor4.html %}
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
     
-            <!-- category1 -->
+            <!-- category -->
             <div id="list-basic">
                 <div class="list-title-wrap">
                     <div class="list-title">AI</div>
