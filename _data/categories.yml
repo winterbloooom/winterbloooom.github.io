@@ -46,10 +46,10 @@ categories:
     icon: fa-brands fa-ubuntu
     lv2:
         - lv2_category: "Linux"
-          url: /category/
+          url: /category/os/linux
   - lv1_category: "Math"
     url: /category/math/
     icon: fa-solid fa-square-root-variable
     lv2:
         - lv2_category: "Linear Algebra"
-          url: /category/
+          url: /category/math/linear_algebra

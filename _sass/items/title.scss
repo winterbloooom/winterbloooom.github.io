@@ -4,7 +4,7 @@
 
     .title-container {
         width: $inner-width;
-        border-bottom: 1.5px solid $grey;
+        border-bottom: 1.5px solid $grey-300;
         height: 300px;
         display: flex;
         justify-content: center;
@@ -28,7 +28,7 @@
         font-size: 15px;
         font-weight: 300;
         margin-bottom: 10px;
-        color: $dark-grey;
+        color: $grey-500;
         font-weight: 400;
     }
 
@@ -40,7 +40,7 @@
     }
 
     .tag-single {
-        border-bottom: 2px solid $main_color;
+        border-bottom: 2px solid $main-color;
         font-size: 14px;
         font-weight: 300;
     }
@@ -82,7 +82,9 @@
         display: grid;
         grid-template-rows: 1fr 3fr 1.5fr 1fr;
         align-items: center;
-        background: linear-gradient(79deg, rgba(72,149,239,1) 0%, rgba(86,11,173,1) 100%);
+        background: url("/assets/images/lv2_bg/-.png"); // rgba(72,149,239,1) 0%, rgba(86,11,173,1) 100%);
+        background-position:center center; 
+        background-size: cover;
         height: calc(100vh - 134px);
 
         .title-text {
@@ -118,7 +120,7 @@
                     align-items: center;
                     width: 40px;
                     height: 40px;
-                    // border: 1px solid $main_color;
+                    // border: 1px solid $main-color;
                     // border-radius: 50%;
 
                     i, span {
@@ -141,12 +143,12 @@
 
                 .contact-icon {
                     i, span {
-                        color: $persian_blue;
+                        color: $main-color;
                     }
                 }
 
                 .contact-title {
-                    color: $persian_blue;
+                    color: $main-color;
                 }
             }
         }
@@ -157,7 +159,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        color: $dark-grey;
+        color: $grey-500;
         font-size: 50px;
     }
     
@@ -166,7 +168,7 @@
 #archive-title {
     display: flex;
     justify-content: center;
-    background: linear-gradient(79deg, rgba(72,149,239,1) 0%, rgba(86,11,173,1) 100%);
+    // background: linear-gradient(79deg, rgba(72,149,239,1) 0%, rgba(86,11,173,1) 100%);
 
     .title-container {
         width: $inner-width;

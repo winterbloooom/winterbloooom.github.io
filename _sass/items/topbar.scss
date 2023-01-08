@@ -50,6 +50,8 @@
     overflow: hidden; // TODO 화면 좁아지면 글자 조정하기
 
     .sidebar-btn {
+        cursor: pointer;
+        
         .bar1, .bar2, .bar3 {
             width: 20px;
             height: 2px;
@@ -126,6 +128,6 @@
 .progress-bar {
     height: 3px;
     width: 0%;
-    background: $main_color;
+    background: $main-color;
     border-radius: 0 5px 5px 0;
 }

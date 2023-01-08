@@ -13,9 +13,10 @@
 
 #post-content img {
     max-width: $content-width;
-    width: 10;
     height: auto;
     padding: 1em 0;
+    display: block;
+    margin: auto;
 }
 
 @media screen and (max-width:$max_width) {

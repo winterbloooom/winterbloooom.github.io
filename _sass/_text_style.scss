@@ -1,41 +1,34 @@
-// plain text
+// for all
 ::selection {
-    background-color: $main_color;
-    color: $purple_white;
+    background-color: $black;
+    color: white;
 }
 
-// header
-
-h1,
-h2,
-h3 {
-    font-weight: bold;
+a {
+    text-decoration: none;
+    color: black;
 }
 
-h1 {
-    padding: 40px 0px 15px 0px; /* top right bottom left */
-    font-size: $h1-size-default;
+code {
+    font-size: $code-size-default;
 }
 
-h2 {
-    padding: 20px 0px 15px 0px; /* top right bottom left */
-    font-size: $h2-size-default;
+
+
+
+
+
+// post
+#post-content a {
+    text-decoration: none;
+    color: $link-color;
+    border-bottom: 1px dotted $link-color;
+    font-weight: 500;
+
+    &:hover {
+        border-bottom: 2.5px solid $link-color;
+    }
 }
-
-h3 {
-    padding: 10px 0px 15px 0px; /* top right bottom left */
-    font-size: $h3-size-default;
-}
-
-// paragraph
-
-p {
-    font-size: $text-size-default;
-    line-height: 1.8em;
-    margin-bottom: 1.2em;
-}
-
-// list
 
 #post-content ul {
     padding-left: 25px;
@@ -53,45 +46,34 @@ p {
 }
 
 
-// link
 
-a {
-    text-decoration: none;
-    color: black;
+// header
+
+h1,
+h2,
+h3 {
+    font-weight: bold;
 }
 
-#post-content a {
-    text-decoration: none;
-    color: $link-color;
-    font-weight: 600;
-    border-bottom: thin dotted $link-color;
-
-    &:hover {
-        background: $link-color;
-        border-radius: 3px;
-        color: #fff;
-        outline: 0;
-    }
+h1 {
+    padding: 40px 0px 15px 0px;
+    font-size: $h1-size-default;
 }
 
-// code
-
-code {
-    font-size: 15px;
+h2 {
+    padding: 20px 0px 15px 0px;
+    font-size: $h2-size-default;
 }
 
-code.hljs {
-    border-radius: 8px;
+h3 {
+    padding: 10px 0px 15px 0px;
+    font-size: $h3-size-default;
 }
 
-// div.highlighter-rouge {
-//     outline: 0.5px solid $grey;
-//     border-radius: 8px;
-// }
+// paragraph
 
-code.highlighter-rouge {
-    border-radius: 5px;
-    background-color: $grey;
-    outline: 0.5px solid $purple_grey;
-    padding: 1px 4px;
+p {
+    font-size: $text-size-default;
+    line-height: 1.8em;
+    margin-bottom: 1.2em;
 }

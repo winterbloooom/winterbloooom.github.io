@@ -81,5 +81,205 @@ defaults:
       layout: "post"
       mathjax: true
       toc: false
-      # teaser: "/assets/images/horizontal1.jpg"
-      # TODO 카테고리 별 기본 이미지 정하기
+
+  -
+    scope:
+      path: "_pages/categories/category_robotics.html"
+    values:
+      title_bg: "/assets/images/lv2_bg/bg-robotics-autonomous_vehicle.png"
+
+  -
+    scope:
+      path: "_posts/robotics/autonomous_vehicle/*"
+    values:
+      teaser: "/assets/images/lv2_teaser/teaser-robotics-autonomous_vehicle.png"
+  -
+    scope:
+      path: "_pages/categories/category_robotics_autonomousvehicle.html"
+    values:
+      title_bg: "/assets/images/lv2_bg/bg-robotics-autonomous_vehicle.png"
+
+  -
+    scope:
+      path: "_posts/robotics/perception/*"
+    values:
+      teaser: "/assets/images/lv2_teaser/teaser-robotics-perception.png"
+  -
+    scope:
+      path: "_pages/categories/category_robotics_perception.html"
+    values:
+      title_bg: "/assets/images/lv2_bg/bg-robotics-perception.png"
+
+  -
+    scope:
+      path: "_posts/robotics/ros/*"
+    values:
+      teaser: "/assets/images/lv2_teaser/teaser-robotics-ros.png"
+  -
+    scope:
+      path: "_pages/categories/category_robotics_ros.html"
+    values:
+      title_bg: "/assets/images/lv2_bg/bg-robotics-ros.png"
+
+  -
+    scope:
+      path: "_posts/robotics/control_and_engineering/*"
+    values:
+      teaser: "/assets/images/lv2_teaser/teaser-robotics-engineering.png"
+  -
+    scope:
+      path: "_pages/categories/category_robotics_controlandengineering.html"
+    values:
+      title_bg: "/assets/images/lv2_bg/bg-robotics-engineering.png"
+
+  -
+    scope:
+      path: "_pages/categories/category_ai.html"
+    values:
+      title_bg: "/assets/images/lv2_bg/bg-ai-computer_vision.png"
+
+  -
+    scope:
+      path: "_posts/ai/computer_vision/*"
+    values:
+      teaser: "/assets/images/lv2_teaser/teaser-ai-computer_vision.png"
+  -
+    scope:
+      path: "_pages/categories/category_ai_computervision.html"
+    values:
+      title_bg: "/assets/images/lv2_bg/bg-ai-computer_vision.png"
+
+  -
+    scope:
+      path: "_posts/ai/deep_learning/*"
+    values:
+      teaser: "/assets/images/lv2_teaser/teaser-ai-deep_learning.png"
+  -
+    scope:
+      path: "_pages/categories/category_ai_deeplearning.html"
+    values:
+      title_bg: "/assets/images/lv2_bg/bg-ai-deep_learning.png"
+
+  -
+    scope:
+      path: "_posts/ai/machine_learning/*"
+    values:
+      teaser: "/assets/images/lv2_teaser/teaser-ai-machine_learning.png"
+  -
+    scope:
+      path: "_pages/categories/category_ai_machinelearning.html"
+    values:
+      title_bg: "/assets/images/lv2_bg/bg-ai-machine_learning.png"
+
+  -
+    scope:
+      path: "_pages/categories/category_programming.html"
+    values:
+      title_bg: "/assets/images/lv2_bg/bg-programming-python.png"
+
+  -
+    scope:
+      path: "_posts/programming/python/*"
+    values:
+      teaser: "/assets/images/lv2_teaser/teaser-programming-python.png"
+  -
+    scope:
+      path: "_pages/categories/category_programming_python.html"
+    values:
+      title_bg: "/assets/images/lv2_bg/bg-programming-python.png"
+
+  -
+    scope:
+      path: "_posts/programming/cpp/*"
+    values:
+      teaser: "/assets/images/lv2_teaser/teaser-programming-cpp.png"
+  -
+    scope:
+      path: "_pages/categories/category_programming_cpp.html"
+    values:
+      title_bg: "/assets/images/lv2_bg/bg-programming-cpp.png"
+
+  -
+    scope:
+      path: "_posts/programming/javascript/*"
+    values:
+      teaser: "/assets/images/lv2_teaser/teaser-programming-javascript.png"
+  -
+    scope:
+      path: "_pages/categories/category_programming_javascript.html"
+    values:
+      title_bg: "/assets/images/lv2_bg/bg-programming-javascript.png"
+
+  -
+    scope:
+      path: "_posts/programming/others/*"
+    values:
+      teaser: "/assets/images/lv2_teaser/teaser-programming-others.png"
+  -
+    scope:
+      path: "_pages/categories/category_programming_others.html"
+    values:
+      title_bg: "/assets/images/lv2_bg/bg-programming-others.png"
+
+  -
+    scope:
+      path: "_pages/categories/category_dev.html"
+    values:
+      title_bg: "/assets/images/lv2_bg/bg-dev-git.png"
+
+  -
+    scope:
+      path: "_posts/dev/git/*"
+    values:
+      teaser: "/assets/images/lv2_teaser/teaser-dev-git.png"
+  -
+    scope:
+      path: "_pages/categories/category_dev_git.html"
+    values:
+      title_bg: "/assets/images/lv2_bg/bg-dev-git.png"
+
+  -
+    scope:
+      path: "_posts/dev/docker/*"
+    values:
+      teaser: "/assets/images/lv2_teaser/teaser-dev-docker.png"
+  -
+    scope:
+      path: "_pages/categories/category_dev_docker.html"
+    values:
+      title_bg: "/assets/images/lv2_bg/bg-dev-docker.png"
+
+  -
+    scope:
+      path: "_pages/categories/category_os.html"
+    values:
+      title_bg: "/assets/images/lv2_bg/bg-os-linux.png"
+
+  -
+    scope:
+      path: "_posts/os/linux/*"
+    values:
+      teaser: "/assets/images/lv2_teaser/teaser-os-linux.png"
+  -
+    scope:
+      path: "_pages/categories/category_os_linux.html"
+    values:
+      title_bg: "/assets/images/lv2_bg/bg-os-linux.png"
+
+  -
+    scope:
+      path: "_pages/categories/category_math.html"
+    values:
+      title_bg: "/assets/images/lv2_bg/bg-math-linear_algebra.png"
+
+
+  -
+    scope:
+      path: "_posts/math/linear_algebra/*"
+    values:
+      teaser: "/assets/images/lv2_teaser/teaser-math-linear_algebra.png"
+  -
+    scope:
+      path: "_pages/categories/category_math_linearalgebra.html"
+    values:
+      title_bg: "/assets/images/lv2_bg/bg-math-linear_algebra.png"

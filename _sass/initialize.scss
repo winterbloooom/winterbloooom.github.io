@@ -1,35 +1,44 @@
 @charset "utf-8";
 
 // color theme
-$flicker_pink: #f72585;
-$byzantine: #b5179e;
-$purple1: #7209b7;
-$purple2: #560bad;
-$trypan_blue1: #480ca8;
-$trypan_blue2: #3a0ca3;
-$persian_blue: #3f37c9;
-$ultramarine_blue: #4361ee;
-$dodger_blue: #4895ef; //rgb(72, 149, 239);
-$vivid_sky_blue: #4cc9f0;
-$purple_grey: #E3E2F7;
-$purple_white: #F1F1FB;
-$light-grey: #FAFBFB;
-$grey: #E8ECEF;
-$dark-grey: #52585e;
-$dark-grey2: #2D333B;
-$black: #22272D;
+// $flicker_pink: #f72585;
+// $byzantine: #b5179e;
+// $purple1: #7209b7;
+// $purple2: #560bad;
+// $trypan_blue1: #480ca8;
+// $trypan_blue2: #3a0ca3;
+// $persian_blue: #3f37c9;
+// $ultramarine_blue: #4361ee;
+// $dodger_blue: #4895ef; //rgb(72, 149, 239);
+// $vivid_sky_blue: #4cc9f0;
+// $purple_grey: #E3E2F7;
+// $purple_white: #F1F1FB;
+// $grey-200: #FAFBFB;
+// $grey: #E8ECEF;
+// $grey-500: #52585e;
+// $grey-5002: #2D333B;
+// $black: #22272D;
 
-$main_color: $dodger_blue;
+// color theme new
+$blue-600: #3464E0; // main
+$blue-500: #507AE5;
+$blue-400: #8AA6EE;
+$blue-300: #C5D3F6;
+$blue-200: #E2E9FB;
+$blue-100: #F0F4FD;
+$grey-600: #636363;
+$grey-500: #8A8A8A;
+$grey-400: #E6E6E6;
+$grey-300: #F0F0F0;
+$grey-200: #F5F5F5;
+$grey-100: #FBFBFB; // main
+$black: #333333;
 
-$link-color: $byzantine;
-$link-color-visited: $flicker_pink;
-$link-background-hover: $dodger_blue;
-
-$code-background: $purple_white;
-
-$border: $purple_grey;
-
-$light_blue: rgba(72, 149, 239, 0.1);
+$main-color: $blue-600;
+$link-color: $blue-600;
+$hover-color: $blue-200;
+$inline_code-color: $grey-300;
+$inline_code_border-color: $grey-400;
 
 // font
 $code_font: monospace, Consolas;
@@ -37,6 +46,7 @@ $text-size-default: 17px;
 $h1-size-default: 30px;
 $h2-size-default: 25px;
 $h3-size-default: 20px;
+$code-size-default: 15px;
 
 // size
 $max_width: 1024px; // for media query
@@ -54,13 +64,18 @@ body {
     background-color: white;
 }
 
+a {
+    text-decoration: none; 
+    color: black; 
+}
+
 .scroll-btn {
     position: fixed; 
     right: 15px; 
     z-index: 99999999;
-    // border: 0.5px solid $dark-grey;
+    border: 0.5px solid $grey-400;
     border-radius: 50%;
-    background-color: $grey;
+    background-color: $grey-300;
     width: 32px;
     height: 32px;
     display: flex;
@@ -76,8 +91,44 @@ body {
     }
 
     span {
-        color: $dark-grey;
+        color: $grey-500;
     }
+}
+
+div.highlighter-rouge {
+    margin-bottom: 20px;
+
+}
+
+code.hljs {
+    border-radius: 8px;
+
+    &::-webkit-scrollbar {
+        width: 4px;  /* 스크롤바의 너비 */
+    }
+    
+    &::-webkit-scrollbar-thumb {
+        // height: 10%; /* 스크롤바의 길이 */
+        background: $main-color; /* 스크롤바의 색상 */
+        border-radius: 10px;
+    }
+    
+    &::-webkit-scrollbar-track {
+        background: $black;  /*스크롤바 뒷 배경 색상*/
+    }
+}
+
+// 인라인 코드
+code.highlighter-rouge { 
+    border-radius: 5px;
+    background-color: $inline_code-color;
+    outline: 0.5px solid $inline_code_border-color;
+    padding: 1px 4px;
+}
+
+// 가로선
+hr {
+    border: 0.1px solid $grey-400;
 }
 
 // import
@@ -95,4 +146,3 @@ body {
 @import "items/toc";
 @import "items/topbar";
 @import "items/side_menu";
-@import "items/scroll-to-top";
