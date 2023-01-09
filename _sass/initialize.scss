@@ -1,25 +1,7 @@
 @charset "utf-8";
 
-// color theme
-// $flicker_pink: #f72585;
-// $byzantine: #b5179e;
-// $purple1: #7209b7;
-// $purple2: #560bad;
-// $trypan_blue1: #480ca8;
-// $trypan_blue2: #3a0ca3;
-// $persian_blue: #3f37c9;
-// $ultramarine_blue: #4361ee;
-// $dodger_blue: #4895ef; //rgb(72, 149, 239);
-// $vivid_sky_blue: #4cc9f0;
-// $purple_grey: #E3E2F7;
-// $purple_white: #F1F1FB;
-// $grey-200: #FAFBFB;
-// $grey: #E8ECEF;
-// $grey-500: #52585e;
-// $grey-5002: #2D333B;
-// $black: #22272D;
 
-// color theme new
+// color theme
 $blue-600: #3464E0; // main
 $blue-500: #507AE5;
 $blue-400: #8AA6EE;
@@ -36,23 +18,29 @@ $black: #333333;
 
 $main-color: $blue-600;
 $link-color: $blue-600;
-$hover-color: $blue-200;
+$hover-color: $blue-100;
 $inline_code-color: $grey-300;
 $inline_code_border-color: $grey-400;
 
-// font
-$code_font: monospace, Consolas;
-$text-size-default: 17px;
-$h1-size-default: 30px;
-$h2-size-default: 25px;
-$h3-size-default: 20px;
-$code-size-default: 15px;
-
 // size
-$max_width: 1024px; // for media query
+$topbar-height: 43px;
+
+// laptop, desktop (~1024)
+$max-width: 1024px;
 $inner-width: 980px;
 $content-width: 860px;
 $sidebar-width: 300px;
+
+// tablet (1024 ~ 760)
+$max-width-tablet: 760px;
+$inner-width-tablet: 760px;
+$content-width-tablet: 684px;
+$sidebar-width-tablet: 50vw;
+
+// mobile (760 ~ )
+$inner-width-mobile: 480px;
+$content-width-mobile: 432px;
+$sidebar-width-mobile: 100vw;
 
 * {
     padding: 0;
@@ -62,12 +50,22 @@ $sidebar-width: 300px;
 
 body {
     background-color: white;
+
+    &::-webkit-scrollbar {
+        width: 10px;  /* 스크롤바의 너비 */
+    }
+    
+    &::-webkit-scrollbar-thumb {
+        height: 10%; /* 스크롤바의 길이 */
+        background: $grey-600; /* 스크롤바의 색상 */
+        border-radius: 10px;
+    }
+    
+    &::-webkit-scrollbar-track {
+        background: $grey-400;  /*스크롤바 뒷 배경 색상*/
+    }
 }
 
-a {
-    text-decoration: none; 
-    color: black; 
-}
 
 .scroll-btn {
     position: fixed; 

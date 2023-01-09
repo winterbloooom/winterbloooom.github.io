@@ -1,10 +1,10 @@
 #post-title {
     display: flex;
     justify-content: center;
+    border-bottom: 1.5px solid $grey-400;
 
     .title-container {
         width: $inner-width;
-        border-bottom: 1.5px solid $grey-300;
         height: 300px;
         display: flex;
         justify-content: center;
@@ -45,34 +45,23 @@
         font-weight: 300;
     }
 
-    @media screen and (max-width:$max_width) {
-        .title-fit {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
+    @media screen and (max-width:$max-width) {
+        .title-container {
+            width: $inner-width-tablet;
         }
-    
-        .title-fit > div {
-            padding: 0px 10px;
+
+        .title-wrap {
+            width: $content-width-tablet;
         }
-    
-        .title-description {
-            margin-bottom: 20px;
+    }
+
+    @media screen and (max-width:$max-width-tablet) {
+        .title-container {
+            width: $inner-width-mobile
         }
-    
-        .title-date-wrap,
-        .title-tag-wrap {
-            display: flex;
-            flex-direction: row;
-            padding: 0;
-            align-items: center;
-            margin-bottom: 8px;
-        }
-        
-        .title-date,
-        .title-tag {
-            margin-right: 20px;
-            margin-bottom: 0;
+
+        .title-wrap {
+            width: $content-width-mobile;
         }
     }
 }
@@ -82,7 +71,7 @@
         display: grid;
         grid-template-rows: 1fr 3fr 1.5fr 1fr;
         align-items: center;
-        background: url("/assets/images/lv2_bg/-.png"); // rgba(72,149,239,1) 0%, rgba(86,11,173,1) 100%);
+        background: linear-gradient(rgba(33,33,33,0) 0%, rgba(33,33,33,0.95) 100%), url("/assets/images/samples/image1.jpg"); // 
         background-position:center center; 
         background-size: cover;
         height: calc(100vh - 134px);
@@ -110,9 +99,15 @@
                 gap: 18px;
                 width: 150px;
                 height: 50px;
-                border: 0.5px solid white;
-                border-radius: 30px;
+                border: 2px solid white;
+                // border-radius: 30px;
                 padding: 7px 15px;
+                cursor: pointer;
+
+                background: transparent;
+                transition: all 0.3s ease;
+                position: relative;
+                z-index: 1;
 
                 .contact-icon {
                     display: flex;
@@ -120,8 +115,6 @@
                     align-items: center;
                     width: 40px;
                     height: 40px;
-                    // border: 1px solid $main-color;
-                    // border-radius: 50%;
 
                     i, span {
                         color: white;
@@ -136,20 +129,28 @@
                 }
             }
 
+            .contact:after {
+                position: absolute;
+                content: "";
+                width: 100%;
+                height: 0;
+                top: 0;
+                left: 0;
+                z-index: -1;
+                background: rgb(255, 255, 255);
+                transition: all 0.3s ease;
+            }
+
             .contact:hover {
-                // TODO 예쁜 애니메이션 넣기
-                
-                background-color: white;
-
-                .contact-icon {
-                    i, span {
-                        color: $main-color;
-                    }
+                i, span, .contact-title {
+                    color: $black;
                 }
+            }
 
-                .contact-title {
-                    color: $main-color;
-                }
+            .contact:hover:after {
+                top: auto;
+                bottom: 0;
+                height: 100%;
             }
         }
     }
@@ -161,8 +162,41 @@
         justify-content: center;
         color: $grey-500;
         font-size: 50px;
+        line-height: 100px;
     }
     
+    @media screen and (max-width:$max-width) {
+        & {
+            height: calc(100vh - 24px);
+        }
+
+        .scroll-down {
+            height: 60px;
+            font-size: 30px;
+            line-height: 60px;
+        }
+
+        // .contact-list {
+        //     gap: 60px;
+
+        //     .contact {
+        //         gap: 10px;
+        //         width: 120px;
+        //         height: 40px;
+        //         border: 1.5px solid white;
+        //         padding: 5px 12px;
+
+        //         .contact-icon {
+        //             width: 32px;
+        //             height: 32px;
+
+        //             i, span {
+        //                 font-size: 24px;
+        //             }
+        //         }
+        //     }
+        // }
+    }
 }
 
 #archive-title {

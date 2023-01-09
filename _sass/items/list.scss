@@ -126,11 +126,12 @@
                 font-size: 13px;
                 margin-bottom: 5px;
                 color: $grey-500;
+                font-weight: 500;
             }
 
             .list-element-excerpt {
                 color: $grey-500;
-                font-size: 15px;
+                font-size: 14px;
                 // TODO 최대 3줄 제한
             }
         }
@@ -326,8 +327,6 @@
         flex-direction: row;
         align-items: center;
         padding: 30px;
-        border-radius: 8px;
-        background-color: $blue-100;
         outline: 0.8px solid $grey-400;
 
         .category-icon {
@@ -335,14 +334,13 @@
 
             i {
                 font-size: 30px;
-                color: $grey-600;
+                color: $black;
             }
         }
 
         .list-element-text {
             display: flex;
-            justify-content: center;
-            color: $grey-600;
+            color: $black;
 
             .list-element-title {
                 margin-bottom: 0;
