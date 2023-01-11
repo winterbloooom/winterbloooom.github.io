@@ -15,16 +15,8 @@
 	transform: translate3d(0,0,0);
 
 	@media screen and (max-width:$max-width) {
-		.title-container {
-			width: $inner-width-tablet;
-		}
-	
-		.title-wrap {
-			width: $content-width-tablet;
-		}
-	}
-	
-	@media screen and (max-width:$max-width) {
+		top: 100px;
+		
 		#sidebar {
 			width: $sidebar-width-tablet;
 			left: -$sidebar-width-tablet;
@@ -32,6 +24,7 @@
 	}
 	
 	@media screen and (max-width:$max-width-tablet) {
+		top: 100px;
 		#sidebar {
 			width: $sidebar-width-mobile;
 			left: -$sidebar-width-mobile;

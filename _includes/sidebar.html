@@ -1,28 +1,19 @@
-{%comment%}
-<!-- 
-    다른 곳 클릭 시 빠져나가기
-    https://thinkforthink.tistory.com/286
-
-    토글
-    https://comizle.tistory.com/35
-    https://homnay.tistory.com/16
- -->
-{%endcomment%}
-
 <div id="sidebar">
     <div class="sidebar-header">
         <div class="header-background"></div>
         <img src="/assets/images/profile.PNG" class="profile-img" />
+        
         <div class="name-wrap">
             <span class="usrname">winterbloooom</span>
             <span class="name">한은기</span>
         </div>
+
         <div class="contact-list">
             <a class="contact" href="https://github.com/winterbloooom" >
                 <i class="fa-brands fa-github"></i>
             </a>
             <a class="contact" href="mailto:winterbloooom@gmail.com">
-                <i class="fa fa-envelope-o"></i>
+                <i class="fa-regular fa-envelope"></i>
             </a>
             <a class="contact" href="https://www.instagram.com/winterbloooom/">
                 <i class="fa-brands fa-instagram"></i>
@@ -33,6 +24,14 @@
 
     <div class="sidebar-content">
         <ul class="lv1-categories">
+            <li class="lv1-category">
+                <div class="lv1-title-wrap">
+                    <div class="lv1-title">
+                        <a href="/category/recent_posts" class="lv1-title-link">All Recent Posts</a>
+                    </div>
+                </div>
+            </li>
+
             {% assign categories = site.data.categories.categories %}
             {% for lv1 in categories %}
                 <li class="lv1-category">

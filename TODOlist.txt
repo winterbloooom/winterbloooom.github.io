@@ -1,0 +1,39 @@
+[ URGENT ]
+- 탑바 카테고리 버튼이 광고에 가려짐. 
+- 색을 줄이기. 회색은 3개로, 파랑색은 2개 정도로
+- featured list 배경색을 그라디언트 어둡게 해서 호버링 시 메인 컬러로
+- 로딩 시간 오래 걸리는 것 해결 & 로딩 기본 레이아웃 만들기
+    - 로딩 시간: https://inpa.tistory.com/entry/WEB-%F0%9F%8C%90-%EC%82%AC%EC%9D%B4%ED%8A%B8-%EC%B5%9C%EC%A0%81%ED%99%94-%EC%86%8D%EB%8F%84-%ED%96%A5%EC%83%81-%EB%B0%A9%EB%B2%95-%F0%9F%A7%8F-%EC%A0%95%EB%A6%AC-html-css-js-%EC%A1%B0%EC%A0%95
+    - 로딩 기본 레이아웃 만들기: https://crazykim2.tistory.com/519
+- About page 만들기
+- CV 걸기
+- 모든 글 보기
+- 모든 곳(+post 의 ul, li)에 같은 글꼴 적용되도록
+- 모바일 보기 적용
+- 전체적으로 태블릿 용, 모바일 용 미디어 쿼리
+- toc 제대로
+- px 단위 피하고 최대한 화면 비율 기준으로 크기 정하기
+
+[ HURRY ]
+- breadcrumb 잘 보이게, 카테고리로 링크 걸기
+- 태그별 보기
+- 태그 링크 걸기
+- 검색 기능 추가하기
+- 기타 TODO 표시된 곳
+- zindex 정리
+
+[ NOT URGENT ]
+- JS 사용해 teaser, bg 불러올 수 있는지 실험해보기
+- id, class 규칙 정해 할당하기
+- 다크모드: https://velog.io/@yijaee/%EB%8B%A4%ED%81%AC%EB%AA%A8%EB%93%9C-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0
+    다른 곳 클릭 시 빠져나가기
+    https://thinkforthink.tistory.com/286
+
+    토글
+    https://comizle.tistory.com/35
+    https://homnay.tistory.com/16
+
+
+[ REFERENCES ]
+*** 다른 레퍼런스 보고 적용하기(북마크, 핸드폰, PPT 레퍼) ***
+- sidebar 디자인: https://deeplify.dev/front-end/markup/text-ellipsis#css-%EB%A7%90%EC%A4%84%EC%9E%84-2%EC%A4%84-%EC%9D%B4%EC%83%81-%EC%A0%81%EC%9A%A9%ED%95%98%EA%B8%B0

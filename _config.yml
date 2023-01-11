@@ -84,6 +84,12 @@ defaults:
 
   -
     scope:
+      path: "_pages/categories/category_recentposts.html"
+    values:
+      title_bg: "/assets/images/lv2_bg/bg-recent_posts.png"
+
+  -
+    scope:
       path: "_pages/categories/category_robotics.html"
     values:
       title_bg: "/assets/images/lv2_bg/bg-robotics-autonomous_vehicle.png"

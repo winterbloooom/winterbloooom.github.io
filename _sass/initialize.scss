@@ -56,9 +56,9 @@ body {
     }
     
     &::-webkit-scrollbar-thumb {
-        height: 10%; /* 스크롤바의 길이 */
+        // height: 10%; /* 스크롤바의 길이 */
         background: $grey-600; /* 스크롤바의 색상 */
-        border-radius: 10px;
+        // border-radius: 10px;
     }
     
     &::-webkit-scrollbar-track {
