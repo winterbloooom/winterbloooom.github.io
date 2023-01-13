@@ -44,6 +44,12 @@ code {
 
 p {
     font-size: $text-size-default;
-    line-height: 1.8em;
+    line-height: 30px;
     margin-bottom: 1.2em;
+}
+
+@media all and (max-width: $max-width-tablet) {
+    p {
+        line-height: 30px;
+    }
 }
