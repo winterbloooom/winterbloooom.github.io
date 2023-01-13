@@ -1,3 +1,5 @@
+
+
 #topbar {
     position: sticky;
     top: 0;
@@ -211,8 +213,10 @@
     color: $black;
 }
 
+
+
 // mobile
-@media all and (max-width: $max-width-tablet) {
+@media all and (max-width: 1000px){
     .topbar-main {
         height: 120px;
         padding-left: 60px;
