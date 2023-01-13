@@ -9,6 +9,40 @@
 .content-wrap {
     grid-column: 3 / 4;
     padding: 50px 0;
+    h1, h2, h3 {
+        font-weight: bold;
+        font-family: 'MaplestoryOTFBold';
+    }
+
+    h1 {
+        margin: 40px 0px 15px 0px;
+        font-size: $h1-size-default;
+        color: $main-color;
+        // border-bottom: 2px dashed $main-color;
+    }
+
+    h2 {
+        padding: 20px 0px 15px 0px;
+        font-size: $h2-size-default;
+    }
+
+    h3 {
+        padding: 10px 0px 15px 0px;
+        font-size: $h3-size-default;
+    }
+
+    ul li, 
+    ol li, 
+    li ul, 
+    li ol {
+        margin-bottom: 0.3em;
+        line-height: 1.8em;
+    }
+
+    ul, ol {
+        padding-left: 25px;
+        margin-bottom: 1.2em; // 임의로 집어 넣었는데 나중에 고치기
+    }
 }
 
 #post-content img {
@@ -20,19 +54,19 @@
 }
 
 // tablet
-@media screen and (max-width:$max-width) {
-    #post-content,
-    #home-content,
-    #archive-content {
-        grid-template-columns: 1fr $content-width-tablet 1fr;
-    }
-    .content-wrap {
-        grid-column: 2 / 3;
-    }
-    #post-content img {
-        max-width: $content-width-tablet;
-    }
-}
+// @media screen and (max-width:$max-width) {
+//     #post-content,
+//     #home-content,
+//     #archive-content {
+//         grid-template-columns: 1fr $content-width-tablet 1fr;
+//     }
+//     .content-wrap {
+//         grid-column: 2 / 3;
+//     }
+//     #post-content img {
+//         max-width: $content-width-tablet;
+//     }
+// }
 
 // mobile
 @media screen and (max-width:$max-width-tablet) {

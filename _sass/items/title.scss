@@ -1,13 +1,17 @@
 #post-title {
     display: flex;
-    justify-content: center;
-    border-bottom: 1.5px solid $grey-400;
+    flex-direction: column;
+    align-items: center;
+    background-color: $black;
+    padding-top: 150px;
+    position: relative;
+    color: white;
 
     .title-container {
-        width: $inner-width;
-        height: 300px;
         display: flex;
-        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        width: $inner-width;
     }
 
     .title-wrap {
@@ -19,17 +23,16 @@
     }
 
     .title-text {
-        font-size: 32px;
-        font-weight: 500;
+        font-size: $post-title;
         margin-bottom: 20px;
+        font-family: "yg-jalnan";
+        line-height: $post-title + 10px;
     }
 
     .title-date {
         font-size: 15px;
         font-weight: 300;
         margin-bottom: 10px;
-        color: $grey-500;
-        font-weight: 400;
     }
 
     .title-tag-wrap {
@@ -37,23 +40,42 @@
         flex-direction: row;
         gap: 5px;
         flex-wrap: wrap;
+        margin-bottom: 20px;
     }
 
     .tag-single {
-        border-bottom: 2px solid $main-color;
+        border-radius: 14px;
+        background-color: $main-color;
+        padding: 5px 10px;
         font-size: 14px;
         font-weight: 300;
     }
 
-    @media screen and (max-width:$max-width) {
-        .title-container {
-            width: $inner-width-tablet;
-        }
-
-        .title-wrap {
-            width: $content-width-tablet;
-        }
+    .post-teaser-wrap {
+        z-index: 1;
     }
+
+    .post-teaser {
+        width: $content-width;
+    }
+
+    .title-bottom {
+        position: absolute;
+        height: 20vh;
+        bottom: 0;
+        background-color: white;
+        width: 100%;
+    }
+
+    // @media screen and (max-width:$max-width) {
+    //     .title-container {
+    //         width: $inner-width-tablet;
+    //     }
+
+    //     .title-wrap {
+    //         width: $content-width-tablet;
+    //     }
+    // }
 
     @media screen and (max-width:$max-width-tablet) {
         .title-container {
@@ -163,39 +185,6 @@
         color: $grey-500;
         font-size: 50px;
         line-height: 100px;
-    }
-    
-    @media screen and (max-width:$max-width) {
-        & {
-            height: calc(100vh - 24px);
-        }
-
-        .scroll-down {
-            height: 60px;
-            font-size: 30px;
-            line-height: 60px;
-        }
-
-        // .contact-list {
-        //     gap: 60px;
-
-        //     .contact {
-        //         gap: 10px;
-        //         width: 120px;
-        //         height: 40px;
-        //         border: 1.5px solid white;
-        //         padding: 5px 12px;
-
-        //         .contact-icon {
-        //             width: 32px;
-        //             height: 32px;
-
-        //             i, span {
-        //                 font-size: 24px;
-        //             }
-        //         }
-        //     }
-        // }
     }
 }
 

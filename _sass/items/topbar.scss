@@ -118,7 +118,8 @@
     display: flex;
     flex-direction: row;
     background-color: $black;
-    padding: 8px 30px;
+    padding-left: 30px;
+    padding-right: 30px;
     align-items: center;
     height: 50px;
     top: 5px;
@@ -163,9 +164,9 @@
     'opsz' 48;
 }
 
-.icon-home {
-    height: 30px;
-}
+// .icon-home {
+//     height: 30px;
+// }
 
 .topbar-page-link {
     margin-right: 30px;
@@ -199,7 +200,8 @@
 
 .search-box {
     background-color: white;
-    height: 85%;
+    max-height: 85%;
+    height: 30px;
     width: 10vw;
     text-align: end;
     padding-right: 5px;
@@ -210,21 +212,54 @@
 }
 
 // mobile
-@media screen and (max-width:$max-width) {
+@media screen and (max-width:$max-width-tablet) {
     .topbar-main {
-        // padding: 8px 15px;
-        gap: 40px;
-        height: 100px;
-        justify-content: center;
+        height: 120px;
+        padding-left: 60px;
+        padding-right: 60px;
+    }
 
-        .page-title {
-            display: none;
+    .sidebar-btn {
+        margin-right: 50px;
+        
+        .bar1, .bar2, .bar3 {
+            width: 40px;
+            height: 4px;
+            background-color: white;
+            margin: 10px 0;
+            transition: 0.4s;
+        }
+        
+        &.open .bar1 {
+            transform: translate(0, 7px) rotate(-45deg);
+        }
+        
+        &.open .bar2 {opacity: 0;}
+        
+        &.open .bar3 {
+            transform: translate(0, -7px) rotate(45deg);
         }
     }
 
-    .progress-bar-wrap {
-        .progress-bar {
-            height: 10px;
+    .icon-home, .icon-search {
+        font-size: 55px !important;
+    }
+
+    .search-box {
+        width: auto;
+        height: 100%;
+        background-color: transparent;
+        flex: 1;
+        display: flex;
+        justify-content: end;
+        align-items: center;
+
+        .icon-search {
+            color: white;
         }
+    }
+
+    .progress-bar-wrap, .topbar-page-links {
+        display: none;
     }
 }

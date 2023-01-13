@@ -1,47 +1,3 @@
-@font-face {
-    font-family: 'GangwonEdu_OTFBoldA';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEdu_OTFBoldA.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-} // 강원바탕 / 300, 700 지원
-@font-face {
-    font-family: 'ChosunGu';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/ChosunGu.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-} // 조선굴림
-@font-face {
-    font-family: 'NanumSquareNeo-Variable';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/NanumSquareNeo-Variable.woff2') format('woff2');
-    font-weight: normal;
-    font-style: normal;
-} // 나눔스퀘어네오
-@font-face {
-    font-family: 'NanumSquareRound';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-} // 나눔스퀘어라운드
-@font-face {
-    font-family: 'yg-jalnan';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-} // 여기어때 잘난
-@font-face {
-    font-family: 'BMJUA';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMJUA.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-} // 배민 주아
-@font-face {
-    font-family: 'MaplestoryOTFBold';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/MaplestoryOTFBold.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-} // 메이플스토리 / 300, 700
-
-
 // font
 $code_font: monospace, Consolas;
 $text-size-default: 17px;
@@ -49,7 +5,7 @@ $h1-size-default: 30px;
 $h2-size-default: 25px;
 $h3-size-default: 20px;
 $code-size-default: 15px;
-
+$post-title: 38px;
 
 
 // for all
@@ -80,54 +36,14 @@ code {
     }
 }
 
-#post-content ul {
-    padding-left: 25px;
-    margin-bottom: 1.2em; // 임의로 집어 넣었는데 나중에 고치기
-}
-
-#post-content {
-    ul li,
-    ol li,
-    li ul,
-    li ol {
-        margin-bottom: 0.3em;
-    }
-}
-
-
-
-// header
-h1,
-h2,
-h3 {
-    font-weight: bold;
-    font-family: 'MaplestoryOTFBold';
-}
-
-h1 {
-    margin: 40px 0px 15px 0px;
-    font-size: $h1-size-default;
-    color: $main-color;
-    // border-bottom: 2px dashed $main-color;
-}
-
-h2 {
-    padding: 20px 0px 15px 0px;
-    font-size: $h2-size-default;
-}
-
-h3 {
-    padding: 10px 0px 15px 0px;
-    font-size: $h3-size-default;
-}
-
 // paragraph
 :root {
     font-family: 'NanumSquareNeo-Variable';
+    font-weight: 500;
 }
+
 p {
     font-size: $text-size-default;
-    font-family: 'ChosunGu';
     line-height: 1.8em;
     margin-bottom: 1.2em;
 }
