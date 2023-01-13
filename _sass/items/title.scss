@@ -7,84 +7,104 @@
     position: relative;
     color: white;
 
+    
+}
+
+.title-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: $inner-width;
+}
+
+.title-wrap {
+    width: $content-width;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    padding-bottom: 40px;
+}
+
+.title-text {
+    font-size: $post-title;
+    margin-bottom: 20px;
+    font-family: "yg-jalnan";
+    line-height: $post-title + 10px;
+}
+
+.title-date {
+    font-size: 15px;
+    font-weight: 300;
+    margin-bottom: 10px;
+}
+
+.title-tag-wrap {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.tag-single {
+    border-radius: 14px;
+    background-color: $main-color;
+    padding: 5px 10px;
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.post-teaser-wrap {
+    z-index: 1;
+}
+
+.post-teaser {
+    width: $content-width;
+}
+
+.title-bottom {
+    position: absolute;
+    height: 20vh;
+    bottom: 0;
+    background-color: white;
+    width: 100%;
+}
+
+@media screen and (max-width: $max-width) {
+    #post-title {
+        padding-top: 150px;
+    }
+
     .title-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: $inner-width;
+        width: $inner-width-tablet;
     }
 
     .title-wrap {
-        width: $content-width;
-        display: flex;
-        flex-direction: column;
-        justify-content: end;
+        width: $content-width-tablet;
         padding-bottom: 40px;
     }
 
-    .title-text {
-        font-size: $post-title;
-        margin-bottom: 20px;
-        font-family: "yg-jalnan";
-        line-height: $post-title + 10px;
+    .post-teaser {
+        width: $content-width-tablet;
+    }
+}
+
+@media screen and (max-width: $max-width-tablet) {
+    #post-title {
+        padding-top: 150px;
     }
 
-    .title-date {
-        font-size: 15px;
-        font-weight: 300;
-        margin-bottom: 10px;
+    .title-container {
+        width: $inner-width-mobile;
     }
 
-    .title-tag-wrap {
-        display: flex;
-        flex-direction: row;
-        gap: 5px;
-        flex-wrap: wrap;
-        margin-bottom: 20px;
-    }
-
-    .tag-single {
-        border-radius: 14px;
-        background-color: $main-color;
-        padding: 5px 10px;
-        font-size: 14px;
-        font-weight: 300;
-    }
-
-    .post-teaser-wrap {
-        z-index: 1;
+    .title-wrap {
+        width: $content-width-mobile;
+        padding-bottom: 40px;
     }
 
     .post-teaser {
-        width: $content-width;
-    }
-
-    .title-bottom {
-        position: absolute;
-        height: 20vh;
-        bottom: 0;
-        background-color: white;
-        width: 100%;
-    }
-
-    // @media screen and (max-width:$max-width) {
-    //     .title-container {
-    //         width: $inner-width-tablet;
-    //     }
-
-    //     .title-wrap {
-    //         width: $content-width-tablet;
-    //     }
-    // }
-
-    @media screen and (max-width:1000px) {
-        .title-container {
-            width: $inner-width-mobile;
-        }
-
-        .title-wrap {
-            width: 800px;
-        }
+        width: $content-width-mobile;
     }
 }
 
