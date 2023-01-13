@@ -1,8 +1,18 @@
 <div id="topbar">
-    <!-- progress indicator -->
-    <div class="progress-bar-wrap">
-        <div class="progress-bar" id="indicator"></div>
-    </div>
+
+    <!-- breadcrumb -->
+    <!-- <div class="breadcrumb">
+        {% assign path = page.path | split: '/' %}
+        {% assign lv1 = path[1] %}
+        {% assign lv2 = path[2] %}
+
+        <div class="breadcrumb-category">{{ lv1 }}</div>
+        <span class="breadcrumb-slash">/</span>
+        <div class="breadcrumb-category">{{ lv2 }}</div>
+        <span class="breadcrumb-slash">/</span>
+        <div class="breadcrumb-title">{{ page.title }}</div> 
+       
+    </div> -->
 
     <div class="topbar-main">
 
@@ -14,29 +24,36 @@
         </div>
 
         <!-- home btn -->
-        <span class="material-symbols-outlined icon-home">
+        <span class="material-symbols-outlined">
             <a href="/">home</a>
         </span>
 
-        <div class="topbar-page-links">
-            <a class="topbar-page-link" href="/category/recent_posts">Posts</a>
-            <!-- <a class="topbar-page-link" href="#">Series</a>
-            <a class="topbar-page-link" href="#">About</a>
-            <a class="topbar-page-link" href="#">Projects</a>
-            <a class="topbar-page-link" href="#">Notice</a> -->
+        <!-- title -->
+        <div class="page-title">
+            {{ page.title }}
         </div>
-        
+
+        <!-- light/dark mode switch -->
+        <button class="light-toggle" onclick="lightToggle(this)">
+            <span class="material-symbols-outlined light-mode">
+                light_mode
+            </span>
+            <span class="material-symbols-outlined dark-mode">
+                dark_mode
+            </span>
+        </button>
 
         <!-- search btn -->
-        <div class="search-box">
-            <span class="material-symbols-outlined icon-search">
-                search
-            </span>
-        </div>
-        
+        <span class="material-symbols-outlined">
+            search
+        </span>
     </div>
     
-    
+    <!-- progress indicator -->
+    <div class="progress-bar-wrap">
+        <div class="progress-bar" id="indicator"></div>
+    </div>
+
 </div>
 
 <script>

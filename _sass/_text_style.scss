@@ -122,6 +122,9 @@ h3 {
 }
 
 // paragraph
+:root {
+    font-family: 'NanumSquareNeo-Variable';
+}
 p {
     font-size: $text-size-default;
     font-family: 'ChosunGu';
