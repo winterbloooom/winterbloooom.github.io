@@ -2,6 +2,8 @@
 <html>
     <head>
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+
         <title>{{ page.title }}</title>
 
         <!-- custom css -->
@@ -9,9 +11,6 @@
             rel="stylesheet" 
             href="{{ '/assets/css/style.css' | relative_url }}"
         />
-
-        <!-- loading -->
-
 
         <!-- icon -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
@@ -30,10 +29,7 @@
 
         <!-- mathjax -->
         {% include mathjax_support.html %}
-    </head>
-    
-    <!-- loading page -->
-    
+    </head>    
     
     <!-- actual page -->
     <body style="position: relative">
@@ -99,7 +95,6 @@
         <div id="load">
             <img src="/assets/images/loading.gif" alt="loading">
         </div>
-        <!-- Loading 화면 코드 종료-->
 
         <!-- blog ad -->
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8818823341820529" crossorigin="anonymous"></script>

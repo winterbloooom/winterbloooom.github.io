@@ -83,6 +83,14 @@ https://studiomeal.com/archives/533
 * https://inpa.tistory.com/entry/CSS-%F0%9F%93%9A-content-%EC%86%8D%EC%84%B1-%EC%A0%95%EB%A6%AC
 
 # 예시 코드
+## div 내 img를 div 가운데 정렬
+```
+.img {
+    width: $content-width-mobile;
+    margin: auto;
+    display: block;
+}
+```
 ## 콘텐츠 카드형
 ```html
 <div class="dgc-card">

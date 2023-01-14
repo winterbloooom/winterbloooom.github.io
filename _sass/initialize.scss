@@ -73,8 +73,8 @@ $content-width-tablet: 684px;
 $sidebar-width-tablet: 50vw;
 
 // mobile (760 ~ )
-$inner-width-mobile: 480px;
-$content-width-mobile: 460px;
+$inner-width-mobile: 96%; //480px;
+$content-width-mobile: 86%; //TEMP //460px;
 $sidebar-width-mobile: 100vw;
 
 * {
