@@ -45,13 +45,19 @@ layout: default
                     <div class="line"></div>
                 </div>
 
-                <div class="list-elements" id="list-mix1">
+                <div class="list-elements" id="list-ver1">
+                    {% comment %}
                     {% for post in site.posts limit : 3 %} 
                         {% if forloop.first %}
                             {% include /list_element/list_element_ver1.html %}
                         {% else %}
                             {% include /list_element/list_element_hor1.html %}
                         {% endif %}
+                    {% endfor %}
+                    {% endcomment %}
+
+                    {% for post in site.posts limit : 3 %}
+                        {% include /list_element/list_element_ver1.html %}
                     {% endfor %}
                 </div>
             </div>
@@ -130,6 +136,4 @@ layout: default
         </div>
     
     </div>
-
-    
 </div>

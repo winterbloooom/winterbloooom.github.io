@@ -1,11 +1,16 @@
 // font
 $code_font: monospace, Consolas;
-$text-size-default: 17px;
-$h1-size-default: 30px;
-$h2-size-default: 25px;
-$h3-size-default: 20px;
-$code-size-default: 15px;
-$post-title: 38px;
+
+$font-size-h1: 2rem;
+$font-size-h2: 1.5rem;
+$font-size-h3: 1.3rem;
+$font-size-post-title: 2.5rem;
+
+$font-size-p-mobile: 17px;
+$font-size-h1-mobile: 30px;
+$font-size-h2-mobile: 25px;
+$font-size-h3-mobile: 20px;
+$font-size-post-title-mobile: 38px;
 
 
 // for all
@@ -20,36 +25,24 @@ a {
 }
 
 code {
-    font-size: $code-size-default;
     font-family: $code_font;
 }
 
-// post
-#post-content a {
-    text-decoration: none;
-    color: $link-color;
-    border-bottom: 1px dotted $link-color;
-    font-weight: 500;
 
-    &:hover {
-        background-color: $link-color;
-    }
-}
 
 // paragraph
 :root {
     font-family: 'NanumSquareNeo-Variable';
-    font-weight: 500;
+    font-size: 17px;
 }
 
 p {
-    font-size: $text-size-default;
-    line-height: 30px;
-    margin-bottom: 1.2em;
+    line-height: 1.6rem;
+    margin-bottom: 1.2rem;
 }
 
 @media all and (max-width: $max-width) {
-    p {
-        line-height: 30px;
-    }
+    // p {
+    //     line-height: 30px;
+    // }
 }

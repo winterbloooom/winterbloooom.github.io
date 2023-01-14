@@ -11,12 +11,12 @@
     font-weight: normal;
     font-style: normal;
 } // 나눔스퀘어네오
-// @font-face {
-//     font-family: 'NanumSquareRound';
-//     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff') format('woff');
-//     font-weight: normal;
-//     font-style: normal;
-// } // 나눔스퀘어라운드
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+} // G마켓 산스, 300, 500, 700
 @font-face {
     font-family: 'yg-jalnan';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff') format('woff');

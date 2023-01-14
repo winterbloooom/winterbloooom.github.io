@@ -24,32 +24,33 @@
 }
 
 .title-text {
-    font-size: $post-title;
-    margin-bottom: 20px;
+    font-size: $font-size-post-title;
+    margin-bottom: 1.5rem;
     font-family: "yg-jalnan";
-    line-height: $post-title + 10px;
+    line-height: 3rem;
 }
 
 .title-date {
-    font-size: 15px;
-    font-weight: 300;
-    margin-bottom: 10px;
+    font-family: 'GmarketSansMedium';
+    font-size: small;
+    font-weight: 700;
 }
 
 .title-tag-wrap {
     display: flex;
     flex-direction: row;
-    gap: 5px;
+    gap: 0.5rem;
     flex-wrap: wrap;
-    margin-bottom: 20px;
+    margin-bottom: 1rem;
 }
 
 .tag-single {
-    border-radius: 14px;
+    border-radius: 1rem;
     background-color: $main-color;
-    padding: 5px 10px;
-    font-size: 14px;
-    font-weight: 300;
+    padding: 0.4rem 0.8rem;
+    font-size: small;
+    font-weight: 700;
+    font-family: 'GmarketSansMedium';
 }
 
 .post-teaser-wrap {
@@ -106,9 +107,9 @@
     }
 
     .title-text {
-        font-size: $post-title;
+        font-size: $font-size-post-title-mobile;
         margin-bottom: 20px;
-        line-height: $post-title + 10px;
+        // line-height: $font-size-post-title-mobile + 10px;
     }
 
     .post-teaser-wrap {

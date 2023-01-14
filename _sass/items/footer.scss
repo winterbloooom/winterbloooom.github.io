@@ -1,6 +1,204 @@
 #footer {
-    background-color: white; //$grey-500;
-    height: 1px;
     width: 100%;
-    position: relative;
+    font-family: 'GmarketSansMedium';
+    height: 40vh;
+
+    & * {
+        color: white;
+    }
+}
+
+.footer-main {
+    padding: 1.5rem;
+    display: grid;
+    grid-template-columns: 2fr 2fr 0.5fr;
+    background-color: $black;
+}
+
+.footer-about {
+    grid-column: 1 / 2;
+    padding-right: 3rem;
+    border-right: 1px solid $grey-400;
+    margin-right: 1rem;
+}
+
+.footer-name {
+    margin-bottom: 1rem;
+    font-weight: 700;
+
+    :last-child {
+        margin-left: 0.5rem;
+        font-size: 0.8rem;
+        color: $grey-400;
+    }
+}
+
+.footer-greeting {
+    color: $grey-400;
+    font-size: 0.7rem;
+    margin-bottom: 1.4rem;
+    line-height: 1rem;
+}
+
+.footer-contacts {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+
+    .contact {
+        cursor: pointer;
+
+        .contact-icon {
+            padding: 0.4rem;
+            display: inline-block;
+            height: 2rem;
+            width: 2rem;
+            margin-right: 0.4rem;
+            border-radius: 2rem;
+            border: 0.8px solid white;
+            text-align: center;
+            transition: all 0.4s ease;
+
+            i {
+				font-size: 0.9rem;
+			}
+        }
+
+        .contact-title {
+            font-size: 0.8rem;
+            color: $grey-400;
+        }
+    }
+
+    .contact:hover {
+        .contact-icon {
+            background-color: white;
+
+            i {
+                color: $black !important;
+            }
+        }
+    }
+}
+
+
+.footer-categories {
+    grid-column: 2 / 3;
+}
+
+.go-recent span {
+    font-weight: 700;
+}
+
+.go-recent-btn {
+    margin-left: 2rem;
+    outline: none;
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+    transition: 0.2s;
+    transform: rotate(-90deg);
+    margin-bottom: 1rem;
+
+    svg {
+        height: 0.9rem;
+        width: 0.9rem;
+        fill: white;
+    }
+}
+
+.categories-wrapper {
+    padding-left: 0.5rem;
+
+    .lv1-categories {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .lv1-category {
+        margin-right: 0.5rem;
+        margin-bottom: 1rem;
+        flex: 1 1 40%;
+
+        .lv1-title-wrap {
+            .lv1-title {
+                display: flex;
+                flex-direction: row;
+                margin-bottom: 0.3rem;
+                
+                &:hover {
+                    .lv1-title-link {
+                        border-bottom: 1px solid white;
+                    }
+                }
+
+                .lv1-title-link {
+                    font-size: 0.8rem;
+                    border-bottom: 1px solid transparent;
+                }
+            }
+        }
+    }
+
+    .lv2-categories {
+        list-style: none;
+    }
+
+    .lv2-category {
+        padding-left: 1.2rem;
+
+        .lv2-title-wrap {
+            .lv2-title {
+                display: flex;
+                flex-direction: row;
+                border-bottom: 1px solid transparent;
+                margin-bottom: 0.2rem;
+
+                &:hover {
+                    .lv2-title-link {
+                        border-bottom: 1px solid white;
+                    }
+                }
+
+                .lv2-title-link {
+                    font-size: 0.6rem;
+                    border-bottom: 1px solid transparent;
+                }
+            }
+        }
+        
+    }
+
+    button.expand {
+        transform: rotate(180deg);
+    }
+}
+
+.footer-pages {
+    grid-column: 3 / 4;
+    margin-left: 1rem;
+
+    a {
+        display: block;
+        padding: 0.5rem 0;
+        border: 1px solid white;
+        margin-bottom: 0.8rem;
+        text-align: center;
+        font-size: 0.8rem;
+        font-weight: 700;
+        transition: all 0.4s ease;
+    }
+
+    a:hover {
+        background-color: white;
+        color: $black !important;
+    }
+}
+
+.copyright {
+    line-height: 2rem;
+    background-color: black;
+    font-size: small;
+    padding: 0 1.5rem;
+    color: $grey-300;
 }

@@ -9,39 +9,39 @@
 .content-wrap {
     grid-column: 3 / 4;
     padding: 50px 0;
+
     h1, h2, h3 {
         font-weight: bold;
         font-family: 'MaplestoryOTFBold';
     }
 
     h1 {
-        margin: 40px 0px 15px 0px;
-        font-size: $h1-size-default;
+        margin: 2rem 0 1rem 0;
+        font-size: $font-size-h1;
         color: $main-color;
-        // border-bottom: 2px dashed $main-color;
     }
 
     h2 {
-        padding: 20px 0px 15px 0px;
-        font-size: $h2-size-default;
+        padding: 1.6rem 0px 0.9rem 0px;
+        font-size: $font-size-h2;
     }
 
     h3 {
-        padding: 10px 0px 15px 0px;
-        font-size: $h3-size-default;
+        padding: 1.4rem 0px 0.7rem 0px;
+        font-size: $font-size-h3;
     }
 
     ul li, 
     ol li, 
     li ul, 
     li ol {
-        margin-bottom: 0.3em;
-        line-height: 1.8em;
+        margin-bottom: 0.4rem;
+        line-height: 1.6rem;
     }
 
     ul, ol {
-        padding-left: 25px;
-        margin-bottom: 1.2em; // 임의로 집어 넣었는데 나중에 고치기
+        padding-left: 1.2rem;
+        margin-bottom: 1.2rem;
     }
 }
 
@@ -51,6 +51,19 @@
     padding: 1em 0;
     display: block;
     margin: auto;
+}
+
+#post-content a {
+    text-decoration: none;
+    color: $link-color;
+    border-bottom: 1px dotted $link-color;
+    font-weight: 500;
+    line-height: 1.6rem;
+
+    &:hover {
+        background-color: $link-color;
+        color: white;
+    }
 }
 
 // tablet

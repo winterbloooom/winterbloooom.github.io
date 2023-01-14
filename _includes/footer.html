@@ -1,3 +1,80 @@
-<div id="footer" style="">
-    <!-- footer 화면 맨 아래로 -->
+<div id="footer">
+    <div class="footer-main">
+        <div class="footer-about">
+            <div class="footer-name">
+                <span>winterbloooom</span>
+                <span>EunGi Han (한은기)</span>
+            </div>
+
+            <div class="footer-greeting">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sed diam at sem ullamcorper tempus. 
+                Suspendisse turpis eros, tempor eget mattis ac, dignissim fermentum elit. Pellentesque vitae sem 
+                eget urna accumsan egestas vel ut eros. Etiam nulla turpis, tempus at ullamcorper in, venenatis tempus mauris.
+            </div>
+
+            <div class="footer-contacts">
+                <a class="contact" href="https://github.com/winterbloooom" >
+                    <span class="contact-icon"><i class="fa-brands fa-github"></i></span>
+                    <span class="contact-title">GitHub</span>
+                </a>
+    
+                <a class="contact" href="mailto:winterbloooom@gmail.com">
+                    <span class="contact-icon"><i class="fa-regular fa-envelope"></i></span>
+                    <span class="contact-title">e-mail</span>
+                </a>
+    
+                <a class="contact" href="https://www.instagram.com/winterbloooom/">
+                    <span class="contact-icon"><i class="fa-brands fa-instagram"></i></span>
+                    <span class="contact-title">Instagram</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="footer-categoires">
+            <a class="go-recent" href="/category/recent_posts">
+                <span>Categories</span>
+                <button class="go-recent-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>
+                </button>
+            </a>
+
+            <div class="categories-wrapper">
+                <div class="lv1-categories">
+                    {% assign categories = site.data.categories.categories %}
+                    {% for lv1 in categories %}
+                        <div class="lv1-category">
+                            <div class="lv1-title-wrap">
+                                <div class="lv1-title">
+                                    <a href="{{ lv1.url | relative_url }}" class="lv1-title-link">{{ lv1.lv1_category }}</a>
+                                </div>
+                            </div>
+                            
+                            <ul class="lv2-categories">
+                                {% for lv2 in lv1.lv2 %}
+                                    <li class="lv2-category">
+                                        <div class="lv2-title-wrap">
+                                            <div class="lv2-title">
+                                                <a href="{{ lv2.url | relative_url }}" class="lv2-title-link">{{ lv2.lv2_category }}</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-pages">
+            <a href="/about">About</a>
+            <a href="/series">Series</a>
+            <a href="/projects">Projects</a>
+            <a href="/notice">Notice</a>
+        </div>
+    </div>
+    
+    <div class="copyright">
+        <span>copyright by EunGi Han</span>
+    </div>
 </div>
