@@ -3,14 +3,10 @@
    * 화면 구성 태그 그림 그리기 & 너비 고려해 다시 설정
    * 맨 위로 올라가기, 맨 아래로 내리기 버튼
      * http://rwdb.kr/css_scroll_icon/
-     * 
-   * 푸터 디자인
    * 코드 영역
      * 라인 번호
-     * syntex highlighter
    * 카테고리 열기 (좌측): https://alvarotrigo.com/blog/hamburger-menu-css/
    * 태그에 링크 걸기
-   * topbar 경로 자동 불러오기
    * 반응형
    * 푸터 위, 컨텐츠 맨 마지막: 공유 & 저작권 표시 의무적으로 들어가도록
    * 댓글
@@ -19,17 +15,12 @@
    * 화면 크기
    * 글꼴 스타일: 태그 별(코드는 너비 같은 걸로)
    * 글꼴 크기: 화면 사이즈 별, 태그 별
-   * 스크롤 바
    * 페이지 소스 보기 금지
    * 우클릭 금지?
    * 다크 모드
-3. 리스트 페이지 디자인
-   * archive single
-   * 글 목록
-4. 검색 기능
-5. 시리즈 보기 기능
-6. 프로젝트 페이지, About 페이지, 404 page
-7. 태그 별 보기
+3. 시리즈 보기 기능
+4. 프로젝트 페이지
+5. 태그 별 보기
 
 https://docs.github.com/ko/pages/setting-up-a-github-pages-site-with-jekyll/creating-a-github-pages-site-with-jekyll
 
