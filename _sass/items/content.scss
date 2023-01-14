@@ -1,6 +1,9 @@
 #post-content,
 #home-content,
-#archive-content {
+#archive-content,
+#search-content,
+#content-404,
+#content-notice {
     $pad: (($inner-width - $content-width) / 2);
     display: grid;
     grid-template-columns: 1fr $pad $content-width $pad 1fr;
@@ -64,6 +67,27 @@
         background-color: $link-color;
         color: white;
     }
+}
+
+.search-bar {
+    width: 100%;
+	border: 1.5px solid $black;
+    padding: 0.5rem 1rem;
+    display: flex;
+    margin-bottom: 2rem;
+}
+
+.search-bar i {
+    margin-right: 1rem;
+    line-height: 2rem;
+}
+
+#search-input {
+    flex: 1;
+    border: none;
+    line-height: 2rem;
+    outline: none;
+    border-style: none;
 }
 
 // tablet

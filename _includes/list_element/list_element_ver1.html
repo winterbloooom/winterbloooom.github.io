@@ -14,15 +14,7 @@
         <div class="list-element-text">
 
             <!-- category -->
-            <div class="list-element-category">
-                {% assign path = post.path | split: '/' %}
-                {% assign lv1 = path[1] %}
-                {% assign lv2 = path[2] %}
-
-                <div class="breadcrumb-category">{{ lv1 }}</div>
-                <span class="breadcrumb-slash">/</span>
-                <div class="breadcrumb-category">{{ lv2 }}</div>
-            </div>
+            <div class="list-element-category">{{ post.categories | join: ' / ' }}</div>
 
             <!-- title -->
             <div class="list-element-title">{{ post.title }}</div>

@@ -15,8 +15,6 @@ teaser: https://user-images.githubusercontent.com/69252153/186675838-045e0a25-b2
 feature: true
 ---
 
-![logo-github](https://user-images.githubusercontent.com/69252153/186675838-045e0a25-b283-4b7b-8f41-050be59fd8eb.png){: .align-center}
-
 # 기본 정보
 * 최초 작성일: 2022년 08월 23일 화요일
 * 최종 업데이트: 2022년 08월 24일 수요일

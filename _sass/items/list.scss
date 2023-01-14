@@ -101,20 +101,8 @@
             flex: 1;
 
             .list-element-category {
-                display: flex;
-                flex-direction: row;
-    
-                .breadcrumb-category,
-                .breadcrumb-slash {
-                    font-size: 13px;
-                    height: 25px;
-                    border-radius: 3px;
-                    color: rgb(55, 53, 47);
-                }
-    
-                .breadcrumb-slash {
-                    padding: 0 10px;
-                }
+                font-size: small;
+                margin-bottom: 0.5rem;
             }
 
             .list-element-title {

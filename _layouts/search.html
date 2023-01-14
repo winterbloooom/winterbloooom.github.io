@@ -1,0 +1,47 @@
+---
+layout: default
+---
+
+<div id="layout-search">
+	<div id="search-content">
+		<div class="content-wrap">
+			<div class="search-bar">
+				<i class="fa fa-search" aria-hidden="true"></i>
+				<input id="search-input" type="text" placeholder="Search..." />
+			</div>
+	
+			<ul id="results-container"></ul>
+		</div>
+	</div>
+</div>
+
+<!-- Script pointing to jekyll-search.js -->
+<script src="/assets/js/jekyll-search.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+	SimpleJekyllSearch({
+		searchInput: document.getElementById('search-input'),
+		resultsContainer: document.getElementById('results-container'),
+		json: '/search.json',
+		searchResultTemplate: `
+			<div id="list-element-hor5" class="list-element">
+				<a href="{url}" class="list-element-url">
+					<div class="list-element-teaser">
+						<img src="{teaser}" alt="{title}">
+					</div>
+
+					<div class="list-element-text">
+						<div class="list-element-category">{categories}</div>
+						<div class="list-element-title">{title}</div>
+						<div class="list-element-date">{date}</div>
+						<div class="list-element-excerpt">{excerpt}</div>
+					</div>
+				</a>
+			</div>
+		`,
+		noResultsText: 'No results found',
+		limit: 10000,
+		fuzzy: false,
+		exclude: ['Welcome']
+	});
+</script>

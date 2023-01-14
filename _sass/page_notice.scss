@@ -1,0 +1,29 @@
+#layout-notice {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.container-notice {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 2.5rem;
+    align-items: center;
+}
+
+.notice-title {
+    color: $main-color;
+    font-size: $font-size-h1;
+    font-family: 'yg-jalnan';
+    margin-bottom: 1rem;
+}
+
+.notice-date {
+    color: $grey-500;
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+}
+
+.notice-text {
+}

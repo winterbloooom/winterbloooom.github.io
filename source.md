@@ -56,6 +56,72 @@ https://studiomeal.com/archives/533
 * mixin, extend, use
   * https://nykim.work/113
 
+* 검색
+  * https://mi-nya.tistory.com/188
+  * https://jamesu.dev/posts/2021/01/03/adding-search-page-on-jekyll/
+  * searchResultTemplate에 표시할 형식이 나타나며, search.json에 있는 key로 불러옴. {title} 식으로 괄호 띄어쓰기 있으면 안됨
+
+* 내 코드 breadcrumb
+```
+                <!-- {% assign path = post.path | split: '/' %}
+                {% assign lv1 = path[1] %}
+                {% assign lv2 = path[2] %}
+
+                <div class="breadcrumb-category">{{ lv1 }}</div>
+                <span class="breadcrumb-slash">/</span>
+                <div class="breadcrumb-category">{{ lv2 }}</div> -->
+```
+
+```
+.list-element-category {
+                display: flex;
+                flex-direction: row;
+    
+                .breadcrumb-category,
+                .breadcrumb-slash {
+                    font-size: 13px;
+                    height: 25px;
+                    border-radius: 3px;
+                    color: rgb(55, 53, 47);
+                }
+    
+                .breadcrumb-slash {
+                    padding: 0 10px;
+                }
+            }
+```
+
+* 처음 홈 타이틀
+```
+    <!-- 제목 -->
+    <!-- <div id="home-title">
+        <div class="title-wrap">
+            <div class="title-text">
+                Welcome!
+            </div>
+    
+            <div class="contact-list">
+                <a class="contact" href="https://github.com/winterbloooom" >
+                    <div class="contact-icon"><i class="fa-brands fa-github"></i></div>
+                    <div class="contact-title">GitHub</div>
+                </a>
+    
+                <a class="contact" href="mailto:winterbloooom@gmail.com">
+                    <div class="contact-icon"><i class="fa-regular fa-envelope"></i></div>
+                    <div class="contact-title">e-mail</div>
+                </a>
+    
+                <a class="contact" href="https://www.instagram.com/winterbloooom/">
+                    <div class="contact-icon"><i class="fa-brands fa-instagram"></i></div>
+                    <div class="contact-title">Instagram</div>
+                </a>
+            </div>
+        </div>
+
+        <span class="material-symbols-outlined scroll-down">keyboard_double_arrow_down</span>
+    </div> -->
+```
+
 # 요소 별 참고 사이트
 ## 콘텐츠 리스트
 * https://developers.googleblog.com/
