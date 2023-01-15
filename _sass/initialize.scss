@@ -155,7 +155,7 @@ code.hljs {
 }
 
 // 인라인 코드
-code.highlighter-rouge { 
+code, code.highlighter-rouge { 
     border-radius: 5px;
     background-color: $inline_code-color;
     outline: 0.5px solid $inline_code_border-color;

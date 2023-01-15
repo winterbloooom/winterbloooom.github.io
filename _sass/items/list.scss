@@ -64,12 +64,12 @@
 #recent-post-list-categories {
     display: grid;
     grid-template-columns: repeat(6, minmax(0, 1fr));
-    border: 1px solid $black;
-    // padding: 1rem 0.8rem;
+    border-top: 2px solid $black;
+    border-bottom: 2px solid $black;
     margin-bottom: 2rem;
 
     #list-element-category {
-        border-right: 1px solid $grey-500;
+        
         padding: 1.4rem 0;
 
         &:last-child {

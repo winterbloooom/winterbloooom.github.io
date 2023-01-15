@@ -185,6 +185,17 @@ defaults:
 
   -
     scope:
+      path: "_posts/programming/algorithm/*"
+    values:
+      teaser: "/assets/images/lv2_teaser/teaser-programming-algorithm.png"
+  -
+    scope:
+      path: "_pages/categories/category_programming_algorithm.html"
+    values:
+      title_bg: "/assets/images/lv2_bg/bg-programming-algorithm.png"
+
+  -
+    scope:
       path: "_posts/programming/python/*"
     values:
       teaser: "/assets/images/lv2_teaser/teaser-programming-python.png"

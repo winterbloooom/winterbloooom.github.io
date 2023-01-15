@@ -25,6 +25,8 @@ categories:
     url: /category/programming/
     icon: fa-regular fa-keyboard
     lv2:
+        - lv2_category: "Algorithm"
+          url: /category/programming/algorithm
         - lv2_category: "Python"
           url: /category/programming/python
         - lv2_category: "C++"
