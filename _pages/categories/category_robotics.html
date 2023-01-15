@@ -6,7 +6,7 @@ permalink: /category/robotics/
 <div id="archive-post-list-categories">
     {% assign categories = site.data.categories.categories %}
     {% for lv1 in categories %}
-        {% if lv1.lv1_category == 'AI' %}
+        {% if lv1.lv1_category == 'Robotics' %}
             {% for lv2 in lv1.lv2 %}
                 <div id="list-element-category" class="list-element">
                     <a href="{{ lv2.url | relative_url | relative_url }}" class="list-element-url">
