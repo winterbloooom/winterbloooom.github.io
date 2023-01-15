@@ -3,10 +3,7 @@ layout: default
 ---
 
 <div class="layout-default">
-
     <div id="home-content" class="content-default">
-
-        <!-- content-wrap -->
         <div class="content-wrap">
 
             <div id="urgent-notice">
@@ -16,101 +13,87 @@ layout: default
             </div>
             
             <!-- recent posts -->
-            <div id="list-basic">
-                <div class="list-title-wrap">
-                    <div class="list-title">Recent Posts</div>
-                    <div class="line"></div>
-                </div>
+            <div class="list-basic">
+                <div class="list-title">Recent Posts</div>
 
-                <div class="list-elements" id="list-ver1">
-                    {% comment %}
-                    {% for post in site.posts limit : 3 %} 
+                <div id="list-default">
+                    {% for post in site.posts limit : 4 %} 
                         {% if forloop.first %}
-                            {% include /list_element/list_element_ver1.html %}
+                            {% include archive_single_teaser.html id="default-single-first"%}
                         {% else %}
-                            {% include /list_element/list_element_hor1.html %}
+                            {% include archive_single_teaser.html id="default-single-other"%}
                         {% endif %}
-                    {% endfor %}
-                    {% endcomment %}
-
-                    {% for post in site.posts limit : 3 %}
-                        {% include /list_element/list_element_ver1.html %}
                     {% endfor %}
                 </div>
             </div>
     
-            <!-- categories -->
-            <div id="list-basic">
-                <div class="list-title-wrap">
-                    <div class="list-title">Categories</div>
-                    <div class="line"></div>
-                </div>
+            <!-- categories list -->
+            <div class="list-basic">
+                <div class="list-title">Categories</div>
 
                 <div class="list-elements" id="list-categories">
                     {% assign categories = site.data.categories.categories %}
                     {% for lv1 in categories %}
-                        {% assign category = lv1.lv1_category %}
-                        {% assign category_url = lv1.url %}
-                        {% assign icon_cls = lv1.icon %}
-                        {% include /list_element/list_element_category.html title=category url=category_url icon=icon_cls%}
+                        <a href="{{ lv1.url | relative_url }}" id="category-single" class="post-link">
+                            <div class="category-icon"><i class="{{ lv1.icon }}"></i></div>
+                            <div class="category-title">{{ lv1.lv1_category }}</div>
+                        </a>
                     {% endfor %}
                 </div>
             </div>
     
             <!-- featured posts -->
-            <div id="list-basic">
-                <div class="list-title-wrap">
-                    <div class="list-title">Featured Posts</div>
-                    <div class="line"></div>
-                </div>
-                <div class="list-elements" id="list-hor2">
+            <div class="list-basic">
+                <div class="list-title">Featured Posts</div>
+
+                <div id="list-featured">
                     {% for post in site.posts %} 
                         {% if post.feature == true %}
-                            {% include /list_element/list_element_hor2.html %}
+                            <a href="{{ post.url }}" id="featured-single" class="post-link"
+                            style="background: linear-gradient(0deg, rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url({{ post.teaser | relative_url}}); background-position:center center; background-size: cover">
+                                <div class="list-element-text">
+                                    <div class="list-element-category">{{ post.categories | join: ' / ' }}</div>
+                                    <div class="list-element-title">{{ post.title }}</div>
+                                    <div class="list-element-date">{{ post.date | date: "%Y. %m. %d" }}</div>
+                                    <div class="list-element-excerpt">{{ post.excerpt | default: "" }}</div>
+                                </div>
+                            </a>
                         {% endif %}
                     {% endfor %}
                 </div>
             </div>
 
-            <!-- category -->
-            <div id="list-basic">
-                <div class="list-title-wrap">
-                    <div class="list-title">Robotics</div>
-                    <div class="line"></div>
-                </div>
+            <!-- Robotics -->
+            <div class="list-basic">
+                <div class="list-title">Robotics</div>
 
-                <div class="list-elements" id="list-mix2">
+                <div id="list-default">                   
                     {% assign posts = site.categories.Robotics %}
-                    {% for post in posts limit : 3 %} 
+                    {% for post in posts limit : 4 %} 
                         {% if forloop.first %}
-                            {% include /list_element/list_element_hor3.html %}
+                            {% include archive_single_teaser.html id="default-single-first"%}
                         {% else %}
-                            {% include /list_element/list_element_hor4.html %}
+                            {% include archive_single_teaser.html id="default-single-other"%}
                         {% endif %}
                     {% endfor %}
                 </div>
             </div>
     
-            <!-- category -->
-            <div id="list-basic">
-                <div class="list-title-wrap">
-                    <div class="list-title">AI</div>
-                    <div class="line"></div>
-                </div>
+            <!-- AI -->
+            <div class="list-basic">
+                <div class="list-title">AI</div>
 
-                <div class="list-elements" id="list-mix2">
+                <div id="list-default">
                     {% assign posts = site.categories.AI %}
-                    {% for post in posts limit : 3 %} 
+                    {% for post in posts limit : 4 %} 
                         {% if forloop.first %}
-                            {% include /list_element/list_element_hor3.html %}
+                            {% include archive_single_teaser.html id="default-single-first"%}
                         {% else %}
-                            {% include /list_element/list_element_hor4.html %}
+                            {% include archive_single_teaser.html id="default-single-other"%}
                         {% endif %}
                     {% endfor %}
                 </div>
             </div>
-    
         </div>
-    
     </div>
 </div>

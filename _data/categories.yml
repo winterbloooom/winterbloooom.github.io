@@ -43,12 +43,12 @@ categories:
           url: /category/dev/git
         - lv2_category: "Docker"
           url: /category/dev/docker
-  - lv1_category: "OS"
-    url: /category/os
-    icon: fa-brands fa-ubuntu
+  - lv1_category: "Computer Science"
+    url: /category/cs
+    icon: fa-solid fa-computer
     lv2:
         - lv2_category: "Linux"
-          url: /category/os/linux
+          url: /category/cs/linux
   - lv1_category: "Math"
     url: /category/math/
     icon: fa-solid fa-square-root-variable

@@ -3,7 +3,7 @@ title:  "[Linux] USB 장치 이름 고정하기: udev 설정, Symbolic Link 만�
 excerpt: "udev rules, 심볼릭 링크(Symbolic Link), 장치 (포트) 이름 고정하기, 스크립트 파일(.sh) 사용하기"
 
 categories:
-  - OS
+  - Computer Science
   - Linux
 tags:
   - OS

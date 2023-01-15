@@ -29,6 +29,12 @@
     font-weight: normal;
     font-style: normal;
 } // 메이플스토리 / 300, 700
+@font-face {
+    font-family: 'SBAggroB';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SBAggroB.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 
 // color theme
 $blue-600: #3464E0; // main
@@ -40,7 +46,7 @@ $blue-100: #F0F4FD;
 $grey-600: #636363;
 $grey-500: #8A8A8A;
 $grey-400: #E6E6E6;
-$grey-300: #F0F0F0;
+$grey-300: #F6F8FA;
 $grey-200: #F5F5F5;
 $grey-100: #FBFBFB; // main
 $black: #333333;
@@ -245,12 +251,20 @@ hr {
     }
 }
 
+//comment
+#disqus_thread {
+    margin-top: 3rem;
+    border-top: 1px solid $grey-400;
+    padding-top: 3rem;
+}
+
 // import
 @import "_text_style";
 @import "table";
 @import "page_404";
 @import "page_notice";
 @import "page_about";
+@import "page_home";
 
 @import "items/content";
 @import "items/footer";

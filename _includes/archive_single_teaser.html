@@ -1,0 +1,16 @@
+<a href="{{ post.url }}" id="{{ include.id | default: 'default-single-default' }}" class="post-link">
+    <div class="list-element-teaser">
+        {% if post.teaser %}
+            <img src="{{ post.teaser }}" alt="{{ post.title }}">
+        {% else %}
+            <div class="empty-teaser"></div>
+        {% endif %}
+    </div>
+
+    <div class="list-element-text">
+        <div class="list-element-category">{{ post.categories | join: ' / ' }}</div>
+        <div class="list-element-title">{{ post.title }}</div>
+        <div class="list-element-date">{{ post.date | date: "%Y. %m. %d" }}</div>
+        <div class="list-element-excerpt">{{ post.excerpt | default: "" }}</div>
+    </div>
+</a>

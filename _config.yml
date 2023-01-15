@@ -72,7 +72,6 @@ kramdown:
 
 timezone: Asia/Seoul # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
-
 defaults:
   -
     scope:
@@ -81,6 +80,7 @@ defaults:
       layout: "post"
       mathjax: true
       toc: false
+      comments: true
 
   -
     scope:
@@ -268,20 +268,20 @@ defaults:
 
   -
     scope:
-      path: "_pages/categories/category_os.html"
+      path: "_pages/categories/category_cs.html"
     values:
-      title_bg: "/assets/images/lv2_bg/bg-os-linux.png"
+      title_bg: "/assets/images/lv2_bg/bg-cs-linux.png"
 
   -
     scope:
-      path: "_posts/os/linux/*"
+      path: "_posts/cs/linux/*"
     values:
-      teaser: "/assets/images/lv2_teaser/teaser-os-linux.png"
+      teaser: "/assets/images/lv2_teaser/teaser-cs-linux.png"
   -
     scope:
-      path: "_pages/categories/category_os_linux.html"
+      path: "_pages/categories/category_cs_linux.html"
     values:
-      title_bg: "/assets/images/lv2_bg/bg-os-linux.png"
+      title_bg: "/assets/images/lv2_bg/bg-cs-linux.png"
 
   -
     scope:

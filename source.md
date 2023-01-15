@@ -1,18 +1,8 @@
 # 할 일 순서
 1. 개별 포스트 화면 디자인
-   * 화면 구성 태그 그림 그리기 & 너비 고려해 다시 설정
-   * 맨 위로 올라가기, 맨 아래로 내리기 버튼
-     * http://rwdb.kr/css_scroll_icon/
-   * 코드 영역
-     * 라인 번호
-   * 카테고리 열기 (좌측): https://alvarotrigo.com/blog/hamburger-menu-css/
-   * 태그에 링크 걸기
-   * 반응형
    * 푸터 위, 컨텐츠 맨 마지막: 공유 & 저작권 표시 의무적으로 들어가도록
-   * 댓글
 2. 전체적 디자인 테마
    * 흰색, 회색, 검정색 선택
-   * 화면 크기
    * 글꼴 스타일: 태그 별(코드는 너비 같은 걸로)
    * 글꼴 크기: 화면 사이즈 별, 태그 별
    * 페이지 소스 보기 금지
@@ -27,12 +17,12 @@ https://docs.github.com/ko/pages/setting-up-a-github-pages-site-with-jekyll/crea
 
 * 스크롤 따라
   * fixed, absolute: https://kooyh.tistory.com/18
-
+* 카테고리 열기 (좌측): https://alvarotrigo.com/blog/hamburger-menu-css/
 * 배경 흐리기
 https://codingbroker.tistory.com/22
 https://codingbroker.tistory.com/58
 https://ssimplay.tistory.com/67
-
+* 맨위로: http://rwdb.kr/css_scroll_icon/
 * 그리드
 https://studiomeal.com/archives/533
 
