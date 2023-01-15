@@ -14,8 +14,7 @@ last_modified_at: 2021-07-15
 
 ---
 
-해당 글은 <Matplotlib Tutorial - 파이썬으로 데이터 시각화하기>를 읽은 것을 바탕으로 하였으며, 상세한 예시 및 코드, 내용은 하단 링크를 참조한다.
-{: .notice--info}
+{% include inserted_box.html text="해당 글은 [Matplotlib Tutorial - 파이썬으로 데이터 시각화하기]를 읽은 것을 바탕으로 하였으며, 상세한 예시 및 코드, 내용은 하단 링크를 참조한다." %}
 
 
 # Matplotlib

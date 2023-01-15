@@ -44,6 +44,7 @@ $grey-300: #F0F0F0;
 $grey-200: #F5F5F5;
 $grey-100: #FBFBFB; // main
 $black: #333333;
+$yellow: #E1AF33;
 
 $main-color: $blue-600;
 $link-color: $blue-600;
@@ -95,10 +96,12 @@ body {
     }
 }
 
-#layout-archive, #layout-post, #layout-search, #layout-home {
+.layout-default {
     height: auto;
     min-height: 100%;
-    // padding-bottom: 40vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 
@@ -204,15 +207,50 @@ hr {
     }
 }
 
+#notice-box {
+    margin: 1rem 0 1.5rem 0;
+    display: flex;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    padding: 0.6rem;
+
+    .notice-icon-wrap {
+        border-left: 5px solid $yellow;
+        margin-right: 1rem;
+        padding: 1rem;
+    }
+
+    i {
+        font-size: 1.5rem;
+        color: $yellow;
+    }
+
+    .notice-text {
+        margin-top: auto;
+        margin-bottom: auto;
+        font-size: 0.9rem;
+        line-height: 1.3rem;
+        flex: 1;
+    }
+}
+
+#inserted-box {
+    margin: 1rem 0 1.5rem 0;
+
+    .notice-text {
+        font-size: 0.9rem;
+        line-height: 1.3rem;
+        border-left: 3px solid $main-color;
+        padding: 0.5rem;
+        padding-left: 1rem;
+    }
+}
+
 // import
 @import "_text_style";
 @import "table";
 @import "page_404";
 @import "page_notice";
-
-@import "layout_styles/layout_home";
-@import "layout_styles/layout_post";
-@import "layout_styles/layout_page";
+@import "page_about";
 
 @import "items/content";
 @import "items/footer";

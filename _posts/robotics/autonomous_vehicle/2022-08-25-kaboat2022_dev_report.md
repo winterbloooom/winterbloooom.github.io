@@ -727,7 +727,7 @@ RGB는 각 색상을 기준 색인 빨강, 초록, 파랑의 조합으로 표현
 센서를 구동하는 ROS package는 아래와 같다. 센서 드라이버는 각 센서의 제조사 등에서 제공하는 패키지를 사용했으며, 센서 제원은 [대회 제출 보고서](https://drive.google.com/file/d/1nP1QHVJlDKosmO9re21HN9KshMnNTI5O/view?usp=sharing)를 참고한다.
 
 * [IMU(AHRS) 드라이버](https://github.com/robotpilot/myahrs_driver)
-* [GPS 드라이버](https://github.com/ros-agriculture/ublox_f9p)와 [NTRIP Client 패키지](https://github.com/ros-agriculture/ntrip_ros): 설치 방식은 [저자의 블로그 포스팅](https://winterbloooom.github.io/perception/perception-ublox-gps/)을 참고한다.
+* [GPS 드라이버](https://github.com/ros-agriculture/ublox_f9p)와 [NTRIP Client 패키지](https://github.com/ros-agriculture/ntrip_ros): 설치 방식은 [저자의 블로그 포스팅](https://winterbloooom.github.io/robotics/perception/2022/01/11/ublox_gps.html)을 참고한다.
 * [LiDAR 드라이버](https://github.com/Slamtec/rplidar_ros)
 * [USB 카메라 드라이버](https://github.com/ros-drivers/usb_cam)
 
@@ -887,7 +887,7 @@ alias simul_auto='roslaunch tricat221 simul_docking.launch' # 도킹 시뮬레�
 alias sensor_test='roslaunch tricat221 module_test.launch' # 센서 테스트
 ```
 
-또한 Symbolic Link 기능을 활용하여 각 센서의 고유한 이름을 부여하였다. USB로 연결되는 센서들은 매 연결시마다 그 번호가 다르게 부여되는데 이를 고정하기 위한 방법이다. `/etc/udev/rules.d/` 경로에 아래와 같은 파일을 추가로 등록하였다. 예를 들자면 GPS는 `/dev/ttyUSB0` 식이 아니라 `/dev/ttyGPS`의 별칭 혹은 바로가기를 갖게 된다. 등록 방법은 [필자의 블로그 포스팅](https://winterbloooom.github.io/operating%20system/os-symbolic-link/)을 참고한다.
+또한 Symbolic Link 기능을 활용하여 각 센서의 고유한 이름을 부여하였다. USB로 연결되는 센서들은 매 연결시마다 그 번호가 다르게 부여되는데 이를 고정하기 위한 방법이다. `/etc/udev/rules.d/` 경로에 아래와 같은 파일을 추가로 등록하였다. 예를 들자면 GPS는 `/dev/ttyUSB0` 식이 아니라 `/dev/ttyGPS`의 별칭 혹은 바로가기를 갖게 된다. 등록 방법은 [필자의 블로그 포스팅](https://winterbloooom.github.io/os/linux/2022/01/10/symbolic_link.html)을 참고한다.
 
 ```bash
 SUBSYSTEM=="tty", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="5740", ATTRS{serial}=="000001010000", SYMLINK+="ttyIMU"
@@ -948,9 +948,8 @@ LiDAR나 카메라로 **SLAM**(Simultaneous localization and mapping, 동시적 
 
 작년부터 올해까지 필자 개인적으로 가장 큰 성장을 이룬 동력은 자율운항보트 경진대회였다. 이 과정에서 함께해준 인하대학교 i-Tricat 팀의 동료들(💙)과, 지원을 아끼지 않으신 백광준 교수님, 김상현 교수님께 무한한 감사를 드린다. 또한 선의의 경쟁을 펼치며 서로 성장의 발판을 마련한 모든 대회 참가 팀의 학우 분들 역시, 그동안 들여왔던 노력에 비례하는 밝고 희망찬 앞날이 계속되길 진심으로 바란다.<br>
 
-(💙) 가나다순, 괄호는 활동연도<br>
-김대웅(20-22), 김명민(22), 김선진(22), 김태민(20-22), 민관돈(20-21), 박정우(22), 박혜리(21), 서무영(20-22), 신채원(21), 양욱진(20-22), 유원준(21-22), 윤호진(22), 이동훈(20-21), 이선우(20-22), 이장근(20-21), 이주현(22), 이진호(21-22), 이효근(22), 장경준(20-21), 전우빈(22), 조유민(22), 조준희(20-21), 한상석(22)
-{: .notice--info}
+{% include inserted_box.html text="(💙) 가나다순, 괄호는 활동연도<br>
+김대웅(20-22), 김명민(22), 김선진(22), 김태민(20-22), 민관돈(20-21), 박정우(22), 박혜리(21), 서무영(20-22), 신채원(21), 양욱진(20-22), 유원준(21-22), 윤호진(22), 이동훈(20-21), 이선우(20-22), 이장근(21), 이주현(22), 이진호(21-22), 이효근(22), 장경준(20-21), 전우빈(22), 조유민(22), 조준희(20-21), 한상석(22)" %}
 
 - - -
 

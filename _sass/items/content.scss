@@ -1,9 +1,4 @@
-#post-content,
-#home-content,
-#archive-content,
-#search-content,
-#content-404,
-#content-notice {
+.content-default {
     $pad: (($inner-width - $content-width) / 2);
     display: grid;
     grid-template-columns: 1fr $pad $content-width $pad 1fr;

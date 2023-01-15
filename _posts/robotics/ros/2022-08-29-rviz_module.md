@@ -14,8 +14,8 @@ order: 11
 feature: true
 ---
 
-Rviz의 기본적 사용법 및 다양한 Marker의 종류는 [이전 포스팅](https://winterbloooom.github.io/ros/ros-rviz_marker/)에서 볼 수 있습니다. 해당 내용을 먼저 보길 권합니다.
-{: .notice--info}
+
+{% include inserted_box.html text="Rviz의 기본적 사용법 및 다양한 Marker의 종류는 <a href='https://winterbloooom.github.io/robotics/ros/2022/03/12/rviz_marker.html'>이전 포스팅</a>에서 볼 수 있습니다. 해당 내용을 먼저 보길 권합니다." %}
 
 # 모듈 개발의 배경
 <strong>Rviz는 ROS 프로그래밍에 굉장히 유용한 도구</strong>로, 3D 시각화를 쉽게 하기 위하여 개발되었다. 사용법이 간단하고 다양한 marker들이 구비되어 있어 필자 역시 애용했다.
@@ -25,8 +25,7 @@ Rviz의 기본적 사용법 및 다양한 Marker의 종류는 [이전 포스팅]
 # 소스코드 및 사용법
 모듈의 소스코드는 필자의 GitHub Repository [rviz_template](https://github.com/winterbloooom/rviz_template)에 있다.
 
-ROS melodic (18.04)와 Python 2.7 버전을 사용했다.
-{: .notice--info}
+{% include inserted_box.html text="ROS melodic (18.04)와 Python 2.7 버전을 사용했다." %}
 
 ## Module
 모듈은 `src/rviz_visualizer.py`에 구현되어 있다. 해당 내용을 간단히 살펴보자.

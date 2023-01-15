@@ -4,6 +4,21 @@ layout: category_archive
 permalink: /category/recent_posts
 ---
 
+<div id="recent-post-list-categories">
+{% assign categories = site.data.categories.categories %}
+{% for lv1 in categories %}
+    <div id="list-element-category" class="list-element">
+        <a href="{{ lv1.url | relative_url }}" class="list-element-url">
+            <div class="category-icon">
+                <i class="{{ lv1.icon }}"></i>
+            </div>
+            
+            <div class="category-name">{{ lv1.lv1_category }}</div>
+        </a>
+    </div>    
+{% endfor %}
+</div>
+
 {% for post in site.posts %}
     {% include /list_element/list_element_hor5.html %}
 {% endfor %}

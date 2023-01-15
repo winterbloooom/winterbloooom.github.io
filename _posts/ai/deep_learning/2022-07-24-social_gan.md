@@ -16,8 +16,8 @@ last_modified_at: 2022-07-24
 
 ---
 
-💡 단어 뒤 🔗 아이콘은 [Further Study](#further-study)(개념 추가 조사) 부분에 추가 설명을 해두었다는 표시이다.
-{: .notice--info}
+
+{% include inserted_box.html text="💡 단어 뒤 🔗 아이콘은 <a href='#further-study'>Further Study</a>(개념 추가 조사) 부분에 추가 설명을 해두었다는 표시이다." %}
 
 # Information
 
@@ -393,8 +393,7 @@ SGAN 모델이 한 장면 내 모든 사람들에 대한 결합적(joint) 예측
 
 # Further Study
 
-💡 논문을 읽으며 알지 못했던 개념들을 추가 조사한 내용이다.
-{: .notice--info}
+{% include inserted_box.html text="💡 논문을 읽으며 알지 못했던 개념들을 추가 조사한 내용이다." %}
 
 ⭐ <b><u>Sequence Prediction</u></b>
 

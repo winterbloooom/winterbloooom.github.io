@@ -21,7 +21,8 @@
 3. 시리즈 보기 기능
 4. 프로젝트 페이지
 5. 태그 별 보기
-
+6. urgent notice도 include 처럼 빼기, lenet1의 첫 notice 처럼 안에 코드 들어갈 수 있도록. 원래는 `pytorch~~` 였음. 임시로 [] 처리한 것
+7. 
 https://docs.github.com/ko/pages/setting-up-a-github-pages-site-with-jekyll/creating-a-github-pages-site-with-jekyll
 
 * 스크롤 따라

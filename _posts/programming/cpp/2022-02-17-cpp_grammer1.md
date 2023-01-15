@@ -14,8 +14,7 @@ last_modified_at: 2022-02-17
 
 ---
 
-코딩테스트 문제풀이를 하며 찾아보았던 내용을 정리했다.
-{: .notice--info}
+{% include notice_box.html text="코딩테스트 문제풀이를 하며 찾아보았던 내용을 정리했다." %}
 
 # 🥝 min(), max() 함수
 표준 라이브러리 `<algorithm>`에는 `min()`, `max()` 함수가 있어 <span style="background-color: #12B886; color: white">**주어진 두 수 중 최솟값과 최댓값을 리턴한다.**</span>

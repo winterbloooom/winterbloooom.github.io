@@ -3,6 +3,20 @@ title: "AI"
 layout: category_archive
 permalink: /category/ai/
 ---
+<div id="archive-post-list-categories">
+{% assign categories = site.data.categories.categories %}
+{% for lv1 in categories %}
+    {% if lv1.lv1_category == 'AI' %}
+        {% for lv2 in lv1.lv2 %}
+            <div id="list-element-category" class="list-element">
+                <a href="{{ lv2.url | relative_url | relative_url }}" class="list-element-url">
+                    <div class="category-name">{{ lv2.lv2_category }}</div>
+                </a>
+            </div>
+        {% endfor %}
+    {% endif %}
+{% endfor %}
+</div>
 
 {% assign posts = site.categories.AI %}
 {% for post in posts %} 

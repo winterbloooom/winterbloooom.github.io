@@ -61,6 +61,83 @@
     grid-gap: 18px;
 }
 
+#recent-post-list-categories {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    border: 1px solid $black;
+    // padding: 1rem 0.8rem;
+    margin-bottom: 2rem;
+
+    #list-element-category {
+        border-right: 1px solid $grey-500;
+        padding: 1.4rem 0;
+
+        &:last-child {
+            border-right: none;
+        }
+
+        .list-element-url {
+            flex-direction: column;
+        }
+
+        div {
+            text-align: center;
+        }
+
+        i {
+            font-size: 1.5rem;
+        }
+
+        .category-icon {
+            margin-bottom: 1rem !important;
+        }
+
+        .category-name {
+            font-size: 0.8rem !important;
+            font-family: 'GmarketSansMedium';
+            font-weight: 700  !important;
+        }
+    }
+    
+    #list-element-category:hover {
+        background-color: $blue-100;
+        .list-element-url {
+            box-shadow: none !important;
+
+            i, div {
+                color: $main-color;
+            }
+        }
+    }
+}
+
+#archive-post-list-categories {
+    display: flex;
+    gap: 2rem;
+    border-top: 1.5px solid $black;
+    border-bottom: 1px solid $black;
+    margin-bottom: 2rem;
+    padding: 1rem 0.8rem;
+
+    #list-element-category {
+        .category-name {
+            font-size: 0.8rem !important;
+            font-family: 'GmarketSansMedium';
+            font-weight: 700  !important;
+        }
+    }
+    
+    #list-element-category:hover {
+        .list-element-url {
+            box-shadow: none !important;
+
+            div {
+                color: $main-color;
+            }
+        }
+    }
+}
+
 #list-ver1 {
     display: flex;
     flex-direction: row;
@@ -293,43 +370,7 @@
     }
 }
 
-// #list-element-category {
-//     .list-element-url {
-//         flex-direction: column;
-//         padding: 20px 13px;
-
-//         border-radius: 20px;
-//         background-color: $light_grey;
-//         outline: 0.8px solid $grey;
-
-//         .list-element-teaser {
-//             margin-bottom: 20px;
-
-//             img,
-//             .empty-teaser {
-//                 width: 80px;
-//                 height: 80px;
-//                 border-radius: 50%;
-//                 background-color: $grey;
-//             }
-//         }
-
-//         .list-element-text {
-//             display: flex;
-//             justify-content: center;
-//         }
-//     }
-
-//     .list-element-url:hover {
-//         box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 28px;
-
-//         .list-element-title {
-//             color: $main-color;
-//         }
-//     }    
-// }
-
-#list-element-category {
+#list-categories > #list-element-category {
     .list-element-url {
         flex-direction: row;
         align-items: center;

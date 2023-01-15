@@ -1,0 +1,329 @@
+#about-page > div {
+    width: 100%;
+}
+
+#profile-container {
+    background-color: $grey-400;
+}
+
+#profile-container > div,
+#info-container > div,
+#cv-container > div {
+    width: $content-width;
+    margin: auto;
+}
+
+#profile-wrap {
+    display: grid;
+    grid-template-columns: 2.5fr 1fr;
+    padding: 2.3rem 0;
+}
+
+#profile-main {
+    margin-right: 10%;
+    padding-top: 1rem;
+
+    .name-wrapper {
+        margin-bottom: 1.5rem;
+
+        span {
+            font-size: 0.9rem;
+            color: $grey-500;
+        }
+
+        span:first-child {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-right: 1rem;
+            color: black;
+        }
+    }
+
+    .greetings {
+        color: $grey-500;
+        font-size: 0.8rem;
+        margin-bottom: 1rem;
+    }
+
+    .contact-wrap {
+        display: flex;
+        align-items: center;
+
+        .contact-list {
+            display: flex;
+            gap: 1rem;
+            flex: 1;
+        }
+
+        .contact {
+            width: 2.2rem;
+            height: 2.2rem;
+            text-align: center;
+            border-radius: 2rem;
+            border: 1px solid $black;
+            transition: 0.4s all ease;
+
+            i {
+                font-size: 1.2rem;
+                line-height: 2.2rem;
+            }
+        }
+
+        .contact:hover {
+            background-color: $black;
+            color: white;
+        }
+
+        #go-cv-btn {
+            border-radius: 2rem;
+            padding: 0.6rem 1.2rem;
+            font-size: small;
+            font-family: 'GmarketSansMedium';
+            font-weight: 700;
+            color: white;
+            background-color: $black;
+            transition: all 0.4s ease;
+            line-height: 100%;
+        }
+    }
+}
+
+#profile-img {
+    height: 13rem;
+    overflow: hidden;
+
+    img {
+        object-fit: cover;
+        height: 100%;
+    }
+}
+
+#info-container {
+    padding: 2rem 0;
+}
+
+#info-wrap {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 3rem;
+}
+
+.info-title-wrap {
+    display: flex;
+    margin: 1.2rem 0;
+
+    .info-title {
+        margin: 0 1rem;
+        font-size: 1.4rem;
+        font-weight: 600;
+    }
+
+    .horizontal-line {
+        flex: 1;
+        border-bottom: 1.8px solid $grey-400;
+        height: 0.7rem;
+    }
+}
+
+#info-research {
+    grid-column: 1 / 3;
+    grid-row: 1 / 2;
+}
+
+#research-wrap {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4%;
+    padding: 0 2%;
+}
+
+.research-single {
+    padding: 0 1rem;
+}
+
+.research-single > * {
+    text-align: center;
+}
+
+.research-single-icon {
+    margin-bottom: 5%;
+
+    i {
+        font-size: 2rem;
+    }
+}
+
+.research-single-title {
+    font-weight: 600;
+    margin-bottom: 3%;
+}
+
+.research-single-desc {
+    font-size: small;
+    color: $grey-500;
+}
+
+#info-edu {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+}
+
+.edu-single, .exp-single {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: repeat(4, auto);
+}
+
+.edu-single-icon, .exp-single-icon {
+    grid-column: 1 / 2;
+    grid-row: 1 / 5;
+    text-align: center;
+    margin-right: 1rem;
+
+    i {
+        font-size: 1.4rem;
+        line-height: 3rem;
+        width: 3rem;
+        color: $grey-500;
+        background-color: $grey-300;
+    }
+}
+
+.edu-single-duration, .exp-single-duration {
+    font-size: small;
+    color: $grey-500;
+}
+
+.edu-single-school, .exp-single-org {
+    margin: 0.5rem 0 0.5rem 0;
+    display: flex;
+
+    span:first-child {
+        flex: 1;
+        font-weight: 600;
+        margin-right: 8%;
+    }
+
+    span:last-child {
+        font-size: 0.8rem;
+        color: $grey-500;
+        max-width: 35%;
+    }
+}
+
+.edu-single-position, .exp-single-position {
+    font-style: italic;
+    font-family: 'Charm', cursive;
+    margin-bottom: 0.3rem;
+}
+
+.edu-single-desc, .exp-single-desc {
+    font-size: 0.9rem;
+    margin-left: 1rem;
+
+    li {
+        line-height: 1.1rem;
+        font-size: 0.8rem;
+        margin-bottom: 0.2rem;
+    }
+}
+
+#info-experience {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+}
+
+#info-projects {
+    grid-column: 1 / 3;
+    grid-row: 3 / 4;
+}
+
+#proj-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.proj-single {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 0.8rem;
+    border: 1px solid $grey-600;
+    padding: 1.5rem 1rem 2rem 1rem;
+    background-position:center center !important; 
+    background-size: cover !important;
+}
+
+.proj-single-duration {
+    text-align: center;
+    color: white;
+    font-size: 0.8rem;
+    margin-bottom: 0.8rem;
+}
+
+.proj-single-title {
+    text-align: center;
+    color: white;
+    font-weight: 600;
+    line-height: 1.5rem;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.proj-single:hover {
+    .proj-single-title {
+        text-decoration: underline 2px solid white;
+    }
+}
+
+#go-proj-btn-wrap {
+    text-align: center;
+    margin-top: 1.5rem;
+}
+
+#go-proj-btn {
+    border-radius: 2rem;
+    padding: 0.6rem 1.2rem;
+    font-size: small;
+    font-family: 'GmarketSansMedium';
+    font-weight: 700;
+    color: white;
+    background-color: $black;
+    line-height: 100%;
+    display: inline-block;
+}
+
+#cv-container {
+    background: linear-gradient(0deg, rgba(52, 100, 224, 0.6),rgba(52, 100, 224, 0.6)), url('/assets/images/samples/image2-Vivek_Kumar-Unsplash.jpg'); 
+    background-position:center center;
+    background-size: cover;
+    padding: 2rem 0;
+}
+
+#cv-wrap {
+    p {
+        font-size: small;
+        color: $grey-100;
+        text-align: center;
+        padding: 0 3rem;
+    }
+}
+
+#go-cv-btn-wrap {
+    text-align: center;
+}
+
+#go-cv-btn {
+    border-radius: 2rem;
+    padding: 0.6rem 2rem;
+    font-size: small;
+    font-family: 'GmarketSansMedium';
+    font-weight: 700;
+    color: white;
+    background-color: $black;
+    line-height: 100%;
+    display: inline-block;
+}
