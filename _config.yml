@@ -300,3 +300,14 @@ defaults:
       path: "_pages/categories/category_math_linearalgebra.html"
     values:
       title_bg: "/assets/images/lv2_bg/bg-math-linear_algebra.png"
+
+  -
+    scope:
+      path: "_posts/math/math_for_ml/*"
+    values:
+      teaser: "/assets/images/lv2_teaser/teaser-math-math_for_ml.png"
+  -
+    scope:
+      path: "_pages/categories/category_math_math4ml.html"
+    values:
+      title_bg: "/assets/images/lv2_bg/bg-math-math_for_ml.png"

@@ -34,7 +34,7 @@
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SBAggroB.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-}
+} // 어그로
 
 // color theme
 $blue-600: #3464E0; // main
@@ -251,6 +251,26 @@ hr {
     }
 }
 
+#def-box {
+    margin: 1rem 0 1.5rem 0;
+    padding: 1rem;
+    border-top: 3px solid $main-color;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 3px 18px 0px;
+
+    .def-title {
+        font-size: 1.1rem;
+        line-height: 1.5rem;
+        color: $main-color;
+        margin-bottom: 0.5rem;
+        font-weight: 700;
+    }
+
+    .def-content {
+        line-height: 1.6rem;
+        margin-bottom: 1.2rem;
+    }
+}
+
 //comment
 #disqus_thread {
     margin-top: 3rem;
@@ -265,6 +285,7 @@ hr {
 @import "page_notice";
 @import "page_about";
 @import "page_home";
+@import "page_projects";
 
 @import "items/content";
 @import "items/footer";

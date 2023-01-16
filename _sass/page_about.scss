@@ -246,7 +246,7 @@
     gap: 1rem;
 }
 
-.proj-single {
+.about-proj-single {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -257,14 +257,14 @@
     background-size: cover !important;
 }
 
-.proj-single-duration {
+.about-proj-single-duration {
     text-align: center;
     color: white;
     font-size: 0.8rem;
     margin-bottom: 0.8rem;
 }
 
-.proj-single-title {
+.about-proj-single-title {
     text-align: center;
     color: white;
     font-weight: 600;
@@ -273,8 +273,8 @@
     margin-bottom: auto;
 }
 
-.proj-single:hover {
-    .proj-single-title {
+.about-proj-single:hover {
+    .about-proj-single-title {
         text-decoration: underline 2px solid white;
     }
 }

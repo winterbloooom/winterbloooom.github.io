@@ -1,0 +1,111 @@
+#featured-part {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: $grey-200;
+    padding-top: 4rem;
+    position: relative;
+    width: 100%;
+}
+
+#featured-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: $inner-width;
+}
+
+#featurd-wrap {
+    width: $content-width;
+    display: flex;
+}
+
+#featured-title {
+    font-size: $font-size-post-title;
+    font-family: 'SBAggroB';
+    flex: 1;
+    margin-right: 3rem;
+}
+
+#featured-img {
+    img {
+        height: 10rem;
+    }
+}
+
+#featured-list {
+    z-index: 1;
+    width: $inner-width; // content-width;
+    display: grid;
+    // grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(auto, 32%));
+    gap: 2%;
+    margin-top: 2rem;
+}
+
+.proj-single,
+.proj-single-small {
+    height: 13rem;
+    display: flex;
+    flex-direction: column;
+    border-radius: 0.6rem;
+    padding: 1rem;
+
+    .proj-duration {
+        font-size: small;
+        color: white;
+        margin-bottom: 0.5rem;
+    }
+
+    .proj-title {
+        font-size: 1.2rem;
+        color: white;
+        font-family: 'GmarketSansMedium';
+        font-weight: 700;
+        flex: 1;
+        word-break:break-all;
+    }
+
+    .go-single-proj-page {
+        display: inline-block;
+        background-color: white;
+        font-family: 'GmarketSansMedium';
+        font-weight: 700;
+        padding: 0.5rem 1rem;
+        margin: 0.6rem 0;
+        font-size: small;
+        line-height: 100%;
+        width: fit-content;
+        border-radius: 0.2rem;
+    }
+}
+
+.whitespace {
+    position: absolute;
+    height: 15%;
+    bottom: 0;
+    background-color: white;
+    width: 100%;
+}
+
+#recent-title {
+    font-family: 'SBAggroB';
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+}
+
+#recent-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+}
+
+.proj-single-small {
+    height: auto;
+    width: 100%;
+    
+    .go-single-proj-page {
+        background-color: transparent;
+        padding-left: 0;
+    }
+}
