@@ -24,20 +24,18 @@ layout: default
 		resultsContainer: document.getElementById('results-container'),
 		json: '/search.json',
 		searchResultTemplate: `
-			<div id="list-element-hor5" class="list-element">
-				<a href="{url}" class="list-element-url">
-					<div class="list-element-teaser">
-						<img src="{teaser}" alt="{title}">
-					</div>
+			<a href="{url}" id="default-single-default" class="post-link">
+				<div class="list-element-teaser">
+					<img src="{teaser}" alt="{title}">
+				</div>
 
-					<div class="list-element-text">
-						<div class="list-element-category">{categories}</div>
-						<div class="list-element-title">{title}</div>
-						<div class="list-element-date">{date}</div>
-						<div class="list-element-excerpt">{excerpt}</div>
-					</div>
-				</a>
-			</div>
+				<div class="list-element-text">
+					<div class="list-element-category">{categories}</div>
+					<div class="list-element-title">{title}</div>
+					<div class="list-element-date">{date}</div>
+					<div class="list-element-excerpt">{excerpt}</div>
+				</div>
+			</a>
 		`,
 		noResultsText: 'No results found',
 		limit: 10000,
