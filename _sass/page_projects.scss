@@ -21,7 +21,7 @@
 }
 
 #featured-title {
-    font-size: $font-size-post-title;
+    font-size: 1.8rem;
     font-family: 'SBAggroB';
     flex: 1;
     margin-right: 3rem;
@@ -37,14 +37,13 @@
     z-index: 1;
     width: $inner-width; // content-width;
     display: grid;
-    // grid-template-columns: repeat(3, 1fr);
-    grid-template-columns: repeat(3, minmax(auto, 32%));
-    gap: 2%;
+    grid-template-columns: repeat(3, 1fr);
+    // grid-template-columns: repeat(3, minmax(auto, 32%));
+    gap: 0.5rem;
     margin-top: 2rem;
 }
 
-.proj-single,
-.proj-single-small {
+.proj-single {
     height: 13rem;
     display: flex;
     flex-direction: column;
@@ -63,7 +62,7 @@
         font-family: 'GmarketSansMedium';
         font-weight: 700;
         flex: 1;
-        word-break:break-all;
+        // word-break: no-wrap;
     }
 
     .go-single-proj-page {
@@ -77,6 +76,45 @@
         line-height: 100%;
         width: fit-content;
         border-radius: 0.2rem;
+    }
+}
+
+.proj-single-small {
+    display: flex;
+    flex-direction: column;
+    padding: 0.8rem;
+    height: 13rem;
+
+    .proj-duration {
+        font-size: small;
+        color: white;
+        margin-bottom: 0.5rem;
+    }
+
+    .proj-title {
+        font-size: 1rem;
+        color: white;
+        font-family: 'GmarketSansMedium';
+        font-weight: 700;
+        flex: 1;
+        // word-break: break-all;
+    }
+
+    .go-single-proj-page {
+        display: inline-block;
+        color: white;
+        font-family: 'GmarketSansMedium';
+        font-weight: 700;
+        font-size: small;
+        line-height: 100%;
+        border-bottom: 1.5px solid transparent;
+    }
+
+    &:hover {
+        .go-single-proj-page {
+            border-bottom: 1.5px solid white;
+        }
+        
     }
 }
 
@@ -96,16 +134,126 @@
 
 #recent-list {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
 }
 
-.proj-single-small {
-    height: auto;
+
+//single project page ===============================================================
+#proj-title-bg {
+    background-color: $grey-200;
     width: 100%;
-    
-    .go-single-proj-page {
-        background-color: transparent;
-        padding-left: 0;
+}
+
+#go-proj {
+    margin-bottom: 1rem;
+    display: inline-block;
+    color: $grey-600;
+    font-weight: 700;
+    font-size: 0.8rem;
+
+    i {
+        color: $grey-600;
+        margin-right: 0.5rem;
     }
+}
+
+#proj-title-container {
+    // display: grid;
+    // grid-template-columns: 65% 30%;
+    // gap: 5%
+    display: flex;
+    gap: 2rem;
+}
+
+#proj-title-eng {
+    font-size: 1.5rem;
+    font-family: 'SBAggroB';
+    margin-bottom: 0.5rem;
+}
+
+#proj-title-kor {
+    font-size: 0.8rem;
+    line-height: 1rem;
+    color: $grey-500;
+    margin-bottom: 3rem;
+}
+
+#proj-duration,
+#proj-duration > i,
+.member,
+.member * {
+    color: $grey-500;
+    font-size: 0.8rem;
+    line-height: 1rem;
+}
+
+#proj-duration {
+    margin-bottom: 0.8rem;
+    
+    i {
+        margin-right: 0.3rem;
+    }
+}
+
+#member-wrap {
+    margin-bottom: 1rem;
+}
+
+.member {
+    margin-right: 0.8rem;
+    display: inline-block;
+    line-height: 1.3rem;
+
+    i {
+        margin-right: 0.3rem;
+    }
+}
+
+#proj-tag-wrap {
+    margin-bottom: 2rem;
+}
+
+.proj-tag-single {
+    padding: 0.4rem 0.8rem;
+    background-color: $black;
+    color: white;
+    font-weight: 700;
+    font-size: 0.8rem;
+    border-radius: 0.3rem;
+    margin-right: 0.8rem;
+    margin-bottom: 0.5rem;
+    display: inline-block;
+}
+
+#go-code-wrap {
+    text-align: end;
+}
+
+#go-code {
+    border-radius: 2rem;
+    background-color: $grey-100;
+    border: 2px solid $black;
+    padding: 0.5rem 1.4rem;
+    color: $black;
+    display: inline-block;
+
+    i {
+        color: $black;
+        margin-right: 0.6rem;
+    }
+}
+
+#go-code:hover {
+    background-color: $black;
+    color: white;
+
+    i {
+        color: white;
+    }
+}
+
+#proj-title-img {
+    max-height: 15rem;
+    max-width: 14rem;
 }
