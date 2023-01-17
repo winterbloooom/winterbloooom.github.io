@@ -1,7 +1,8 @@
 #footer {
     width: 100%;
     font-family: 'GmarketSansMedium';
-    height: 40vh;
+    // height: 40vh;
+    height: 100%;
     // position : relative;
     // transform : translateY(-100%);
 
@@ -13,7 +14,7 @@
 .footer-main {
     padding: 1.5rem;
     display: grid;
-    grid-template-columns: 2fr 2fr 0.5fr;
+    grid-template-columns: 2.2fr 1.8fr 0.5fr;
     background-color: $black;
 }
 
@@ -36,10 +37,10 @@
 }
 
 .footer-greeting {
-    color: $grey-400;
-    font-size: 0.7rem;
+    color: $grey-400 !important;
+    font-size: small;
     margin-bottom: 1.4rem;
-    line-height: 1rem;
+    // line-height: 1rem;
 }
 
 .footer-contacts {
@@ -203,4 +204,5 @@
     font-size: small;
     padding: 0 1.5rem;
     color: $grey-300;
+    text-align: end;
 }
