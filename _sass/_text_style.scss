@@ -41,6 +41,29 @@ p {
     margin-bottom: 1.2rem;
 }
 
+details > div {
+    margin-top: 0.3rem;
+    margin-left: 1rem;
+}
+
+summary {
+    line-height: 2rem;
+    margin-bottom: 0.2rem;
+    outline: none;
+    cursor: pointer;
+}
+
+// summary::webkit-details-marker {
+//     background: url(이미지경로) center center no-repeat/cover;
+// }
+
+details[open] summary {
+    color: $main-color;
+    text-decoration: underline 1.5px solid $main-color;
+    font-weight: 600;
+    background-color: $blue-200;
+}
+
 @media all and (max-width: $max-width) {
     // p {
     //     line-height: 30px;
