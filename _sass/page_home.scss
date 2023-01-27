@@ -10,3 +10,14 @@
     padding-top: 0.8rem;
     padding-left: 0.3rem;        
 }
+
+@media screen and (max-width: $max-width-tablet) {
+    .list-basic {
+        margin-bottom: 2rem;
+    }
+
+    .list-title {
+        margin-bottom: 1.3rem;
+        font-size: 1.4rem;
+    }
+}

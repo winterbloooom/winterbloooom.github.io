@@ -76,19 +76,18 @@
 @media screen and (max-width: $max-width) {
     #post-title {
         padding-top: 150px;
-        background-color: $grey-500; // temp
     }
 
     .title-container {
-        width: $inner-width-tablet;
+        width: $inner-width-tablet !important;
     }
 
     .post-teaser-wrap {
-        width: 100%;
+        width: 100% !important;
     }
 
     .post-teaser {
-        width: $content-width-tablet;
+        width: $content-width-tablet !important;
         margin: auto;
         display: block;
     }
@@ -97,22 +96,25 @@
 @media screen and (max-width: $max-width-tablet) {
     #post-title {
         padding-top: 50px;
-        background-color: $main-color; // temp
     }
 
     .title-container {
-        width: $inner-width-mobile;
+        width: $inner-width-mobile !important;
     }
 
     .title-wrap {
-        width: $content-width-mobile;
-        padding-bottom: 40px;
+        width: $content-width-mobile !important;
+        padding-bottom: 2rem;
+        font-size: 2rem !important;
     }
 
     .title-text {
-        font-size: $font-size-post-title-mobile;
-        margin-bottom: 20px;
-        // line-height: $font-size-post-title-mobile + 10px;
+        font-size: 2rem;
+        line-height: 2.5rem;
+    }
+
+    .tag-single {
+        font-size: 0.6rem;
     }
 
     .post-teaser-wrap {
@@ -120,7 +122,7 @@
     }
 
     .post-teaser {
-        width: $content-width-mobile;
+        width: $content-width-mobile !important;
         margin: auto;
         display: block;
     }

@@ -103,10 +103,28 @@
     #post-content,
     #home-content,
     #archive-content {
-        $pad: (($inner-width-mobile - $content-width-mobile) / 2);
-        grid-template-columns: 1fr $pad $content-width-mobile $pad 1fr;
+        grid-template-columns: 1fr 10fr 1fr;
     }
     #post-content img {
         max-width: $content-width-mobile;
     }
+
+    .content-wrap {
+        grid-column: 2 / 3;
+        overflow: auto;
+
+        h1 {
+            font-size: 1.7rem;
+        }
+
+        h2 {
+            font-size: 1.4rem;
+        }
+
+        h3 {
+            font-size: 1.2rem;
+        }
+    }
+
+    
 }

@@ -1,10 +1,7 @@
 #footer {
     width: 100%;
     font-family: 'GmarketSansMedium';
-    // height: 40vh;
     height: 100%;
-    // position : relative;
-    // transform : translateY(-100%);
 
     & * {
         color: white;
@@ -138,6 +135,7 @@
                 .lv1-title-link {
                     font-size: 0.8rem;
                     border-bottom: 1px solid transparent;
+                    font-weight: 700;
                 }
             }
         }
@@ -205,4 +203,31 @@
     padding: 0 1.5rem;
     color: $grey-300;
     text-align: end;
+}
+
+@media screen and (max-width: $max-width-tablet) {
+    .footer-main {
+        display: flex;
+        flex-direction: column;
+        padding: 1.5rem;
+        background-color: $black;
+    }
+
+    .footer-about {
+        padding: 0 0 1.5rem 0;
+        border-right: none;
+        border-bottom: 1px solid $grey-400;
+        margin: 0 0 1.5rem 0;
+    }
+
+    .footer-contacts {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+
+        .contact-title {
+            display: none;
+        }
+    }
+    
 }

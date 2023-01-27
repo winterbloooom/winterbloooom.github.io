@@ -47,6 +47,12 @@
     }
 }
 
+@media screen and (max-width: $max-width-tablet) {
+    #recent-post-list-categories {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
 #archive-post-list-categories {
     display: flex;
     gap: 2rem;
@@ -75,6 +81,13 @@
     }
 }
 
+@media screen and (max-width: $max-width-tablet) {
+    #archive-post-list-categories {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+}
 
 // common ====================================================================
 .post-link:hover {
@@ -122,6 +135,12 @@
     font-weight: 700;
     margin-bottom: 0.7rem;
     line-height: 1.6rem;
+}
+
+@media screen and (max-width: $max-width-tablet) {
+    .list-element-title {
+        font-size: 1.1rem;
+    }
 }
 
 // recent & specific category posts ============================================
@@ -186,6 +205,31 @@
     }
 }
 
+@media screen and (max-width: $max-width-tablet) {
+    #list-default {
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
+    }
+
+    #default-single-default {
+        padding-bottom: 1rem;
+        border-bottom: 1px solid $grey-400;
+        margin-bottom: 1rem;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    #default-single-default{
+        grid-template-columns: 1fr;
+
+        .list-element-teaser {
+            display: none;
+        }
+    }
+    
+}
+
 // categories ===============================================================
 #list-categories {
     display: grid;
@@ -235,6 +279,25 @@
     }
 }
 
+@media screen and (max-width: $max-width-tablet) {
+    #list-categories {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 0.5rem;
+    }
+
+    #category-single {
+        padding: 0.7rem;
+        border-radius: 0.5rem;
+    }
+
+    #category-single {
+        .category-title {
+            font-size: small;
+        }
+    }
+}
+
 // featured posts ===========================================================
 #list-featured {
     display: grid;
@@ -265,4 +328,12 @@
         color: $main-color;
     }
     
+}
+
+@media screen and (max-width: $max-width-tablet) {
+    #list-featured {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
 }
