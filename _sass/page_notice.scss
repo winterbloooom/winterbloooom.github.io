@@ -18,3 +18,28 @@
     font-weight: 700;
     margin-bottom: 2rem;
 }
+
+@media screen and (max-width: 700px) {
+    .container-notice {
+        display: block;
+    }
+
+    img {
+        max-width: 40%;
+        float: right;
+        margin: 0 0 2rem 2rem;
+    }
+    
+}
+
+@media screen and (max-width: 450px) {
+    img {
+        max-width: 100%;
+        float: unset;
+        margin: 0 0 2rem 0;
+    }
+
+    .notice-title {
+        font-size: 1.8rem;
+    }
+}

@@ -98,8 +98,10 @@
     }
 }
 
+
 // mobile
 @media screen and (max-width: $max-width-tablet) {
+    .content-default,
     #post-content,
     #home-content,
     #archive-content {
