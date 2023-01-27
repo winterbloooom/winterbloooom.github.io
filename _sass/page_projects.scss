@@ -1,8 +1,12 @@
+#project-page {
+    background-color: $grey-200;
+}
+
 #featured-part {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: $grey-200;
+    background-color: $black;
     padding-top: 4rem;
     position: relative;
     width: 100%;
