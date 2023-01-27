@@ -70,12 +70,6 @@ details[open] summary {
     background-color: $blue-200;
 }
 
-@media all and (max-width: $max-width) {
-    // p {
-    //     line-height: 30px;
-    // }
-}
-
 mjx-container {
     overflow-x: auto;
     font-size: 100% !important;

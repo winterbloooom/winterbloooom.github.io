@@ -75,15 +75,20 @@
 
 @media screen and (max-width: $max-width) {
     #post-title {
-        padding-top: 150px;
+        padding-top: 50px;
     }
 
     .title-container {
         width: $inner-width-tablet !important;
     }
 
+    .title-wrap {
+        width: $content-width-tablet !important;
+        font-size: 2rem !important;
+    }
+
     .post-teaser-wrap {
-        width: 100% !important;
+        width: 100%;
     }
 
     .post-teaser {
@@ -94,10 +99,6 @@
 }
 
 @media screen and (max-width: $max-width-tablet) {
-    #post-title {
-        padding-top: 50px;
-    }
-
     .title-container {
         width: $inner-width-mobile !important;
     }
@@ -105,7 +106,7 @@
     .title-wrap {
         width: $content-width-mobile !important;
         padding-bottom: 2rem;
-        font-size: 2rem !important;
+        
     }
 
     .title-text {
@@ -117,14 +118,8 @@
         font-size: 0.6rem;
     }
 
-    .post-teaser-wrap {
-        width: 100%;
-    }
-
     .post-teaser {
         width: $content-width-mobile !important;
-        margin: auto;
-        display: block;
     }
 }
 
