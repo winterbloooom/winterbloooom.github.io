@@ -70,22 +70,24 @@ details[open] summary {
     background-color: $blue-200;
 }
 
-mjx-container {
-    overflow-x: auto;
-    font-size: 100% !important;
-    padding-bottom: 1rem;
+@media screen and (max-width: $max-width-tablet) {
+    mjx-container {
+        overflow-x: auto;
+        font-size: 100% !important;
+        padding-bottom: 1rem;
 
-    &::-webkit-scrollbar {
-        height: 0.3rem;  /* 스크롤바의 너비 */
-    }
-    
-    &::-webkit-scrollbar-thumb {
-        height: 10%; /* 스크롤바의 길이 */
-        background: $grey-500; /* 스크롤바의 색상 */
-        border-radius: 1rem;
-    }
-    
-    &::-webkit-scrollbar-track {
-        background: $grey-300;  /*스크롤바 뒷 배경 색상*/
+        &::-webkit-scrollbar {
+            height: 0.3rem;  /* 스크롤바의 너비 */
+        }
+        
+        &::-webkit-scrollbar-thumb {
+            height: 10%; /* 스크롤바의 길이 */
+            background: $grey-500; /* 스크롤바의 색상 */
+            border-radius: 1rem;
+        }
+        
+        &::-webkit-scrollbar-track {
+            background: $grey-300;  /*스크롤바 뒷 배경 색상*/
+        }
     }
 }
