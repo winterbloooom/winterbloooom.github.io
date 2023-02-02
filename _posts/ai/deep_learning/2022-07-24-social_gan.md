@@ -7,7 +7,7 @@ categories:
   - Deep Learning
 tags:
   - Prediction
-  - Papaer Review
+  - paper Review
   - Autonomous Driving
   - Machine Learning
   - Deep Learning

@@ -6,15 +6,16 @@ categories:
   - Computer Vision
 tags:
   - Deep Learning
-  - Papaer Review
+  - Paper Review
   - Computer Vision
+  - Depth Estimation
 last_modified_at: 2022-07-15
 ---
 
 {% include notice_box.html text="프로그래머스 자율주행 데브코스 3기 최종 프로젝트 'Monocular Depth Estimation and Evaluation with LiDAR (단일 이미지로부터의 깊이 추정과 LiDAR 데이터를 이용한 평가)'를 위하여 선행연구를 조사한 내용이다." %}
 
 
-{% include notice_box.html text="해당 프로젝트는 [GitHub Repository](https://github.com/winterbloooom/depth-estimation-with-lidar)에서 소스코드와 상세 보고서를 볼 수 있다." %}
+{% include notice_box.html text="해당 프로젝트는 <a href='https://github.com/winterbloooom/depth-estimation-with-lidar'>GitHub Repository</a>에서 소스코드와 상세 보고서를 볼 수 있다." %}
 
 # Monocular Depth Estimation
 

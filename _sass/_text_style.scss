@@ -91,3 +91,21 @@ details[open] summary {
         }
     }
 }
+
+figcaption {
+    color: $grey-500;
+    font-size: small;
+    text-align: center;
+    margin: 1rem 0;
+
+    a {
+        color: $grey-500 !important;
+        border-bottom: 1px solid $grey-500 !important;
+        font-size: small;
+    }
+
+    a:hover {
+        background-color: transparent !important;
+        // color: white;
+    }
+}
