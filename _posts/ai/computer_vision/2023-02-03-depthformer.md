@@ -20,6 +20,8 @@ last_modified_at: 2023-02-03
 
 2022년 발표된 모델(프레임워크)로, 이름은 **DepthFormer**이다. 가장 큰 특징으로는, 이미지의 특징을 추출하기 위한 인코더로 **Transformer와 Convolutional Layer를 각각의 브랜치로 사용**했다는 점, 그리고 디코더로 가기 전에 **Neck 모듈을 따로 만들어 두 브랜치에서 나온 특징을 한 번 가공해 조합**했다는 점이다.
 
+{% include inserted_box.html text="논문 원문: <a href='https://arxiv.org/abs/2203.14211'>DepthFormer: Exploiting Long-Range Correlation and Local Information for Accurate Monocular Depth Estimation</a>" %}
+
 ## Main contributions
 
 * 이미지에서 특징을 추출하는 인코더에 2개의 브랜치를 사용했다. 하나는 long-range correlation을 추출하는 트랜스포머 브랜치, 다른 하나는 local information을 보존하는 합성곱 브랜치이다.
@@ -500,4 +502,6 @@ NYU, KITTI 데이터셋으로 진행한 ablation study 중 몇 가지만 추려 
 # 추가 참고 자료
 
 * VISION HONG, [[논문리뷰] Swin Transformer](https://visionhong.tistory.com/31)
-* [](https://re-code-cord.tistory.com/entry/Inductive-Bias%EB%9E%80-%EB%AC%B4%EC%97%87%EC%9D%BC%EA%B9%8C)
+* re-code-cord, [Inductive Bias란 무엇일까?](https://re-code-cord.tistory.com/entry/Inductive-Bias%EB%9E%80-%EB%AC%B4%EC%97%87%EC%9D%BC%EA%B9%8C)
+* [End-to-End Object Detection with Transformers](https://arxiv.org/abs/2005.12872)
+  * Deformable Attention을 제시한 DETR 모델
