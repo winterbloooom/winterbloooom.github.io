@@ -274,11 +274,19 @@ hr {
     margin: 1rem 0 1.5rem 0;
 
     .notice-text {
-        font-size: 0.9rem;
-        line-height: 1.3rem;
+        // font-size: 0.9rem;
+        // line-height: 1.3rem;
         border-left: 3px solid $main-color;
         padding: 0.5rem;
         padding-left: 1rem;
+
+        
+    }
+
+    p {
+        font-size: 0.9rem;
+        line-height: 1.3rem;
+        margin-bottom: 0;
     }
 }
 
@@ -317,6 +325,7 @@ hr {
 @import "page_about";
 @import "page_home";
 @import "page_projects";
+@import "page_series";
 
 @import "items/content";
 @import "items/footer";

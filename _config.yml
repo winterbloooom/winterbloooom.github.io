@@ -98,7 +98,7 @@ defaults:
     scope:
       path: "_posts/robotics/autonomous_vehicle/*"
     values:
-      teaser: "/assets/images/lv2_teaser/teaser-robotics-autonomous_vehicle.png"
+      teaser: "/assets/images/teaser/teaser-robotics-autonomous_vehicle.png"
   -
     scope:
       path: "_pages/categories/category_robotics_autonomousvehicle.html"
@@ -109,7 +109,7 @@ defaults:
     scope:
       path: "_posts/robotics/perception/*"
     values:
-      teaser: "/assets/images/lv2_teaser/teaser-robotics-perception.png"
+      teaser: "/assets/images/teaser/teaser-robotics-perception.png"
   -
     scope:
       path: "_pages/categories/category_robotics_perception.html"
@@ -120,7 +120,7 @@ defaults:
     scope:
       path: "_posts/robotics/ros/*"
     values:
-      teaser: "/assets/images/lv2_teaser/teaser-robotics-ros.png"
+      teaser: "/assets/images/teaser/teaser-robotics-ros.png"
   -
     scope:
       path: "_pages/categories/category_robotics_ros.html"
@@ -131,7 +131,7 @@ defaults:
     scope:
       path: "_posts/robotics/control_and_engineering/*"
     values:
-      teaser: "/assets/images/lv2_teaser/teaser-robotics-engineering.png"
+      teaser: "/assets/images/teaser/teaser-robotics-engineering.png"
   -
     scope:
       path: "_pages/categories/category_robotics_controlandengineering.html"
@@ -148,7 +148,7 @@ defaults:
     scope:
       path: "_posts/ai/computer_vision/*"
     values:
-      teaser: "/assets/images/lv2_teaser/teaser-ai-computer_vision.png"
+      teaser: "/assets/images/teaser/teaser-ai-computer_vision.png"
   -
     scope:
       path: "_pages/categories/category_ai_computervision.html"
@@ -159,7 +159,7 @@ defaults:
     scope:
       path: "_posts/ai/deep_learning/*"
     values:
-      teaser: "/assets/images/lv2_teaser/teaser-ai-deep_learning.png"
+      teaser: "/assets/images/teaser/teaser-ai-deep_learning.png"
   -
     scope:
       path: "_pages/categories/category_ai_deeplearning.html"
@@ -170,7 +170,7 @@ defaults:
     scope:
       path: "_posts/ai/machine_learning/*"
     values:
-      teaser: "/assets/images/lv2_teaser/teaser-ai-machine_learning.png"
+      teaser: "/assets/images/teaser/teaser-ai-machine_learning.png"
   -
     scope:
       path: "_pages/categories/category_ai_machinelearning.html"
@@ -187,7 +187,7 @@ defaults:
     scope:
       path: "_posts/programming/algorithm/*"
     values:
-      teaser: "/assets/images/lv2_teaser/teaser-programming-algorithm.png"
+      teaser: "/assets/images/teaser/teaser-programming-algorithm.png"
   -
     scope:
       path: "_pages/categories/category_programming_algorithm.html"
@@ -198,7 +198,7 @@ defaults:
     scope:
       path: "_posts/programming/python/*"
     values:
-      teaser: "/assets/images/lv2_teaser/teaser-programming-python.png"
+      teaser: "/assets/images/teaser/teaser-programming-python.png"
   -
     scope:
       path: "_pages/categories/category_programming_python.html"
@@ -209,7 +209,7 @@ defaults:
     scope:
       path: "_posts/programming/cpp/*"
     values:
-      teaser: "/assets/images/lv2_teaser/teaser-programming-cpp.png"
+      teaser: "/assets/images/teaser/teaser-programming-cpp.png"
   -
     scope:
       path: "_pages/categories/category_programming_cpp.html"
@@ -220,7 +220,7 @@ defaults:
     scope:
       path: "_posts/programming/javascript/*"
     values:
-      teaser: "/assets/images/lv2_teaser/teaser-programming-javascript.png"
+      teaser: "/assets/images/teaser/teaser-programming-javascript.png"
   -
     scope:
       path: "_pages/categories/category_programming_javascript.html"
@@ -231,7 +231,7 @@ defaults:
     scope:
       path: "_posts/programming/others/*"
     values:
-      teaser: "/assets/images/lv2_teaser/teaser-programming-others.png"
+      teaser: "/assets/images/teaser/teaser-programming-others.png"
   -
     scope:
       path: "_pages/categories/category_programming_others.html"
@@ -248,7 +248,7 @@ defaults:
     scope:
       path: "_posts/dev/git/*"
     values:
-      teaser: "/assets/images/lv2_teaser/teaser-dev-git.png"
+      teaser: "/assets/images/teaser/teaser-dev-git.png"
   -
     scope:
       path: "_pages/categories/category_dev_git.html"
@@ -259,7 +259,7 @@ defaults:
     scope:
       path: "_posts/dev/docker/*"
     values:
-      teaser: "/assets/images/lv2_teaser/teaser-dev-docker.png"
+      teaser: "/assets/images/teaser/teaser-dev-docker.png"
   -
     scope:
       path: "_pages/categories/category_dev_docker.html"
@@ -276,7 +276,7 @@ defaults:
     scope:
       path: "_posts/cs/linux/*"
     values:
-      teaser: "/assets/images/lv2_teaser/teaser-cs-linux.png"
+      teaser: "/assets/images/teaser/teaser-cs-linux.png"
   -
     scope:
       path: "_pages/categories/category_cs_linux.html"
@@ -294,7 +294,7 @@ defaults:
     scope:
       path: "_posts/math/linear_algebra/*"
     values:
-      teaser: "/assets/images/lv2_teaser/teaser-math-linear_algebra.png"
+      teaser: "/assets/images/teaser/teaser-math-linear_algebra.png"
   -
     scope:
       path: "_pages/categories/category_math_linearalgebra.html"
@@ -305,7 +305,7 @@ defaults:
     scope:
       path: "_posts/math/math_for_ml/*"
     values:
-      teaser: "/assets/images/lv2_teaser/teaser-math-math_for_ml.png"
+      teaser: "/assets/images/teaser/teaser-math-math_for_ml.png"
   -
     scope:
       path: "_pages/categories/category_math_math4ml.html"

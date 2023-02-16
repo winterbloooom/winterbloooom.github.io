@@ -1,0 +1,136 @@
+#series-page-title {
+    background-color: $blue-300;
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: row;
+    padding: 1rem;
+
+    .title-text-wrap {
+        flex: 1;
+    }
+
+    .title-text-head {
+        font-size: $font-size-post-title;
+        margin-bottom: 1.5rem;
+        font-family: "yg-jalnan";
+        line-height: 3rem;
+        
+    }
+
+    .title-text-desc {
+        font-size: small;
+        font-weight: 700;
+    }
+
+    .title-img-wrap {
+        max-width: 35%;
+
+        img {
+            width: 100%
+        }
+    }
+}
+
+#series-page-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 1rem;
+}
+
+.series-single {
+    border-radius: 1rem;
+    overflow: hidden;
+
+    .single-top-wrap {
+        background-color: $grey-400;
+        padding: 1rem;
+
+        .top-title-wrap {
+            margin-bottom: 0.8rem;
+        }
+
+        .series-icon {
+            display: inline-block;
+            border-radius: 0.3rem;
+            background-color: $grey-500;
+            color: white;
+            width: 2rem;
+            height: 2rem;
+            line-height: 2rem;
+            text-align: center;
+            margin-right: 0.5rem;
+        }
+
+        .series-title {
+            font-weight: 700;
+        }
+
+        .post-num {
+            display: inline-block;
+            background-color: $blue-500;
+            color: white;
+            font-weight: 700;
+            font-size: small;
+            border-radius: 1rem;
+            width: 1.2rem;
+            height: 1.2rem;
+            line-height: 1.2rem;
+            text-align: center;
+        }
+
+        .top-desc {
+            color: $grey-600;
+            font-size: small;
+        }
+    }
+
+    .single-contents {
+        padding: 1rem;
+    }
+
+    .single-content-link {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+        margin-bottom: 0.8rem;
+
+        .content-num {
+            width: 2rem;
+            font-weight: 700;
+            padding-top: 0.5rem;
+        }
+
+        .content-link {
+            display: flex;
+            flex-direction: row;
+
+            .teaser {
+                margin-right: 1rem;
+            }
+
+            .teaser > img {
+                width: 4rem;
+                height: 4rem;
+            }
+
+            .title {
+                margin-bottom: 0.5rem;
+                // font-size: 1.1rem;
+                font-weight: 600;
+            }
+
+            .excerpt {
+                color: $grey-500;
+                font-size: small;
+            }
+        }
+    }
+
+    .single-allpost-btn{
+        background-color: $grey-400;
+        text-align: center;
+        line-height: 2rem;
+        font-size: 0.8rem;
+        font-weight: 700;
+    }
+}
