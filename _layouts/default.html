@@ -4,7 +4,13 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width,initial-scale=1">
 
-        <title>{{ page.title }}</title>
+        {% if page.title %}
+            <title>{{ page.title }} | winterblooom (EunGi Han)</title>
+        {% else %}
+            <title>winterblooom (EunGi Han)</title>
+        {% endif %}
+
+        
 
         <!-- custom css -->
         <link 

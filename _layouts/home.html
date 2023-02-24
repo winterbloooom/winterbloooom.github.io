@@ -63,6 +63,22 @@ layout: default
                 </div>
             </div>
 
+            <!-- AI -->
+            <div class="list-basic">
+                <div class="list-title">AI</div>
+
+                <div id="list-default">
+                    {% assign posts = site.categories.AI %}
+                    {% for post in posts limit : 4 %} 
+                        {% if forloop.first %}
+                            {% include archive_single_teaser.html id="default-single-first"%}
+                        {% else %}
+                            {% include archive_single_teaser.html id="default-single-other"%}
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+            
             <!-- Robotics -->
             <div class="list-basic">
                 <div class="list-title">Robotics</div>
@@ -79,21 +95,6 @@ layout: default
                 </div>
             </div>
     
-            <!-- AI -->
-            <div class="list-basic">
-                <div class="list-title">AI</div>
-
-                <div id="list-default">
-                    {% assign posts = site.categories.AI %}
-                    {% for post in posts limit : 4 %} 
-                        {% if forloop.first %}
-                            {% include archive_single_teaser.html id="default-single-first"%}
-                        {% else %}
-                            {% include archive_single_teaser.html id="default-single-other"%}
-                        {% endif %}
-                    {% endfor %}
-                </div>
-            </div>
         </div>
     </div>
 </div>
