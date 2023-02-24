@@ -1,8 +1,11 @@
-# minimal mistake보고 config 나머지 채워넣기
-locale                   : "ko-KR"
-name                     : "winterbloooom (한은기)"
-url                      : "https://winterbloooom.github.io"
-repository               : "https://github.com/winterbloooom/winterbloooom.github.io"
+# basic info
+locale : "ko-KR"
+title : "EunGi Han | winterbloooom"
+name : "winterbloooom (EunGi Han)"
+url : "https://winterbloooom.github.io"
+repository : "https://github.com/winterbloooom/winterbloooom.github.io"
+timezone: Asia/Seoul
+
 
 # Analytics
 analytics:
@@ -10,6 +13,7 @@ analytics:
   google:
     tracking_id          : "G-NDR0GLWHWZ"
     anonymize_ip         : # true, false (default)
+
 
 # Reading Files
 include:
@@ -68,9 +72,6 @@ kramdown:
   # toc_levels: 1..6
   # smart_quotes: lsquo,rsquo,ldquo,rdquo
   # enable_coderay: false
-
-
-timezone: Asia/Seoul # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 defaults:
   -
