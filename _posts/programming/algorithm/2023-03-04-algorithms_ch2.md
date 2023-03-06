@@ -1,6 +1,6 @@
 ---
 title:  "Algorithms 2장: Divide and Conquer"
-excerpt: "분할정복법"
+excerpt: "Master's Theory, Integer and Matrix Multiplication, Merge Sort, Median"
 
 categories:
   - Programming
