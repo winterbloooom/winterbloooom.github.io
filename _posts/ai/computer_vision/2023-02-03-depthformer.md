@@ -10,6 +10,7 @@ tags:
   - Computer Vision
   - Depth Estimation
 last_modified_at: 2023-02-03
+feature: true
 ---
 
 # 들어가며

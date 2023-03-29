@@ -7,42 +7,12 @@ title: Home
     <div id="home-content" class="content-default">
         <div class="content-wrap">
 
-            <div id="urgent-notice">
+            <!-- <div id="urgent-notice">
                 <div class="notice-icon-wrap"><i class="fa-solid fa-bell"></i></div>
                 <div class="notice-text">블로그 리뉴얼 중입니다!! 디자인이 수시로 변경되거나 이전 주소가 바뀔 수 있습니다!!</div>
                 <a href="/notice" class="go-notice-btn">Go to Notice</a>
-            </div>
-            
-            <!-- recent posts -->
-            <div class="list-basic">
-                <div class="list-title">Recent Posts</div>
+            </div> -->
 
-                <div id="list-default">
-                    {% for post in site.posts limit : 4 %} 
-                        {% if forloop.first %}
-                            {% include archive_single_teaser.html id="default-single-first"%}
-                        {% else %}
-                            {% include archive_single_teaser.html id="default-single-other"%}
-                        {% endif %}
-                    {% endfor %}
-                </div>
-            </div>
-    
-            <!-- categories list -->
-            <div class="list-basic">
-                <div class="list-title">Categories</div>
-
-                <div class="list-elements" id="list-categories">
-                    {% assign categories = site.data.categories.categories %}
-                    {% for lv1 in categories %}
-                        <a href="{{ lv1.url | relative_url }}" id="category-single" class="post-link">
-                            <div class="category-icon"><i class="{{ lv1.icon }}"></i></div>
-                            <div class="category-title">{{ lv1.lv1_category }}</div>
-                        </a>
-                    {% endfor %}
-                </div>
-            </div>
-    
             <!-- featured posts -->
             <div class="list-basic">
                 <div class="list-title">Featured Posts</div>
@@ -59,6 +29,36 @@ title: Home
                                     <div class="list-element-excerpt">{{ post.excerpt | default: "" }}</div>
                                 </div>
                             </a>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+
+            <!-- categories list -->
+            <div class="list-basic">
+                <div class="list-title">Categories</div>
+
+                <div class="list-elements" id="list-categories">
+                    {% assign categories = site.data.categories.categories %}
+                    {% for lv1 in categories %}
+                        <a href="{{ lv1.url | relative_url }}" id="category-single" class="post-link">
+                            <div class="category-icon"><i class="{{ lv1.icon }}"></i></div>
+                            <div class="category-title">{{ lv1.lv1_category }}</div>
+                        </a>
+                    {% endfor %}
+                </div>
+            </div>
+            
+            <!-- recent posts -->
+            <div class="list-basic">
+                <div class="list-title">Recent Posts</div>
+
+                <div id="list-default">
+                    {% for post in site.posts limit : 4 %} 
+                        {% if forloop.first %}
+                            {% include archive_single_teaser.html id="default-single-first"%}
+                        {% else %}
+                            {% include archive_single_teaser.html id="default-single-other"%}
                         {% endif %}
                     {% endfor %}
                 </div>
