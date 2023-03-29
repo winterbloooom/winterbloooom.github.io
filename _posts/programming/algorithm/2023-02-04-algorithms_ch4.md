@@ -198,3 +198,95 @@ Fig 7의 예시를 적용해보면, R은 {A}, {A, C}, {A, C, B}, {A, C, B, D}, {
 다익스트라는 BFS와 구조적으로 동일하지만, 다익스트라에 사용되는 우선순위 큐 연산이 BFS에 사용되는 큐 연산보다 더 오랜 시간이 걸린다. $\vert V \vert$ 번의 `deletemin`과 $\vert V \vert + \vert E \vert$ 번의 `insert`, `decresekey` 연산이 필요하다.
 
 이러한 소요 시간들은 어떻게 구현하는가에 따라 달라진다. 구체적으로는 우선순위 큐를 배열, binary heap, $d$-ary heap, Fibonacci heap 등 어떤 힙으로 만드느냐가 중요해진다. 
+
+
+- - -
+
+# 4.5. 우선순위 큐의 구현
+
+다익스트라 알고리즘의 실행시간은 우선순위 큐의 구현 방식에 따라 크게 좌우된다고 했다. 아래는 여러가지 구현 방식과 그 시간을 정리한 내용이다.
+
+|구현 방식|`deleteMin`|`insert`/`decreaseKey`|$\vert V \vert \times$ `deleteMin` + $(\vert V \vert + \vert E \vert ) \times$ `insert`|
+|---|---|---|---|
+|array|$O(\vert V \vert)$|$O(1)$|$O(\vert V \vert ^2)$
+|binary heap|$O(\log \vert V \vert)$|$O(\log \vert V \vert)$|$O \left((\vert V \vert + \vert E \vert ) \log \vert V \vert \right)$|
+|d-ary heap|$O \left( \cfrac{d \log \vert V \vert}{\log d} \right)$ | $O \left( \cfrac{\log \vert V \vert}{\log d} \right)$|$O \left( \left(\vert V \vert \cdot d + \vert E \vert \right) \cfrac{\log \vert V \vert}{\log d} \right)$
+|fibonacci heap|$O(\log \vert V \vert)$ | $O(1)$ (amortized) | $O \left(\vert V \vert  \log \vert V \vert + \vert E \vert\right)$|
+
+TODO amortized time
+https://woogyun.tistory.com/245
+
+{% include inserted_box.html text="피보나치 힙은 효율성이 매우 높긴 하지만 구현이 까다로워 실제론 잘 사용하지 않는다고 한다." %}
+
+어떤 구현 방법이 좋을지는 그래프가 sparse한지(간선 수가 적음) 또는 dense한지(간선 수가 많음)에 따라 달라진다. 모든 그래프에 대해 $\vert E \vert \le \vert V \vert^2$ 이다.
+
+{% include inserted_box.html text="아래에선 $\vert V \vert$ 와 n을 때에 따라 섞어 사용했다. 둘 다 해당 자료형 내의 노드(요소) 개수라는 같은 의미로 사용했다." %}
+
+## Array
+
+가능한 모든 요소들의 키값의 순서 없는(unordered) 배열로서 우선순위 큐를 구현할 수 있다. 처음엔 모두 ∞로 시작한다. 다익스트라 알고리즘을 예로 들면, 배열은 그래프 노드들의 키 값을 원소로 같는다.
+
+`insert` 와 `decreaseKey` 연산은 빠르다. 단순히 특정 위치(노드)의 키값을 바꾸면 되기에 $O(1)$ 시간만에 가능하다. (배열의 인덱스를 써서 찾는다던지?)
+
+반면 `deleteMin` 은 리스트 전체를 순회하며 가장 작은 키값을 찾아야 하므로 선형 시간이 소요된다.
+
+배열은 그래프가 $\Omega(\vert V \vert^2)$ 일 때 빠르게 동작한다.
+
+## Binary heap
+
+이진 힙의 원소들은 완전 이진 트리(complete binary tree, 각 레벨이 왼쪽에서 오른쪽으로 채워지며 이전 레벨이 다 차야 다음 레벨에 넣을 수 있음) 형식으로 저장된다. 또한 부모의 키값은 자식의 키값 이하여야 한다. 그래서 루트 노드가 제일 작은 값을 같는다. 아래 Fig 10의 (a)를 보면 알 수 있다.
+
+<figure>
+<img src="https://user-images.githubusercontent.com/69252153/216824602-e9c10f61-63b4-437e-a837-745a1bf2b4eb.png" width="70%">
+<figcaption>Fig. 10 Binary heap Example</figcaption>
+</figure>
+
+`insert` 연산은 (1) 트리의 제일 끝에 새 요소를 붙이고(Fig10-b) (2) 올바른 위치를 찾을 때까지 부모 노드를 타고 올라간다(bubble up)(Fig10-c,d). 부모 노드보다 본인이 작으면 부모와 자신의 위치를 바꾼다. 따라서 자리 교체(swap)은 최대 '트리의 높이' $\lfloor \log_2 n \rfloor$ 번 진행될 수도 있다.
+
+`deleteMin` 연산은 (1) 루트 값을 리턴하고 (2) 루트 노드를 힙에서 제거한 뒤(Fig10-e) (3) 트리의 가장 마지막 노드를 루트에 가져다놓는다.(Fig10-f) (4) 그리고 적당한 자리를 찾을 때까지 자식 노드들을 타고 내려간다(sift down)(Fig10-g,h). 자식 둘 중에 작은 값보다 본인이 크면, 작은 값의 자식과 본인의 자리를 바꾼다. 따라서 이 과정은 $O(\log n)$ 만큼 시간이 걸린다.
+
+$\vert E \vert \le \cfrac{\vert V \vert ^2}{\log \vert V \vert}$ 일 때라면 binary heap을 쓰는 게 빠르다.
+
+완전 이진 트리는 배열로 표현할 수 있다. 트리의 각 행(level) 별로 왼쪽에서 오른쪽으로 저장하면 된다(row by row). Fig10-a의 예를 들자면 {3, 10, 5, 11, 12, 6, 8, 15, 20, 13}이다. 층 별로 노드의 개수가 1, 2, 4, 8, ...로 정해져 있으므로 노드의 위치를 찾기는 매우 쉽다. j 번째 노드의 부모는 $\lfloor \cfrac{j}{2} \rfloor$ 에 있고, 자식은 2j와 2j+1이다.
+
+
+## d-ary heap
+
+binary heap의 일반화 형태로서, binary heap처럼 2개가 아닌 d개의 자식 노드를 갖는다. 즉, d=2일 때 binary heap이다. 자식 노드를 d개로 늘림으로써 트리의 높이는 당연히 줄어든다. 높이는 $\Theta(\log_d n) = \Theta \left( \cfrac{\log n}{\log d} \right)$ 이다.
+
+높이에 따라 횟수가 달라지는 `insert` 연산은 그래서 $\Theta (\log d)$ 배씩 줄어들고, 반면에 새로운 루트 노드를 찾기 위해 아래서부터 올라가야하는 `deleteMin` 연산은 d개씩의 자식들과 비교하는 과정을 거쳐야 하기에 더 오랜 시간 $O(d\log_d n)$ 씩 걸린다.
+
+최적의 실행시간은 그래프가 $d \approx \cfrac{\vert E \vert}{\vert V \vert}$ 일 때로, 힙의 degree를 그래프의 평균 degree와 같을 때이다.
+
+$\vert E \vert = O(\vert V \vert)$ 로 그래프가 sparse할 때는 실행시간이 $O(\vert V \vert \log \vert V \vert)$ 로, binary heap 만큼 좋다.
+
+반면 $\vert E \vert = \Omega(\vert V \vert ^2)$ 으로 그래프가 dense할 때는 실행시간이 $O(\vert V \vert ^2)$ 로, 연결 리스트만큼 좋다.
+
+$\vert E \vert = \vert V \vert ^{1 + \delta}$ 로 중간 정도의 밀집도를 가진 그래프라면 실행시간이 $O(\vert E \vert )$ 로 선형적이다.
+
+d-ary heap 역시 배열로 표현할 수 있다. j번 노드는 부모는 $\lceil \frac{j-1}{d}\rceil$ , 자식은 $\{ (j-1)d + 2, \cdots, \min \{n, (j-1)d + d + 1 \} \}$ 이다.
+
+- - -
+
+# 4.6. 음수 간선이 있을 때 최단 경로
+
+## 음수 간선
+
+다익스트라 알고리즘은 음수 간선을 가질 때 최단 경로를 보장하지 못한다.
+
+<figure>
+<img src="https://user-images.githubusercontent.com/69252153/216956345-4f23c995-4be7-487b-be01-ed75cc3b03ab.png" width="40%">
+<figcaption>Fig. 11 Dijkstra's algorithm on negative edges</figcaption>
+</figure>
+
+위 그림을 살펴보자. B에서 A로 가는 데 음수 간선 (-2)가 있다. S-A 경로로 가면 3이고 S-B로 가면 4이기에 다익스트라 알고리즘에 의하면 사실상 더 짧은 경로인 S-B-A (비용: 4+(-2)=2)를 발견하기도 전에 S-A가 최단 경로라고 하고 만다.
+
+이 현상에 기인하는 원인은 `update` 함수에 있다. 다익스트라 알고리즘에서 `dist` 값, 즉 각 노드의 거리 값은 항상 정확하거나 그것보다 큰 값을 갖는다. 처음엔 무한대로 시작했다가 간선들을 따라 업데이트된다.
+
+$$
+\mathrm{dist}(v) = \min \{ \mathrm{dist}(v), \mathrm{dist}(u) + l(u, v) \}
+$$
+
+위 업데이트 식을 생각해보면, 노드가 가질 수 있는 거리값은 $u$ 혹은 $u + l(u, v)$ 보다 클 순 없다.
+
+이를 해결하기 위한 방법을 생각해보자.

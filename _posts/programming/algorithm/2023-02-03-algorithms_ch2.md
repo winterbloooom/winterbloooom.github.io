@@ -7,7 +7,7 @@ categories:
   - Algorithm
 tags:
   - Algorithm
-last_modified_at: 2023-03-04
+last_modified_at: 2023-02-03
 ---
 
 {% include inserted_box.html text="이 내용은 책 <a href='http://algorithmics.lsi.upc.edu/docs/Dasgupta-Papadimitriou-Vazirani.pdf'>Algorithms(Sanjoy Dasgupta et al.)</a>을 기반으로 하고 있습니다." %}
