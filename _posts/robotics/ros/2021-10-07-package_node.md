@@ -55,7 +55,7 @@ catkin_create_pkg test_pkg std_msgs rospy roscpp
 * 위와 같이 사용자가 패키지 작성 시, 캐킨 빌드 시스템에 필요한 `CMakeList.txt`, `package.xml`, 관련 폴더를 생성한다.
 * 패키지 이름에는 공백이 있어선 안 되며, 소문자를 사용하고, 언더바(`_`)를 사용해 단어를 붙인다
 
-해당 명령 직후 `~/catkin_ws/src/패키지명` 폴더 내에 생성되는 파일 및 폴더는 아래와 같다. 추후 사용자의 필요에 따라 `/launch`, `/msg` 등의 폴더를 추가적으로 생성할 수 있다. launch는 [추후 이어질 포스팅](https://velog.io/@717lumos/roslaunch%EC%9D%98-%EC%82%AC%EC%9A%A9%EB%B2%95-%EB%B0%8F-XML)에서 다룬다.
+해당 명령 직후 `~/catkin_ws/src/패키지명` 폴더 내에 생성되는 파일 및 폴더는 아래와 같다. 추후 사용자의 필요에 따라 `/launch`, `/msg` 등의 폴더를 추가적으로 생성할 수 있다. launch는 [추후 이어질 포스팅](https://winterbloooom.github.io/robotics/ros/2021/10/11/roslaunch.html)에서 다룬다.
 
 
 | 폴더, 파일 | 설명 |
@@ -115,7 +115,7 @@ catkin_create_pkg test_pkg std_msgs rospy roscpp
   <url type="website">https://github.com/EunGiHan</url>
   <url type="website">https://velog.io/@717lumos</url>
 
-  <author email="717lumos@gmail.com">Han EunGi</author> -->
+  <author email="717lumos@gmail.com">Han EunGi</author>
 
   <buildtool_depend>catkin</buildtool_depend>
   <build_depend>roscpp</build_depend>
