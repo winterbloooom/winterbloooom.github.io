@@ -8,10 +8,7 @@ categories:
 tags:
   - Roboticmake
   - ROS
-date: 2021-10-07
-last_modified_at: 2021-10-07
-order: 4
-
+last_modified_at: 2021-12-29
 ---
 
 
@@ -55,7 +52,7 @@ catkin_create_pkg test_pkg std_msgs rospy roscpp
 * 위와 같이 사용자가 패키지 작성 시, 캐킨 빌드 시스템에 필요한 `CMakeList.txt`, `package.xml`, 관련 폴더를 생성한다.
 * 패키지 이름에는 공백이 있어선 안 되며, 소문자를 사용하고, 언더바(`_`)를 사용해 단어를 붙인다
 
-해당 명령 직후 `~/catkin_ws/src/패키지명` 폴더 내에 생성되는 파일 및 폴더는 아래와 같다. 추후 사용자의 필요에 따라 `/launch`, `/msg` 등의 폴더를 추가적으로 생성할 수 있다. launch는 [추후 이어질 포스팅](https://winterbloooom.github.io/robotics/ros/2021/10/11/roslaunch.html)에서 다룬다.
+해당 명령 직후 `~/catkin_ws/src/패키지명` 폴더 내에 생성되는 파일 및 폴더는 아래와 같다. 추후 사용자의 필요에 따라 `/launch`, `/msg` 등의 폴더를 추가적으로 생성할 수 있다. launch는 [추후 이어질 포스팅](https://winterbloooom.github.io/robotics/ros/2021/12/30/roslaunch.html)에서 다룬다.
 
 
 | 폴더, 파일 | 설명 |
@@ -236,7 +233,7 @@ target_link_libraries(${PROJECT_NAME}_node
 - - -
 
 ## 4. 메시지 파일 작성
-새로운 메시지 파일(`.msg`)를 만들고 이를 사용해 노드를 이용한 통신을 해보자. 커스텀 메시지를 만드는 자세한 내용은 [추후 이어질 포스팅](https://velog.io/@717lumos/ROS-msg%EB%A9%94%EC%8B%9C%EC%A7%80-%EB%A7%8C%EB%93%A4%EA%B8%B0)에서 다루게 될 것이나, 오늘은 패키지를 어떻게 수정하는 가를 볼 것이므로 따라만 와 보자.
+새로운 메시지 파일(`.msg`)를 만들고 이를 사용해 노드를 이용한 통신을 해보자. 커스텀 메시지를 만드는 자세한 내용은 [추후 이어질 포스팅](https://winterbloooom.github.io/robotics/ros/2021/12/31/msg1.html)에서 다루게 될 것이나, 오늘은 패키지를 어떻게 수정하는 가를 볼 것이므로 따라만 와 보자.
 
 * 우선, 패키지 폴더 내 msg 폴더(`~/test_pkg/msg`)를 만든다.
 * 텍스트 편집기 혹은 VS Code 등을 열어 아래 내용을 입력한다.

@@ -8,11 +8,7 @@ categories:
 tags:
   - Robotics
   - ROS
-date: 2021-12-26
 last_modified_at: 2021-12-26
-order: 1
-
-
 ---
 
 # 🤔0. ROS를 공부하기에 앞서
@@ -184,7 +180,7 @@ Catkin은 **ROS의 빌드 시스템**이다. **CMake(Cross Platform Make)**를 �
 ### roslaunch
 rosrun과는 달리 `roscore` 없이도 **여러 개의 노드를 실행할 수 있는 명령어**가 `roslaunch`이다. 또한 패키지 파라미터와 노드 이름 변경, 노드 네임스페이스 설정, ROS_ROOT 및 ROSPACKAGE_PATH 설정, 환경 변수 설정 등 옵션을 줄 수 있다. 
 작동은 `.launch` 파일을 통한다. 해당 파일은 태그별 옵션을 제공하는 XML기반이며, 파일은 패키지 폴더 내 `launch` 폴더 안에 있어야 한다.
-roslaunch 관련 사항은 따로 포스팅을 해 두었다. [[ROS] roslaunch의 사용법 및 XML](https://winterbloooom.github.io/robotics/ros/2021/10/11/roslaunch.html)
+roslaunch 관련 사항은 따로 포스팅을 해 두었다. [[ROS] roslaunch의 사용법 및 XML](https://winterbloooom.github.io/robotics/ros/2021/12/30/roslaunch.html)
 
 > **XML(Extensible Markup Language)**
 다목적 마크업 언어로, 태그 등을 이용해 데이터의 구조를 표시하는 언어 중 하나다. (HTML을 사용해본 사람이라면 태그 형식을 잘 이해할 수 있을 것이다. 인터넷 창에서 `F12`키를 눌러보자.) 
