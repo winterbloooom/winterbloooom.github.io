@@ -1,0 +1,22 @@
+<header class="site-header">
+  <div class="wrap-wide site-header__bar">
+    <a class="wordmark" href="{{ '/' | relative_url }}">winter<em>bloooom</em></a>
+
+    <nav class="site-nav" id="site-nav" aria-label="주요 메뉴">
+      {%- for item in site.data.site.nav -%}
+        {%- assign is_current = false -%}
+        {%- if item.url == "/" and page.url == "/" -%}{%- assign is_current = true -%}
+        {%- elsif item.url != "/" and page.url contains item.url -%}{%- assign is_current = true -%}{%- endif -%}
+        <a href="{{ item.url | relative_url }}"{% if item.external %} target="_blank" rel="noopener"{% endif %}{% if is_current %} aria-current="page"{% endif %}>{{ item.label }}</a>
+      {%- endfor -%}
+    </nav>
+
+    <span class="site-header__spacer"></span>
+
+    <div class="site-header__tools">
+      <a class="icon-btn" href="{{ '/search/' | relative_url }}" aria-label="검색"><svg class="icon"><use href="#i-search"/></svg></a>
+      <button class="icon-btn" id="theme-toggle" type="button" aria-label="테마 전환"><svg class="icon" id="theme-icon"><use href="#i-moon"/></svg></button>
+      <button class="icon-btn nav-toggle" id="nav-toggle" type="button" aria-label="메뉴 열기" aria-expanded="false"><svg class="icon"><use href="#i-menu"/></svg></button>
+    </div>
+  </div>
+</header>

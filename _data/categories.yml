@@ -1,59 +1,52 @@
+# 카테고리 트리 단일 소스.
+#   - name  : 게시글 front matter의 categories 값과 정확히 일치해야 함 (site.categories 키로 사용)
+#   - slug  : URL 및 색상 토큰 키 (예: color 변수 --c-<slug>)
+#   - icon  : 인라인 SVG 스프라이트의 <symbol id="i-<icon>">
+# 이 파일 하나로 사이드바 · 홈 필터칩 · 카테고리 아카이브 페이지(_plugins/category_pages_generator.rb)를 모두 생성한다.
 categories:
-  - lv1_category: "Robotics"
-    url: /category/robotics/
-    icon: fa-solid fa-car-side
-    lv2: 
-        - lv2_category: "Autonomous Vehicle"
-          url: /category/robotics/autonomous_vehicle
-        - lv2_category: "Perception"
-          url: /category/robotics/perception
-        - lv2_category: "ROS"
-          url: /category/robotics/ros
-        - lv2_category: "Control & Engineering"
-          url: /category/robotics/control_and_engineering
-  - lv1_category: "AI"
-    url: /category/ai/
-    icon: fa-solid fa-brain
-    lv2:
-        - lv2_category: "Computer Vision"
-          url: /category/ai/computer_vision
-        - lv2_category: "Deep Learning"
-          url: /category/ai/deep_learning
-        - lv2_category: "Machine Learning"
-          url: /category/ai/machine_learning
-  - lv1_category: "Programming"
-    url: /category/programming/
-    icon: fa-regular fa-keyboard
-    lv2:
-        - lv2_category: "Algorithm"
-          url: /category/programming/algorithm
-        - lv2_category: "Python"
-          url: /category/programming/python
-        - lv2_category: "C++"
-          url: /category/programming/cpp
-        - lv2_category: "JavaScript"
-          url: /category/programming/javascript
-        - lv2_category: "Others"
-          url: /category/programming/others
-  - lv1_category: "Dev"
-    url: /category/dev/
-    icon: fa-solid fa-laptop
-    lv2:
-        - lv2_category: "Git"
-          url: /category/dev/git
-        - lv2_category: "Docker"
-          url: /category/dev/docker
-  - lv1_category: "Computer Science"
-    url: /category/cs
-    icon: fa-solid fa-computer
-    lv2:
-        - lv2_category: "Linux"
-          url: /category/cs/linux
-  - lv1_category: "Math"
-    url: /category/math/
-    icon: fa-solid fa-square-root-variable
-    lv2:
-        - lv2_category: "Linear Algebra"
-          url: /category/math/linear_algebra
-        - lv2_category: "Math for ML"
-          url: /category/math/math_for_ml
+  - name: "Robotics"
+    slug: robotics
+    icon: car
+    children:
+      - { name: "Autonomous Vehicle", slug: autonomous-vehicle }
+      - { name: "Perception",         slug: perception }
+      - { name: "ROS",                slug: ros }
+      - { name: "Control & Engineering", slug: control-engineering }
+
+  - name: "AI"
+    slug: ai
+    icon: cpu
+    children:
+      - { name: "Computer Vision",  slug: computer-vision }
+      - { name: "Deep Learning",    slug: deep-learning }
+      - { name: "Machine Learning", slug: machine-learning }
+
+  - name: "Programming"
+    slug: programming
+    icon: code
+    children:
+      - { name: "Algorithm",  slug: algorithm }
+      - { name: "Python",     slug: python }
+      - { name: "C++",        slug: cpp }
+      - { name: "JavaScript", slug: javascript }
+      - { name: "Others",     slug: others }
+
+  - name: "Dev"
+    slug: dev
+    icon: terminal
+    children:
+      - { name: "Git",    slug: git }
+      - { name: "Docker", slug: docker }
+
+  - name: "Computer Science"
+    slug: cs
+    icon: monitor
+    children:
+      - { name: "Linux", slug: linux }
+
+  - name: "Math"
+    slug: math
+    icon: sigma
+    children:
+      - { name: "Linear Algebra", slug: linear-algebra }
+      - { name: "Math for ML",    slug: math-for-ml }

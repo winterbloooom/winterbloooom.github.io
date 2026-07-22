@@ -1,0 +1,23 @@
+// ── Table of contents (v1 artifact style: sticky rail, left border) ──
+.toc {
+  position: sticky; top: 96px;
+  align-self: start;
+  border-left: 1px solid var(--line);
+  padding-left: 18px;
+  max-height: calc(100vh - 120px);
+  overflow-y: auto;
+}
+.toc__cap {
+  font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.08em;
+  color: var(--ink-faint); margin-bottom: 12px;
+}
+.toc ul { list-style: none; }
+.toc li { line-height: 1.4; margin-bottom: 9px; }
+.toc a {
+  color: var(--ink-faint); font-size: 0.84rem;
+  transition: color 0.12s ease;
+  display: block;
+}
+.toc a:hover { color: var(--ink); }
+.toc li.is-active > a { color: var(--accent); font-weight: 600; }
+.toc .toc-h3 { padding-left: 12px; font-size: 0.8rem; }

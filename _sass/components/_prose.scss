@@ -1,0 +1,118 @@
+// ── Prose (rendered markdown body) ────────────────────────────
+.prose {
+  font-size: 1.08rem;
+  line-height: 1.85;
+  color: var(--ink);
+  word-break: keep-all;        // 한글 줄바꿈: 어절 단위
+  overflow-wrap: anywhere;
+}
+
+.prose > * + * { margin-top: 1.1em; }
+
+.prose h1, .prose h2, .prose h3, .prose h4 {
+  font-weight: 800; letter-spacing: -0.02em; line-height: 1.3;
+  scroll-margin-top: 84px;      // sticky header 보정 (앵커 이동)
+}
+.prose h1 { font-size: 1.7rem; margin-top: 1.8em; }
+.prose h2 { font-size: 1.45rem; margin-top: 1.8em; padding-bottom: 0.3em; border-bottom: 1px solid var(--line); }
+.prose h3 { font-size: 1.2rem; margin-top: 1.5em; }
+.prose h4 { font-size: 1.05rem; margin-top: 1.4em; }
+
+.prose a {
+  color: var(--accent);
+  text-decoration: underline; text-underline-offset: 2px;
+  text-decoration-color: color-mix(in srgb, var(--accent) 40%, transparent);
+}
+.prose a:hover { text-decoration-color: var(--accent); }
+
+.prose strong { font-weight: 700; }
+.prose u { text-underline-offset: 2px; }
+.prose mark, .prose span[style*="background"] {
+  padding: 1px 3px; border-radius: 3px;
+}
+.prose mark { background: var(--accent-soft); color: var(--ink); }
+
+.prose ul, .prose ol { padding-left: 1.4em; }
+.prose li + li { margin-top: 0.35em; }
+.prose ul { list-style: disc; }
+.prose ul ul { list-style: circle; }
+
+.prose hr { border: none; border-top: 1px solid var(--line); margin: 2em 0; }
+
+.prose blockquote {
+  padding: 4px 0 4px 20px;
+  border-left: 3px solid var(--accent);
+  color: var(--ink-soft);
+}
+.prose blockquote strong, .prose blockquote b { color: var(--ink); }
+
+// 이미지: 지연 로드 + 라운드
+.prose img { border-radius: 8px; margin-left: auto; margin-right: auto; }
+.prose figure figcaption { text-align: center; font-size: 0.85rem; color: var(--ink-faint); margin-top: 0.5em; }
+
+// 인라인 코드
+.prose :not(pre) > code {
+  font-family: var(--font-mono); font-size: 0.88em;
+  background: var(--bg-soft); padding: 0.15em 0.4em; border-radius: 5px;
+  word-break: break-all;
+}
+
+// 코드 블록 (rouge)
+.prose pre {
+  font-family: var(--font-mono); font-size: 0.86rem; line-height: 1.6;
+  background: var(--bg-soft); border: 1px solid var(--line);
+  border-radius: 10px; padding: 16px 18px;
+  overflow-x: auto;
+}
+.prose pre code { font-family: inherit; background: none; padding: 0; }
+
+// 표 (가로 스크롤 컨테이너)
+.prose table {
+  width: 100%; border-collapse: collapse; font-size: 0.94rem;
+  display: block; overflow-x: auto;
+}
+.prose thead th { text-align: left; border-bottom: 2px solid var(--line-strong); padding: 8px 12px; font-weight: 700; }
+.prose td { border-bottom: 1px solid var(--line); padding: 8px 12px; }
+
+// MathJax 오버플로 방지
+.prose mjx-container { overflow-x: auto; overflow-y: hidden; max-width: 100%; }
+
+// ── 본문 콜아웃 (기존 콘텐츠 요소 유지: notice-box / inserted-box / def-box) ──
+// notice-box: 경고·안내 (아이콘 + 텍스트)
+#notice-box {
+  display: flex; gap: 12px; align-items: flex-start;
+  background: var(--bg-soft);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 14px 16px;
+  font-size: 0.96rem; color: var(--ink-soft);
+  margin: 1.4em 0;
+}
+#notice-box .notice-icon-wrap { color: var(--accent); flex-shrink: 0; line-height: 1.7; }
+#notice-box .notice-text { min-width: 0; }
+#notice-box .notice-text p:last-child { margin-bottom: 0; }
+
+// inserted-box: 삽입/인용 (좌측 accent 보더)
+#inserted-box {
+  margin: 1.4em 0;
+  border-left: 3px solid var(--accent);
+  padding: 2px 0 2px 16px;
+}
+#inserted-box .notice-text { font-size: 0.96rem; color: var(--ink-soft); }
+#inserted-box .notice-text p { margin: 0; }
+
+// def-box: 용어 정의 (좌측 accent 보더 + accent 제목)
+#def-box {
+  margin: 1.6em 0;
+  background: var(--bg-soft);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--accent);
+  border-radius: 10px;
+  padding: 16px 18px;
+}
+#def-box .def-title {
+  font-size: 1.05rem; font-weight: 700; color: var(--accent);
+  letter-spacing: -0.01em; margin-bottom: 8px; line-height: 1.5;
+}
+#def-box p { font-size: 0.98rem; color: var(--ink); margin-bottom: 0; }
+#def-box p + p { margin-top: 0.8em; }

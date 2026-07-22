@@ -1,0 +1,31 @@
+---
+layout: base
+---
+{%- comment -%}
+  포스트 목록/카테고리 아카이브 (가로형 행).
+  page.posts 가 지정되면 그것을, 아니면 전체 site.posts 를 나열.
+  category_pages_generator.rb 가 카테고리 페이지에 posts_scope 를 주입한다.
+{%- endcomment -%}
+<div class="wrap-wide">
+  <header class="archive-head">
+    {%- if page.category_slug -%}
+      <div class="archive-head__eyebrow mono"><span class="cat-dot cat-dot--{{ page.category_root_slug | default: page.category_slug }}"></span>{{ page.eyebrow }}</div>
+    {%- endif -%}
+    <h1>{{ page.title }}</h1>
+    {%- if page.description -%}<p>{{ page.description }}</p>{%- endif -%}
+  </header>
+
+  {%- comment -%} 대상 포스트 결정 {%- endcomment -%}
+  {%- assign posts = site.posts -%}
+  {%- if page.filter_category -%}
+    {%- assign posts = site.categories[page.filter_category] -%}
+  {%- endif -%}
+
+  <p class="archive-count mono">{{ posts | size }} posts</p>
+
+  <div class="post-list">
+    {%- for post in posts -%}
+      {% include post-item.html post=post %}
+    {%- endfor -%}
+  </div>
+</div>

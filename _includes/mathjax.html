@@ -1,0 +1,16 @@
+{%- comment -%}
+  MathJax 는 math 를 쓰는 글에서만 로드.
+  1순위: front matter `use_math: true`. 없으면 본문에 `$` 포함 여부로 추정(Phase 6에서 플래그로 정규화 예정).
+{%- endcomment -%}
+{%- assign needs_math = false -%}
+{%- if page.use_math -%}{%- assign needs_math = true -%}
+{%- elsif page.use_math == nil and page.content contains "$" -%}{%- assign needs_math = true -%}{%- endif -%}
+{%- if needs_math -%}
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+    options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'] }
+  };
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+{%- endif -%}

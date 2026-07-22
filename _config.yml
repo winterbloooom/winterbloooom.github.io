@@ -1,314 +1,96 @@
-# basic info
-locale : "ko-KR"
-title : "EunGi Han | winterbloooom"
-name : "winterbloooom (EunGi Han)"
-url : "https://winterbloooom.github.io"
-repository : "https://github.com/winterbloooom/winterbloooom.github.io"
+# ─────────────────────────────────────────────────────────────
+# Site
+# ─────────────────────────────────────────────────────────────
+title: "winterbloooom"
+tagline: "EunGi Han · 기술로 세상을 안전하게"
+description: "로보틱스·컴퓨터비전·딥러닝 공부 기록. winterbloooom (한은기)의 개인 기술 블로그."
+url: "https://winterbloooom.github.io"
+baseurl: ""
+lang: "ko-KR"
 timezone: Asia/Seoul
 
+# Author / social (중앙 선언 — 템플릿에 하드코딩 금지, _data/site.yml 도 참고)
+author:
+  name: "EunGi Han"
+  handle: "winterbloooom"
+  korean_name: "한은기"
+  email: "winterbloooom@gmail.com"
 
-# Analytics
-analytics:
-  provider               : "google-gtag" # false (default), "google", "google-universal", "google-gtag", "custom"
-  google:
-    tracking_id          : "G-NDR0GLWHWZ"
-    anonymize_ip         : # true, false (default)
-
-
-# Reading Files
-include:
-  - .htaccess
-  - _pages
-exclude:
-  - "*.sublime-project"
-  - "*.sublime-workspace"
-  - vendor
-  - .asset-cache
-  - .bundle
-  - .jekyll-assets-cache
-  - .sass-cache
-  - assets/js/plugins
-  - assets/js/_main.js
-  - assets/js/vendor
-  - Capfile
-  - CHANGELOG
-  - config
-  - Gemfile
-  - Gruntfile.js
-  - gulpfile.js
-  - LICENSE
-  - log
-  - node_modules
-  - package.json
-  - package-lock.json
-  - Rakefile
-  - README
-  - tmp
-  - /docs # ignore Minimal Mistakes /docs
-  - /test # ignore Minimal Mistakes /test
-keep_files:
-  - .git
-  - .svn
-encoding: "utf-8"
-markdown_ext: "markdown,mkdown,mkdn,mkd,md"
-
-
-# Conversion
+# ─────────────────────────────────────────────────────────────
+# Build
+# ─────────────────────────────────────────────────────────────
 markdown: kramdown
 highlighter: rouge
-# lsi: false
-# excerpt_separator: "\n\n"
-# incremental: false
+permalink: /:title/          # 플랫 URL (파일명 슬러그 유일성 확인됨). 구 URL은 redirect 플러그인이 처리
+sass:
+  style: compressed
+  sass_dir: _sass
 
-
-# Markdown Processing
 kramdown:
   input: GFM
   math_engine: mathjax
-  # hard_wrap: false
-  # auto_ids: true
-  # footnote_nr: 1
-  # entity_output: as_char
-  # toc_levels: 1..6
-  # smart_quotes: lsquo,rsquo,ldquo,rdquo
-  # enable_coderay: false
+  syntax_highlighter: rouge
 
+plugins:
+  - jekyll-redirect-from
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-feed
+
+# ─────────────────────────────────────────────────────────────
+# Front matter defaults
+# ─────────────────────────────────────────────────────────────
 defaults:
-  -
-    scope:
+  - scope:
       path: ""
+      type: posts
     values:
-      layout: "post"
-      mathjax: true
-      toc: false
+      layout: post
       comments: true
+      toc: true
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: page
 
-  -
-    scope:
-      path: "_pages/categories/category_recentposts.html"
-    values:
-      title_bg: "/assets/images/lv2_bg/bg-recent_posts.png"
+# ─────────────────────────────────────────────────────────────
+# Features / integrations
+# ─────────────────────────────────────────────────────────────
+disqus:
+  shortname: "winterbloooom"        # 지연 로드 (스크롤 진입 시)
 
-  -
-    scope:
-      path: "_pages/categories/category_robotics.html"
-    values:
-      title_bg: "/assets/images/lv2_bg/bg-robotics-autonomous_vehicle.png"
+analytics:
+  provider: "google-gtag"
+  google:
+    tracking_id: "G-NDR0GLWHWZ"
 
-  -
-    scope:
-      path: "_posts/robotics/autonomous_vehicle/*"
-    values:
-      teaser: "/assets/images/teaser/teaser-robotics-autonomous_vehicle.png"
-  -
-    scope:
-      path: "_pages/categories/category_robotics_autonomousvehicle.html"
-    values:
-      title_bg: "/assets/images/lv2_bg/bg-robotics-autonomous_vehicle.png"
+feed:
+  path: /feed.xml
 
-  -
-    scope:
-      path: "_posts/robotics/perception/*"
-    values:
-      teaser: "/assets/images/teaser/teaser-robotics-perception.png"
-  -
-    scope:
-      path: "_pages/categories/category_robotics_perception.html"
-    values:
-      title_bg: "/assets/images/lv2_bg/bg-robotics-perception.png"
+# ─────────────────────────────────────────────────────────────
+# Files
+# ─────────────────────────────────────────────────────────────
+# Pagefind 가 빌드 후 생성하는 검색 인덱스를 Jekyll 재빌드 시 지우지 않도록 보존
+keep_files:
+  - pagefind
 
-  -
-    scope:
-      path: "_posts/robotics/ros/*"
-    values:
-      teaser: "/assets/images/teaser/teaser-robotics-ros.png"
-  -
-    scope:
-      path: "_pages/categories/category_robotics_ros.html"
-    values:
-      title_bg: "/assets/images/lv2_bg/bg-robotics-ros.png"
-
-  -
-    scope:
-      path: "_posts/robotics/control_and_engineering/*"
-    values:
-      teaser: "/assets/images/teaser/teaser-robotics-engineering.png"
-  -
-    scope:
-      path: "_pages/categories/category_robotics_controlandengineering.html"
-    values:
-      title_bg: "/assets/images/lv2_bg/bg-robotics-engineering.png"
-
-  -
-    scope:
-      path: "_pages/categories/category_ai.html"
-    values:
-      title_bg: "/assets/images/lv2_bg/bg-ai-computer_vision.png"
-
-  -
-    scope:
-      path: "_posts/ai/computer_vision/*"
-    values:
-      teaser: "/assets/images/teaser/teaser-ai-computer_vision.png"
-  -
-    scope:
-      path: "_pages/categories/category_ai_computervision.html"
-    values:
-      title_bg: "/assets/images/lv2_bg/bg-ai-computer_vision.png"
-
-  -
-    scope:
-      path: "_posts/ai/deep_learning/*"
-    values:
-      teaser: "/assets/images/teaser/teaser-ai-deep_learning.png"
-  -
-    scope:
-      path: "_pages/categories/category_ai_deeplearning.html"
-    values:
-      title_bg: "/assets/images/lv2_bg/bg-ai-deep_learning.png"
-
-  -
-    scope:
-      path: "_posts/ai/machine_learning/*"
-    values:
-      teaser: "/assets/images/teaser/teaser-ai-machine_learning.png"
-  -
-    scope:
-      path: "_pages/categories/category_ai_machinelearning.html"
-    values:
-      title_bg: "/assets/images/lv2_bg/bg-ai-machine_learning.png"
-
-  -
-    scope:
-      path: "_pages/categories/category_programming.html"
-    values:
-      title_bg: "/assets/images/lv2_bg/bg-programming-python.png"
-
-  -
-    scope:
-      path: "_posts/programming/algorithm/*"
-    values:
-      teaser: "/assets/images/teaser/teaser-programming-algorithm.png"
-  -
-    scope:
-      path: "_pages/categories/category_programming_algorithm.html"
-    values:
-      title_bg: "/assets/images/lv2_bg/bg-programming-algorithm.png"
-
-  -
-    scope:
-      path: "_posts/programming/python/*"
-    values:
-      teaser: "/assets/images/teaser/teaser-programming-python.png"
-  -
-    scope:
-      path: "_pages/categories/category_programming_python.html"
-    values:
-      title_bg: "/assets/images/lv2_bg/bg-programming-python.png"
-
-  -
-    scope:
-      path: "_posts/programming/cpp/*"
-    values:
-      teaser: "/assets/images/teaser/teaser-programming-cpp.png"
-  -
-    scope:
-      path: "_pages/categories/category_programming_cpp.html"
-    values:
-      title_bg: "/assets/images/lv2_bg/bg-programming-cpp.png"
-
-  -
-    scope:
-      path: "_posts/programming/javascript/*"
-    values:
-      teaser: "/assets/images/teaser/teaser-programming-javascript.png"
-  -
-    scope:
-      path: "_pages/categories/category_programming_javascript.html"
-    values:
-      title_bg: "/assets/images/lv2_bg/bg-programming-javascript.png"
-
-  -
-    scope:
-      path: "_posts/programming/others/*"
-    values:
-      teaser: "/assets/images/teaser/teaser-programming-others.png"
-  -
-    scope:
-      path: "_pages/categories/category_programming_others.html"
-    values:
-      title_bg: "/assets/images/lv2_bg/bg-programming-others.png"
-
-  -
-    scope:
-      path: "_pages/categories/category_dev.html"
-    values:
-      title_bg: "/assets/images/lv2_bg/bg-dev-git.png"
-
-  -
-    scope:
-      path: "_posts/dev/git/*"
-    values:
-      teaser: "/assets/images/teaser/teaser-dev-git.png"
-  -
-    scope:
-      path: "_pages/categories/category_dev_git.html"
-    values:
-      title_bg: "/assets/images/lv2_bg/bg-dev-git.png"
-
-  -
-    scope:
-      path: "_posts/dev/docker/*"
-    values:
-      teaser: "/assets/images/teaser/teaser-dev-docker.png"
-  -
-    scope:
-      path: "_pages/categories/category_dev_docker.html"
-    values:
-      title_bg: "/assets/images/lv2_bg/bg-dev-docker.png"
-
-  -
-    scope:
-      path: "_pages/categories/category_cs.html"
-    values:
-      title_bg: "/assets/images/lv2_bg/bg-cs-linux.png"
-
-  -
-    scope:
-      path: "_posts/cs/linux/*"
-    values:
-      teaser: "/assets/images/teaser/teaser-cs-linux.png"
-  -
-    scope:
-      path: "_pages/categories/category_cs_linux.html"
-    values:
-      title_bg: "/assets/images/lv2_bg/bg-cs-linux.png"
-
-  -
-    scope:
-      path: "_pages/categories/category_math.html"
-    values:
-      title_bg: "/assets/images/lv2_bg/bg-math-linear_algebra.png"
-
-
-  -
-    scope:
-      path: "_posts/math/linear_algebra/*"
-    values:
-      teaser: "/assets/images/teaser/teaser-math-linear_algebra.png"
-  -
-    scope:
-      path: "_pages/categories/category_math_linearalgebra.html"
-    values:
-      title_bg: "/assets/images/lv2_bg/bg-math-linear_algebra.png"
-
-  -
-    scope:
-      path: "_posts/math/math_for_ml/*"
-    values:
-      teaser: "/assets/images/teaser/teaser-math-math_for_ml.png"
-  -
-    scope:
-      path: "_pages/categories/category_math_math4ml.html"
-    values:
-      title_bg: "/assets/images/lv2_bg/bg-math-math_for_ml.png"
+include:
+  - _pages
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - node_modules
+  - package.json
+  - package-lock.json
+  - README.md
+  - LICENSE
+  - Rakefile
+  - plans
+  - DESIGN.md
+  - CLAUDE.md
+  - "*.bak"
+  - scripts
+  - _config.yml.bak
+encoding: "utf-8"

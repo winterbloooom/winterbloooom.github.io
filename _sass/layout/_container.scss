@@ -1,0 +1,7 @@
+// ── Containers ────────────────────────────────────────────────
+.wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 28px; }
+.wrap-wide { max-width: var(--wrap-wide); margin: 0 auto; padding: 0 28px; }
+
+@media (max-width: 680px) {
+  .wrap, .wrap-wide { padding: 0 20px; }
+}

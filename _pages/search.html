@@ -1,5 +1,89 @@
 ---
-layout: search
+layout: base
 title: Search
-permalink: /search
+permalink: /search/
 ---
+<div class="wrap">
+  <div class="search-page">
+    <h1 class="search-title">Search</h1>
+    <div class="search-box">
+      <svg class="icon"><use href="#i-search"/></svg>
+      <input id="search-input" type="search" placeholder="글 내용까지 전문 검색…" autocomplete="off" autofocus>
+    </div>
+    <p class="mono search-status" id="search-status"></p>
+    <div id="search-results" class="post-list"></div>
+  </div>
+</div>
+
+<script type="module">
+  const input = document.getElementById("search-input");
+  const results = document.getElementById("search-results");
+  const status = document.getElementById("search-status");
+
+  let pagefind = null;
+  async function loadPagefind() {
+    if (pagefind) return pagefind;
+    try {
+      pagefind = await import("{{ '/pagefind/pagefind.js' | relative_url }}");
+      await pagefind.options({ excerptLength: 30 });
+    } catch (e) {
+      status.textContent = "검색 인덱스를 불러오지 못했습니다.";
+      throw e;
+    }
+    return pagefind;
+  }
+
+  function esc(s) {
+    return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c];
+    });
+  }
+
+  function render(items, q) {
+    if (!items.length) {
+      results.innerHTML = "";
+      status.textContent = "‘" + q + "’ 검색 결과 없음";
+      return;
+    }
+    status.textContent = "‘" + q + "’ 검색 결과 " + items.length + "건";
+    results.innerHTML = items.map(function (r) {
+      const m = r.meta || {};
+      const tags = (m.tags || "").split("·").map(function (t) { return t.trim(); }).filter(Boolean).slice(0, 3);
+      return '<article class="post-item"><div class="post-item__body">' +
+        '<div class="p-meta mono">' +
+          '<span class="cat-dot cat-dot--' + esc(m.catslug || "default") + '"></span>' +
+          '<span class="cat">' + esc(m.category || "") + '</span>' +
+          '<span class="sep">—</span><span>' + esc(m.date || "") + '</span>' +
+        '</div>' +
+        '<h3 class="p-title"><a href="' + esc(r.url) + '">' + esc(m.title || "") + '</a></h3>' +
+        '<p class="p-excerpt">' + (r.excerpt || "") + '</p>' +
+        (tags.length ? '<div class="p-tags">' + tags.map(function (t) { return '<span class="tag">' + esc(t) + '</span>'; }).join("") + '</div>' : '') +
+        '</div></article>';
+    }).join("");
+  }
+
+  async function runSearch(q) {
+    if (!q) { results.innerHTML = ""; status.textContent = ""; return; }
+    status.textContent = "검색 중…";
+    const pf = await loadPagefind();
+    const search = await pf.search(q);
+    const items = await Promise.all(search.results.slice(0, 30).map(function (r) { return r.data(); }));
+    render(items, q);
+  }
+
+  let timer = null;
+  input.addEventListener("input", function () {
+    const q = input.value.trim();
+    clearTimeout(timer);
+    timer = setTimeout(function () {
+      runSearch(q);
+      const url = new URL(window.location);
+      if (q) url.searchParams.set("q", q); else url.searchParams.delete("q");
+      window.history.replaceState({}, "", url);
+    }, 160);
+  });
+
+  // ?q= 로 진입하면 바로 검색 (공유 가능한 검색 URL)
+  const initial = new URLSearchParams(window.location.search).get("q");
+  if (initial) { input.value = initial; runSearch(initial.trim()); }
+</script>

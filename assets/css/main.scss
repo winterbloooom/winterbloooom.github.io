@@ -1,0 +1,27 @@
+---
+# 단일 CSS 진입점. Jekyll Sass 가 컴파일 (style: compressed).
+# @use 사용 (@import 는 Dart Sass 3.0 에서 제거 예정).
+# 파일 간 Sass 변수/믹스인 공유는 없고 전부 CSS 커스텀 프로퍼티를 쓰므로 네임스페이스 불필요.
+---
+
+@charset "utf-8";
+
+// 순서 중요: tokens → fonts → reset → base → layout → components → pages
+@use "abstracts/tokens";
+@use "base/fonts";
+@use "base/reset";
+@use "base/typography";
+@use "layout/container";
+@use "layout/header";
+@use "layout/footer";
+@use "components/intro";
+@use "components/lists";
+@use "components/chips";
+@use "components/buttons";
+@use "components/prose";
+@use "components/comments";
+@use "components/toc";
+@use "pages/home";
+@use "pages/archive";
+@use "pages/post";
+@use "pages/misc";

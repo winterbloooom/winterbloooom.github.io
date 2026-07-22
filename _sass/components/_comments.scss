@@ -1,0 +1,13 @@
+// ── Comments (Disqus, lazy) ───────────────────────────────────
+.comments { margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--line); }
+.comments__placeholder {
+  padding: 18px 20px;
+  border: 1px dashed var(--line-strong); border-radius: 10px;
+  display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  font-family: var(--font-mono); font-size: 0.82rem; color: var(--ink-faint);
+}
+.comments__placeholder button {
+  border: 1px solid var(--line-strong); border-radius: 999px;
+  padding: 8px 16px; color: var(--ink-soft); font-family: var(--font-sans); font-weight: 500;
+}
+.comments__placeholder button:hover { color: var(--ink); border-color: var(--ink-soft); }

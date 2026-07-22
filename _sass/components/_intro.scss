@@ -1,0 +1,36 @@
+// ── Home intro (mria hero pattern, text-first) ────────────────
+.intro { padding: 72px 0 8px; }
+
+.intro__photo {
+  width: 96px; height: 96px; border-radius: 50%;
+  background: var(--bg-soft); border: 1px solid var(--line-strong);
+  display: grid; place-items: center; color: var(--ink-faint);
+  margin-bottom: 26px; overflow: hidden;
+}
+.intro__photo img { width: 100%; height: 100%; object-fit: cover; }
+.intro__photo .icon { width: 40px; height: 40px; }
+
+.intro h1 { font-size: 3rem; font-weight: 800; letter-spacing: -0.035em; line-height: 1.05; margin-bottom: 8px; }
+.intro__handle { font-family: var(--font-mono); font-size: 0.95rem; color: var(--accent); }
+.intro__role {
+  font-family: var(--font-mono); font-size: 0.82rem; letter-spacing: 0.02em;
+  color: var(--ink-faint); margin-top: 10px;
+}
+.intro__bio { font-size: 1.15rem; line-height: 1.7; color: var(--ink-soft); max-width: 34em; margin: 24px 0 26px; }
+
+.intro__links { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.intro__links a {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 0.95rem; font-weight: 500;
+  padding: 9px 16px; border: 1px solid var(--line-strong); border-radius: 999px;
+  color: var(--ink); transition: background 0.15s ease, border-color 0.15s ease;
+}
+.intro__links a:hover { border-color: var(--ink); background: var(--bg-soft); }
+.intro__links a .icon { width: 16px; height: 16px; }
+.intro__links a.is-primary { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.intro__links a.is-primary:hover { opacity: 0.88; }
+
+@media (max-width: 680px) {
+  .intro { padding: 48px 0 4px; }
+  .intro h1 { font-size: 2.1rem; }
+}

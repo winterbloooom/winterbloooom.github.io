@@ -1,272 +1,71 @@
 ---
-layout: default
+layout: page
 title: About
-permalink: /about
+permalink: /about/
+hide_title: true
 ---
 
-<div id="about-page" class="layout-default">
-    <div id="profile-container">
-        <div id="profile-wrap">
-            <div id="profile-main">
-                <div class="name-wrapper">
-                    <span>EunGi Han</span>
-                    <span>한은기 / winterbloooom</span>
-                </div>
-    
-                <p class="greetings">
-                    영화 <아이언맨>을 보고 무턱대고 공대에 진학, 이제는 기술로 세상을 안전하게 만들고자 합니다.<br>
-                    자율주행 개발에서 시작해, 지금은 컴퓨터 비전과 딥러닝을 공부하고 있습니다.<br>
-                    뭐든지 차근차근, 설령 느리더라도 멈춤은 없이 가고 싶습니다.
-                </p>
-    
-                <div class="contact-wrap">
-                    <div class="contact-list">
-                        <a class="contact" href="https://github.com/winterbloooom" >
-                            <i class="fa-brands fa-github"></i>
-                        </a>
-                        <a class="contact" href="mailto:winterbloooom@gmail.com">
-                            <i class="fa-regular fa-envelope"></i>
-                        </a>
-                        <a class="contact" href="https://www.instagram.com/winterbloooom/">
-                            <i class="fa-brands fa-instagram"></i>
-                        </a>
-                    </div>
-    
-                    <a href="https://drive.google.com/file/d/1s6SZIIgloQesZCYpKr0EK779U-v8xWTk/view?usp=sharing" id="go-cv-btn">CV</a>
-                    <a href="https://drive.google.com/file/d/1FutNDfKXq9D5cLazSkXu07NyYJ-nJhG4/view?usp=share_link" id="go-cv-btn">PORTFOLIO</a>
-                    
-                </div>
-            </div>
-    
-            <div id="profile-img">
-                <img src="/assets/images/profile.jpg">
-            </div>
-        </div>
-    </div>
-    
-    <div id="info-container">
-        <div id="info-wrap">
-            <div id="info-research">
-                <div class="info-title-wrap">
-                    <div class="horizontal-line"></div>
-                    <div class="info-title">RESEARCH INTERESTS</div>
-                    <div class="horizontal-line"></div>
-                </div>
+<div class="about-head">
+  <div class="about-head__photo"><img src="{{ '/assets/images/profile.jpg' | relative_url }}" alt="EunGi Han" width="88" height="88"></div>
+  <div>
+    <h1>EunGi Han</h1>
+    <div class="sub">한은기 · @winterbloooom</div>
+  </div>
+</div>
 
-                <div id="research-wrap">
-                    <div class="research-single">
-                        <div class="research-single-icon">
-                            <i class="fa-solid fa-camera"></i>
-                        </div>
+<p class="prose" style="max-width:38em">
+  영화 〈아이언맨〉을 보고 무턱대고 공대에 진학, 이제는 기술로 세상을 안전하게 만들고자 합니다.
+  자율주행 개발에서 시작해, 지금은 컴퓨터 비전과 딥러닝을 공부하고 있습니다.
+  뭐든지 차근차근, 설령 느리더라도 멈춤은 없이 가고 싶습니다.
+</p>
 
-                        <div class="research-single-title">
-                            Computer Vision
-                        </div>
+<div class="about-links">
+  <a class="btn" href="https://github.com/winterbloooom" target="_blank" rel="noopener"><svg class="icon"><use href="#i-github"/></svg>GitHub</a>
+  <a class="btn" href="mailto:winterbloooom@gmail.com"><svg class="icon"><use href="#i-mail"/></svg>Mail</a>
+  <a class="btn" href="https://drive.google.com/file/d/1s6SZIIgloQesZCYpKr0EK779U-v8xWTk/view?usp=sharing" target="_blank" rel="noopener">CV</a>
+  <a class="btn btn--primary" href="{{ '/portfolio/' | relative_url }}">Portfolio</a>
+</div>
 
-                        <div class="research-single-desc">
-                            3D/4D Human, Human Mesh Reconstruction, Human Pose Estimation, etc.
-                        </div>
-                    </div>
+<div class="section-label"><h2>Research Interests</h2></div>
+<div class="prose">
+  <ul>
+    <li><strong>Computer Vision</strong> — 3D/4D Human, Human Mesh Reconstruction, Human Pose Estimation</li>
+    <li><strong>Artificial Intelligence</strong> — Machine Learning, Deep Learning</li>
+  </ul>
+</div>
 
-                    <div class="research-single">
-                        <div class="research-single-icon">
-                            <i class="fa-solid fa-user"></i>
-                        </div>
+<div class="section-label"><h2>Education</h2></div>
+<div class="about-entry">
+  <div class="about-entry__top"><span class="about-entry__title">POSTECH</span><span class="about-entry__when">2023.08 ~ Present</span></div>
+  <div class="about-entry__meta">M.S. Student · Graduate School of Artificial Intelligence · Pohang, Korea</div>
+  <ul>
+    <li><a href="https://ami.postech.ac.kr/" target="_blank" rel="noopener">Algorithmic Machine Intelligence Lab (AMI Lab.)</a></li>
+    <li>Advised by Prof. Tae-Hyun Oh</li>
+  </ul>
+</div>
+<div class="about-entry">
+  <div class="about-entry__top"><span class="about-entry__title">Inha University</span><span class="about-entry__when">2019.03 ~ 2023.08</span></div>
+  <div class="about-entry__meta">B.S. · Naval Architecture &amp; Ocean Engineering + Computer Engineering (double major) · Incheon, Korea</div>
+  <ul>
+    <li>GPA 4.42 / 4.5</li>
+  </ul>
+</div>
 
-                        <div class="research-single-title">
-                            Artifical Intelligence
-                        </div>
+<div class="section-label"><h2>Experience</h2></div>
+<div class="about-entry">
+  <div class="about-entry__top"><span class="about-entry__title">RCV — Robotics and Computer Vision Group</span><span class="about-entry__when">2022.09 ~ 2023.06</span></div>
+  <div class="about-entry__meta">Research Student · Inha Univ. · Advisor: Prof. Inwook Shim</div>
+</div>
 
-                        <div class="research-single-desc">
-                            Machine Learning, Deep Learning, etc.
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div id="info-edu">
-                <div class="info-title-wrap">
-                    <div class="horizontal-line"></div>
-                    <div class="info-title">EDUCATION</div>
-                    <div class="horizontal-line"></div>
-                </div>
-
-                <div>
-                    <div class="edu-single">
-                        <div class="edu-single-icon">
-                            <i class="fa-solid fa-graduation-cap"></i>
-                        </div>
-
-                        <div class="edu-single-duration">
-                            2023.08. ~ Present
-                        </div>
-
-                        <div class="edu-single-school">
-                            <span>POSTECH</span>
-                            <span>Pohang, Korea</span>
-                        </div>
-
-                        <div class="edu-single-position">
-                            M.S. Student
-                        </div>
-
-                        <ul class="edu-single-desc">
-                            <li>Graduate School of Artificial Intelligence</li>
-                            <li><a href="https://ami.postech.ac.kr/">Algorithmic Machine Intelligence Lab (AMI Lab.)</a></li>
-                            <li>Advised by Prof. Tae-Hyun Oh</li>
-                        </ul>
-                    </div>
-
-                    <div class="edu-single">
-                        <div class="edu-single-icon">
-                            <i class="fa-solid fa-graduation-cap"></i>
-                        </div>
-
-                        <div class="edu-single-duration">
-                            2019.03. ~ 2023.08.
-                        </div>
-
-                        <div class="edu-single-school">
-                            <span>Inha Univ.</span>
-                            <span>Incheon, Korea</span>
-                        </div>
-
-                        <div class="edu-single-position">
-                            Bachelor Student
-                        </div>
-
-                        <ul class="edu-single-desc">
-                            <li>Double major in Naval Architecture & Ocean Engineering and Computer Engineering</li>
-                            <li>Current GPA: 4.42 / 4.5</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div id="info-experience">
-                <div class="info-title-wrap">
-                    <div class="horizontal-line"></div>
-                    <div class="info-title">EXPERIENCES</div>
-                    <div class="horizontal-line"></div>
-                </div>
-
-                <div>
-                    <div class="exp-single">
-                        <div class="edu-single-icon">
-                            <i class="fa-solid fa-pencil"></i>
-                        </div>
-
-                        <div class="exp-single-duration">
-                            2022.09. ~ 2023.06.
-                        </div>
-
-                        <div class="exp-single-org">
-                            <span>RCV: Robotics and Computer Vision Group</span>
-                            <span>Inha Univ., Incheon, Korea</span>
-                        </div>
-
-                        <div class="exp-single-position">
-                            Research Student
-                        </div>
-
-                        <ul class="exp-single-desc">
-                            <li>Advisor: Professor. Inwook Shim</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div id="info-projects">
-                <div class="info-title-wrap">
-                    <div class="horizontal-line"></div>
-                    <div class="info-title">PROJECTS</div>
-                    <div class="horizontal-line"></div>
-                </div>
-
-                <div id="proj-list">
-                    <a class="about-proj-single" href="/projects" 
-                    style="background: linear-gradient(0deg, rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url('/assets/images/samples/image8-Mailchimp-Unsplash.jpg')">
-                        <div class="about-proj-single-duration">
-                            2021.12. ~ 2022.08.
-                        </div>
-
-                        <div class="about-proj-single-title">
-                            자율운항보트 경진대회 KABOAT 2022
-                        </div>
-                    </a>
-
-                    <a class="about-proj-single" href="/projects" 
-                    style="background: linear-gradient(0deg, rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url('/assets/images/samples/image7-2H_Media-Unsplash.jpg')">
-                        <div class="about-proj-single-duration">
-                            2022.07.
-                        </div>
-
-                        <div class="about-proj-single-title">
-                            Monocular Depth Estimation and Evaluation with LiDAR
-                        </div>
-                    </a>
-
-                    <a class="about-proj-single" href="/projects" 
-                    style="background: linear-gradient(0deg, rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url('/assets/images/samples/image6-2H_Media-Unsplash.jpg')">
-                        <div class="about-proj-single-duration">
-                            2022.06.
-                        </div>
-
-                        <div class="about-proj-single-title">
-                            SLAM PoC Project: VSLAM Framework with Modular Architecture
-                        </div>
-                    </a>
-
-                    <a class="about-proj-single" href="/projects" 
-                    style="background: linear-gradient(0deg, rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url('/assets/images/samples/image5-Arturo_Esparza-Unsplash.jpg')">
-                        <div class="about-proj-single-duration">
-                            2022.05.
-                        </div>
-
-                        <div class="about-proj-single-title">
-                            Ping-pong Ball Object Detection and Depth Estimation
-                        </div>
-                    </a>
-
-                    <a class="about-proj-single" href="/projects" 
-                    style="background: linear-gradient(0deg, rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url('/assets/images/samples/image3-refargotohp-Unsplash.jpg')">
-                        <div class="about-proj-single-duration">
-                            2022.05.
-                        </div>
-
-                        <div class="about-proj-single-title">
-                            Traffic Sign & Light Object Detection and Driving
-                        </div>
-                    </a>
-
-                    <a class="about-proj-single" href="/projects" 
-                    style="background: linear-gradient(0deg, rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url('/assets/images/samples/image2-Vivek_Kumar-Unsplash.jpg')">
-                        <div class="about-proj-single-duration">
-                            2022.04.
-                        </div>
-
-                        <div class="about-proj-single-title">
-                            Lane Detection and Driving
-                        </div>
-                    </a>
-                </div>
-
-                <div id="go-proj-btn-wrap">
-                    <a id="go-proj-btn" href="https://drive.google.com/file/d/1FutNDfKXq9D5cLazSkXu07NyYJ-nJhG4/view?usp=share_link">Project Portfolio</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="cv-container">
-        <div id="cv-wrap">
-            <p>
-                
-            </p>
-            
-            <div id="go-cv-btn-wrap">
-                <a href="https://drive.google.com/file/d/1s6SZIIgloQesZCYpKr0EK779U-v8xWTk/view?usp=sharing" id="go-cv-btn">See My CV</a>
-            </div>
-        </div>
-    </div>
+<div class="section-label"><h2>Projects</h2></div>
+<div class="prose">
+  <ul>
+    <li>자율운항보트 경진대회 KABOAT 2022 <span class="mono" style="color:var(--ink-faint)">(2021.12 ~ 2022.08)</span></li>
+    <li>Monocular Depth Estimation and Evaluation with LiDAR <span class="mono" style="color:var(--ink-faint)">(2022.07)</span></li>
+    <li>SLAM PoC: VSLAM Framework with Modular Architecture <span class="mono" style="color:var(--ink-faint)">(2022.06)</span></li>
+    <li>Ping-pong Ball Object Detection and Depth Estimation <span class="mono" style="color:var(--ink-faint)">(2022.05)</span></li>
+    <li>Traffic Sign &amp; Light Object Detection and Driving <span class="mono" style="color:var(--ink-faint)">(2022.05)</span></li>
+    <li>Lane Detection and Driving <span class="mono" style="color:var(--ink-faint)">(2022.04)</span></li>
+  </ul>
+  <p><a href="{{ '/portfolio/' | relative_url }}">→ Project Portfolio</a></p>
 </div>

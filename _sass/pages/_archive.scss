@@ -1,0 +1,9 @@
+// ── Archive / category listing ────────────────────────────────
+.archive-head { padding: 56px 0 8px; }
+.archive-head__eyebrow {
+  font-family: var(--font-mono); font-size: 0.82rem; color: var(--ink-faint);
+  display: inline-flex; align-items: center; gap: 8px; margin-bottom: 12px;
+}
+.archive-head h1 { font-size: 2.4rem; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 8px; }
+.archive-head p { color: var(--ink-soft); }
+.archive-count { font-family: var(--font-mono); font-size: 0.82rem; color: var(--ink-faint); margin: 20px 0 6px; }

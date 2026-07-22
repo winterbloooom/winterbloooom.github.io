@@ -1,74 +1,70 @@
 ---
-layout: default
+layout: base
 ---
-
-<div class="layout-default">
-
-    <!-- Post title -->
-    <div id="post-title">
-
-        <div class="title-container">
-            
-            <!-- title-wrap -->
-            <div class="title-wrap">
-                <!-- tag-wrap -->
-                <div class="title-tag-wrap">
-                    {% for tag in page.tags %}
-                        <div class="tag-single">{{ tag }}</div>
-                    {% endfor %}
-                </div>
-                
-                <!-- title-text -->
-                <div class="title-text">{{ page.title }}</div>
-    
-                <!-- date -->
-                <div class="title-date">{{ page.date | date: "%Y. %m. %d" }}</div>
-
-            </div>
-
-            {% if page.teaser %}
-                <div class="post-teaser-wrap">
-                    <img class="post-teaser" src="{{ page.teaser }}">
-                </div>
-            {% endif %}
-            
+{%- assign lv1 = page.categories[0] -%}
+{%- assign lv2 = page.categories[1] -%}
+{%- assign catdata = site.data.categories.categories | where: "name", lv1 | first -%}
+{%- assign catslug = catdata.slug | default: "default" -%}
+<div class="post">
+  <div class="post__grid">
+    <div class="post__main">
+      <header class="post-head">
+        <div class="post-head__breadcrumb mono">
+          <span class="cat-dot cat-dot--{{ catslug }}"></span>
+          {%- if catdata -%}<a href="{{ '/category/' | append: catdata.slug | append: '/' | relative_url }}">{{ lv1 }}</a>{%- else -%}<span>{{ lv1 }}</span>{%- endif -%}
+          {%- if lv2 -%}<b>·</b><span>{{ lv2 }}</span>{%- endif -%}
         </div>
-        <div class="title-bottom"></div>
-        
+        <h1>{{ page.title }}</h1>
+        <div class="post-head__meta">
+          <span>{{ page.date | date: "%Y.%m.%d" }}</span>
+          {%- for tag in page.tags -%}<span class="sep">·</span><span>{{ tag }}</span>{%- endfor -%}
+        </div>
+      </header>
+
+      {%- if page.teaser -%}
+      {%- comment -%} 히어로는 above-the-fold 이므로 eager (LCP) {%- endcomment -%}
+      <div class="post-teaser"><img src="{{ page.teaser | relative_url }}" alt="" loading="eager"></div>
+      {%- endif -%}
+
+      {%- comment -%}
+        data-pagefind-body: 이 영역만 검색 인덱싱 (포스트 본문 전문).
+        메타는 키 하나당 엘리먼트 하나로 선언한다 — 한 속성에 콤마로 여러 쌍을 넣으면 파싱이 깨진다.
+      {%- endcomment -%}
+      <div class="post-body prose" data-pagefind-body>
+        <span data-pagefind-meta="date:{{ page.date | date: '%Y.%m.%d' }}"></span>
+        <span data-pagefind-meta="category:{{ lv1 }}{% if lv2 %} · {{ lv2 }}{% endif %}"></span>
+        <span data-pagefind-meta="catslug:{{ catslug }}"></span>
+        {%- if page.tags and page.tags.size > 0 -%}
+        <span data-pagefind-meta="tags:{{ page.tags | join: ' · ' }}"></span>
+        {%- endif -%}
+        {{ content }}
+      </div>
+
+      {%- if page.previous or page.next -%}
+      <nav class="post-nav" aria-label="이전/다음 글">
+        {%- if page.previous -%}
+        <a class="is-prev" href="{{ page.previous.url | relative_url }}">
+          <div class="post-nav__dir mono">← 이전 글</div>
+          <div class="post-nav__title">{{ page.previous.title }}</div>
+        </a>
+        {%- else -%}<span></span>{%- endif -%}
+        {%- if page.next -%}
+        <a class="is-next" href="{{ page.next.url | relative_url }}">
+          <div class="post-nav__dir mono">다음 글 →</div>
+          <div class="post-nav__title">{{ page.next.title }}</div>
+        </a>
+        {%- else -%}<span></span>{%- endif -%}
+      </nav>
+      {%- endif -%}
+
+      {% include comments.html %}
     </div>
 
-    <!-- 본문 -->
-    <div id="post-content" class="content-default">
-        <div class="content-wrap">
-            {{ content }}
-
-            <div id="disqus_thread"></div>
-            <script>
-                /**
-                *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-                *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
-
-                var disqus_config = function () {
-                this.page.url = "https://winterbloooom.github.io{{ page.url }}";  // Replace PAGE_URL with your page's canonical URL variable
-                this.page.identifier = "{{ page.id }}"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-                };
-
-                (function() { // DON'T EDIT BELOW THIS LINE
-                var d = document, s = d.createElement('script');
-                s.src = 'https://winterbloooom.disqus.com/embed.js';
-                s.setAttribute('data-timestamp', +new Date());
-                (d.head || d.body).appendChild(s);
-                })();
-            </script>
-            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-        </div>
-    </div>
-
-    <!-- 목차 -->
-    {% if page.toc %}
-        <div id="toc">
-            {% include toc.html html=content sanitize=true h_min=1 h_max=2 %}
-        </div>
-    {% endif %}
-
+    {%- if page.toc -%}
+    <aside class="toc" id="toc" hidden aria-label="목차">
+      <div class="toc__cap mono">On this page</div>
+      <ul id="toc-list"></ul>
+    </aside>
+    {%- endif -%}
+  </div>
 </div>

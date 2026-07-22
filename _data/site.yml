@@ -1,0 +1,25 @@
+# 사이트 메타 · 소셜 링크 · 네비게이션 중앙 선언 (include에 하드코딩 금지)
+
+nav:
+  - { label: "Home",      url: "/" }
+  - { label: "Posts",     url: "/posts/" }
+  - { label: "About",     url: "/about/" }
+  - { label: "Portfolio", url: "/portfolio/" }   # 내부 페이지(현재 비어 있음, 나중에 채움)
+
+social:
+  - { label: "GitHub", url: "https://github.com/winterbloooom", icon: github }
+  - { label: "Mail",   url: "mailto:winterbloooom@gmail.com",   icon: mail }
+
+# 인트로(홈 상단) 소개문
+intro:
+  role: "Robotics · Computer Vision · Deep Learning"
+  bio: >-
+    영화 〈아이언맨〉을 보고 무턱대고 공대에 진학, 이제는 기술로 세상을 안전하게 만들고자 합니다.
+    자율주행 개발에서 시작해, 지금은 컴퓨터 비전과 딥러닝을 공부하고 있습니다.
+  links:
+    - { label: "About", url: "/about/", icon: user, primary: true }
+    - { label: "GitHub", url: "https://github.com/winterbloooom", icon: github }
+    - { label: "Mail", url: "mailto:winterbloooom@gmail.com", icon: mail }
+
+footer:
+  built_with: "Jekyll · GitHub Actions"

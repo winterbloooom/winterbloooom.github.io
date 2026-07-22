@@ -1,0 +1,11 @@
+// ── Site footer ───────────────────────────────────────────────
+.site-footer {
+  margin-top: 80px;
+  border-top: 1px solid var(--line);
+}
+.site-footer__bar {
+  display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px;
+  padding: 28px 0;
+  font-family: var(--font-mono); font-size: 0.78rem; color: var(--ink-faint);
+}
+.site-footer__bar a:hover { color: var(--accent); }

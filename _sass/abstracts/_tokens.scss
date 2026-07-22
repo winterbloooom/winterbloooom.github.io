@@ -1,0 +1,65 @@
+// ── Design tokens (DESIGN.md §2) ──────────────────────────────
+// 모든 색은 CSS 변수로 선언. 컴포넌트는 변수를 통해서만 색 참조.
+// 미디어쿼리에서 색을 직접 박지 않는다 — 토큰만 재정의.
+
+:root {
+  --bg: #ffffff;
+  --bg-soft: #f5f6f8;
+  --ink: #15171c;
+  --ink-soft: #565b66;
+  --ink-faint: #8a8f9a;
+  --line: #e8e9ed;
+  --line-strong: #d3d5db;
+  --accent: #2748e0;
+  --accent-soft: #eaeeff;
+
+  // 카테고리 시맨틱 색 (점 전용). slug 와 매칭: --c-<slug>
+  --c-robotics: #d1603a;
+  --c-ai: #7b4bd4;
+  --c-programming: #2f9e6f;
+  --c-dev: #c79214;
+  --c-cs: #1f8aa3;
+  --c-math: #c4415f;
+
+  // OS 기본 폰트만 사용 — 웹폰트 별도 로드 없음
+  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Segoe UI", "Malgun Gothic", Roboto, "Noto Sans KR", sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+
+  --wrap: 720px;
+  --wrap-wide: 960px;
+
+  color-scheme: light;
+}
+
+@mixin dark-tokens {
+  --bg: #0e1013;
+  --bg-soft: #181b20;
+  --ink: #eef0f3;
+  --ink-soft: #a2a8b3;
+  --ink-faint: #71767f;
+  --line: #23262c;
+  --line-strong: #34383f;
+  --accent: #7d93ff;
+  --accent-soft: #1a2036;
+  --c-robotics: #e88259;
+  --c-ai: #a683ef;
+  --c-programming: #4fc492;
+  --c-dev: #e0b23e;
+  --c-cs: #4bb6cf;
+  --c-math: #e46a86;
+  color-scheme: dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root { @include dark-tokens; }
+}
+// 사용자 토글이 OS 선호를 양방향으로 덮어씀
+:root[data-theme="dark"] { @include dark-tokens; }
+:root[data-theme="light"] {
+  --bg: #ffffff; --bg-soft: #f5f6f8; --ink: #15171c; --ink-soft: #565b66;
+  --ink-faint: #8a8f9a; --line: #e8e9ed; --line-strong: #d3d5db;
+  --accent: #2748e0; --accent-soft: #eaeeff;
+  --c-robotics: #d1603a; --c-ai: #7b4bd4; --c-programming: #2f9e6f;
+  --c-dev: #c79214; --c-cs: #1f8aa3; --c-math: #c4415f;
+  color-scheme: light;
+}

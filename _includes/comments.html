@@ -1,0 +1,13 @@
+{%- comment -%} Disqus 지연 로드: 버튼 클릭 또는 스크롤 진입 시 embed 스크립트 주입 {%- endcomment -%}
+{%- if page.comments and site.disqus.shortname -%}
+<section class="comments" id="comments"
+         data-disqus-shortname="{{ site.disqus.shortname }}"
+         data-disqus-url="{{ page.url | absolute_url }}"
+         data-disqus-identifier="{{ page.id }}">
+  <div class="comments__placeholder" id="comments-placeholder">
+    <span>댓글은 Disqus 로 제공됩니다.</span>
+    <button type="button" id="comments-load">댓글 보기</button>
+  </div>
+  <div id="disqus_thread"></div>
+</section>
+{%- endif -%}

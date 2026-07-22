@@ -1,0 +1,39 @@
+// ── Typography helpers (DESIGN.md §3) ─────────────────────────
+// 메타 정보용 모노 라벨
+.mono {
+  font-family: var(--font-mono);
+  font-feature-settings: "tnum" 1;
+}
+
+// 카테고리 색 점 (점 전용 — 테두리/배경 확장 금지)
+.cat-dot {
+  display: inline-block;
+  width: 9px; height: 9px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background: var(--dot, var(--ink-faint));
+}
+.cat-dot--robotics { --dot: var(--c-robotics); }
+.cat-dot--ai { --dot: var(--c-ai); }
+.cat-dot--programming { --dot: var(--c-programming); }
+.cat-dot--dev { --dot: var(--c-dev); }
+.cat-dot--cs { --dot: var(--c-cs); }
+.cat-dot--math { --dot: var(--c-math); }
+
+// 섹션 헤더 (구분선 없이 여백 + 모노 eyebrow)
+.section-label {
+  display: flex; align-items: flex-end; justify-content: space-between;
+  gap: 16px;
+  margin: 76px 0 22px;
+}
+.section-label__eyebrow {
+  font-family: var(--font-mono); font-size: 0.74rem; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--ink-faint); margin-bottom: 8px;
+}
+.section-label h2 { font-size: 1.55rem; font-weight: 800; letter-spacing: -0.025em; line-height: 1.1; }
+.section-label a {
+  font-family: var(--font-mono); font-size: 0.8rem; color: var(--ink-faint);
+  display: inline-flex; align-items: center; gap: 6px; white-space: nowrap;
+}
+.section-label a:hover { color: var(--accent); }
+.section-label a .icon { width: 14px; height: 14px; }

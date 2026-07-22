@@ -1,0 +1,36 @@
+{%- comment -%}
+  통일된 단일 포스트 리스트 아이템 (jekyll-origin /blog-2/ 행 스타일).
+  홈·/posts/·카테고리 아카이브·검색이 모두 이 하나를 호출한다.
+  - teaser 있으면 좌측 썸네일 + 우측 본문, 없으면 텍스트 전용(단일 컬럼).
+  - 구분선 없음 (여백으로만 구분).
+  - 하이퍼링크는 제목만.
+  params: include.post
+{%- endcomment -%}
+{%- assign post = include.post -%}
+{%- assign lv1 = post.categories[0] -%}
+{%- assign lv2 = post.categories[1] -%}
+{%- assign catdata = site.data.categories.categories | where: "name", lv1 | first -%}
+{%- assign catslug = catdata.slug | default: "default" -%}
+<article class="post-item{% if post.teaser %} post-item--thumb{% endif %}">
+  {%- if post.teaser -%}
+  <div class="post-thumb">
+    <img src="{{ post.teaser | relative_url }}" alt="" loading="lazy" width="200" height="130">
+  </div>
+  {%- endif -%}
+  <div class="post-item__body">
+    <div class="p-meta mono">
+      <span class="cat-dot cat-dot--{{ catslug }}"></span>
+      <span class="cat">{{ lv1 }}{% if lv2 %} · {{ lv2 }}{% endif %}</span>
+      <span class="sep">—</span>
+      <span>{{ post.date | date: "%Y.%m.%d" }}</span>
+    </div>
+    <h3 class="p-title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+    {%- assign summary = post.excerpt | strip_html | strip_newlines | strip -%}
+    {%- if summary != "" -%}<p class="p-excerpt">{{ summary | truncate: 120 }}</p>{%- endif -%}
+    {%- if post.tags and post.tags.size > 0 -%}
+    <div class="p-tags">
+      {%- for tag in post.tags limit: 3 -%}<span class="tag">{{ tag }}</span>{%- endfor -%}
+    </div>
+    {%- endif -%}
+  </div>
+</article>
