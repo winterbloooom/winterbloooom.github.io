@@ -3,7 +3,7 @@
 nav:
   - { label: "Home",      url: "/" }
   - { label: "Posts",     url: "/posts/" }
-  - { label: "About",     url: "/about/" }
+  - { label: "About",     url: "/profile/" }   # (임시) 별도 저장소 winterbloooom/profile 의 Pages
   - { label: "Portfolio", url: "/portfolio/" }   # 내부 페이지(현재 비어 있음, 나중에 채움)
 
 social:
@@ -12,12 +12,12 @@ social:
 
 # 인트로(홈 상단) 소개문
 intro:
-  role: "Robotics · Computer Vision · Deep Learning"
+  role: "Machine Learning · Deep Learning · AI Application"
   bio: >-
     영화 〈아이언맨〉을 보고 무턱대고 공대에 진학, 이제는 기술로 세상을 안전하게 만들고자 합니다.
-    자율주행 개발에서 시작해, 지금은 컴퓨터 비전과 딥러닝을 공부하고 있습니다.
+    자율주행 개발에서 시작해, 지금은 KRAFTON에서 AI 리서치 엔지니어로 일하고 있습니다.
   links:
-    - { label: "About", url: "/about/", icon: user, primary: true }
+    - { label: "About", url: "/profile/", icon: user, primary: true }
     - { label: "GitHub", url: "https://github.com/winterbloooom", icon: github }
     - { label: "Mail", url: "mailto:winterbloooom@gmail.com", icon: mail }
 
